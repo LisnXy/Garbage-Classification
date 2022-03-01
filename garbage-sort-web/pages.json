@@ -1,0 +1,10 @@
+{
+	"pages": [{
+		"path": "pages/sortInfo_home/sortInfo_home",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}]
+}

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/tabBar/component/component"
+  ],
+  "subPackages": [],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  },
+  "usingComponents": {}
+}
