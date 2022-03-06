@@ -1,10 +1,14 @@
-{
+{	
 	"pages": [{
 		"path": "pages/sortInfo_home/sortInfo_home",
 		"style": {
 			"navigationBarTitleText": "",
 			"enablePullDownRefresh": false
 		}
-
-	}]
+	}],
+	"globalStyle": {
+		"usingComponents": {
+			"van-picker" : "/wxcomponents/vant/dist/picker/index"
+		}
+	}
 }
