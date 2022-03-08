@@ -21,7 +21,7 @@
 		</view>
 		<view id="body" class="body" :style="{'background-color':bodyColor}">
 			<view class="cards-swiper">
-				<swiper :indicator-dots="false" :autoplay="false" next-margin="50rpx" previous-margin="50rpx"
+				<swiper :indicator-dots="false" :autoplay="false" next-margin="50rpx" previous-margin="50rpx" :current="currentItem"
 					ref='swiper' @change="onSwiperChange($event)">
 					<swiper-item>
 						<view class="swiper-item" style="background-color:#395a98 ;">
@@ -30,10 +30,10 @@
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
-								<text class="title">可回收物</text>
+								<text class="title">{{swiperTitles[0]}}</text>
 								<view class="swiper-text">
 									<text>
-										可回收物指适宜回收利用和资源化利用的生活废弃物。
+										{{swiperTips[0]}}
 									</text>
 								</view>
 							</view>
@@ -46,10 +46,10 @@
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
-								<text class="title">厨余垃圾</text>
+								<text class="title">{{swiperTitles[1]}}</text>
 								<view class="swiper-text">
 									<text>
-										厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。
+										{{swiperTips[1]}}
 									</text>
 								</view>
 							</view>
@@ -62,10 +62,10 @@
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
-								<text class="title">有害垃圾</text>
+								<text class="title">{{swiperTitles[2]}}</text>
 								<view class="swiper-text">
 									<text>
-										厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。
+										{{swiperTips[2]}}
 									</text>
 								</view>
 							</view>
@@ -78,26 +78,26 @@
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
-								<text class="title">其他垃圾</text>
+								<text class="title">{{swiperTitles[3]}}</text>
 								<view class="swiper-text">
 									<text>
-										其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。
+										{{swiperTips[3]}}
 									</text>
 								</view>
 							</view>
 						</view>
 					</swiper-item>
-					<swiper-item>
+					<swiper-item v-if="hasBigTrash">
 						<view class="swiper-item" style="background-color:#ebb852 ;">
 							<view class="swiper-icon">
 								<image src="../../static/icons/大件垃圾.png" mode="aspectFit"
 									style="width: 120%;height: 50%;position: relative;right: 8px;"></image>
 							</view>
 							<view class="swiper-content">
-								<text class="title">大件垃圾</text>
+								<text class="title">{{swiperTitles[4]}}</text>
 								<view class="swiper-text">
 									<text>
-										其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。
+										{{swiperTips[4]}}
 									</text>
 								</view>
 							</view>
@@ -124,13 +124,21 @@
 </template>
 
 <script>
+	import axios from '../../static/utils/request.js';
 	export default {
 		data() {
 			return {
-				selectedCity: '北京市',
+				selectedCity: '南京市',
 				citiesList: ['武汉市', '北京市', '上海市', '深圳市'],
+				swiperTitles: ["可回收物", "厨余垃圾", "有害垃圾", "其他垃圾", "大件垃圾"],
+				swiperTips: ["可回收物指适宜回收利用和资源化利用的生活废弃物。", "厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。",
+					"有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。", "其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。",
+					"大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。"
+				],
+				currentItem:0,
 				defaultIndex: 2,
-				bodyColors: ["#274883", "#4ba171", "#9f4342", "#6f7774","#e0ab40"],
+				hasBigTrash: false,
+				bodyColors: ["#274883", "#4ba171", "#9f4342", "#6f7774", "#e0ab40"],
 				bodyColor: "#274883",
 			}
 		},
@@ -146,7 +154,12 @@
 			// 用户点击确认，关闭选择栏并绑定数值
 			onConfirm() {
 				this.$data.selectedCity = this.$refs.picker.getValues()[0];
+				// 发送请求
+				this.loadCityData();
 				this.$refs.popup.close();
+				// 显示第一个item
+				this.currentItem = 0;
+				this.bodyColor = this.bodyColors[0];
 			},
 			// 改变初始index为用户默认选中的城市
 			getDefaultIndex() {
@@ -161,10 +174,43 @@
 			onSwiperChange(event) {
 				let index = event.detail.current;
 				this.$data.bodyColor = this.$data.bodyColors[index];
+			},
+			// 异步请求加载数据
+			loadData() {
+				this.loadCitiesData();
+				this.loadCityData();
+			},
+			// 加载 Cities 数据项
+			loadCitiesData() {
+				axios.get('/cityinfo/cities').then((res) => {
+					let data = res.data.data;
+					this.citiesList = data.map(item => item.cityName);
+				})
+			},
+			// 加载目标城市的分类信息
+			loadCityData() {
+				axios.post('/cityinfo/desc', {
+					cityName: this.selectedCity
+				}).then((res) => {
+					// 判断该城市是否拥有大件垃圾
+					if(res.data.data.length === 5){
+						this.hasBigTrash = true;
+					}else{
+						this.hasBigTrash = false;
+					}
+					// 根据 type 排序
+					res.data.data.sort((a, b) => {
+						return a.type - b.type
+					});
+					let data = res.data.data;
+					this.swiperTips = data.map(item=>item.description);
+					this.swiperTitles = data.map(item=>item.typeName);
+				})
 			}
 		},
 		mounted() {
 			this.getDefaultIndex();
+			this.loadData();
 		}
 	}
 </script>
