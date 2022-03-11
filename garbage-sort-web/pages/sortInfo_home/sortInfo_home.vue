@@ -14,14 +14,14 @@
 						<uni-icons type="search" size="20"></uni-icons>
 					</view>
 					<view class="search-input">
-						<input type="text" placeholder="输入要搜索的物品(例电池)" style="width: 100%;" />
+						<input type="text" placeholder="输入要搜索的物品(例电池)" style="width: 100%;" @focus="searchBarFocused" @blur="searchBarBlured($event)"/>
 					</view>
 				</view>
 			</view>
 		</view>
 		<view id="body" class="body" :style="{'background-color':bodyColor}">
-			<view class="cards-swiper">
-				<swiper :indicator-dots="false" :autoplay="false" next-margin="50rpx" previous-margin="50rpx" :current="currentItem"
+			<view class="cards-swiper" v-if="!searchMode">
+				<swiper :current="currentItem" :indicator-dots="false" :autoplay="false" next-margin="50rpx" previous-margin="50rpx" 
 					ref='swiper' @change="onSwiperChange($event)">
 					<swiper-item>
 						<view class="swiper-item" style="background-color:#395a98 ;">
@@ -31,11 +31,11 @@
 							</view>
 							<view class="swiper-content">
 								<text class="title">{{swiperTitles[0]}}</text>
-								<view class="swiper-text">
+								<scroll-view class="swiper-text" scroll-y="true">
 									<text>
 										{{swiperTips[0]}}
 									</text>
-								</view>
+								</scroll-view>
 							</view>
 						</view>
 					</swiper-item>
@@ -47,11 +47,11 @@
 							</view>
 							<view class="swiper-content">
 								<text class="title">{{swiperTitles[1]}}</text>
-								<view class="swiper-text">
+								<scroll-view class="swiper-text" scroll-y="true">
 									<text>
 										{{swiperTips[1]}}
 									</text>
-								</view>
+								</scroll-view>
 							</view>
 						</view>
 					</swiper-item>
@@ -63,11 +63,11 @@
 							</view>
 							<view class="swiper-content">
 								<text class="title">{{swiperTitles[2]}}</text>
-								<view class="swiper-text">
+								<scroll-view class="swiper-text" scroll-y="true">
 									<text>
 										{{swiperTips[2]}}
 									</text>
-								</view>
+								</scroll-view>
 							</view>
 						</view>
 					</swiper-item>
@@ -79,11 +79,11 @@
 							</view>
 							<view class="swiper-content">
 								<text class="title">{{swiperTitles[3]}}</text>
-								<view class="swiper-text">
+								<scroll-view class="swiper-text" scroll-y="true">
 									<text>
 										{{swiperTips[3]}}
 									</text>
-								</view>
+								</scroll-view>
 							</view>
 						</view>
 					</swiper-item>
@@ -95,17 +95,23 @@
 							</view>
 							<view class="swiper-content">
 								<text class="title">{{swiperTitles[4]}}</text>
-								<view class="swiper-text">
+								<scroll-view class="swiper-text" scroll-y="true">
 									<text>
 										{{swiperTips[4]}}
 									</text>
-								</view>
+								</scroll-view>
 							</view>
 						</view>
 					</swiper-item>
 				</swiper>
 			</view>
+			<view class="requirements" v-if="!searchMode">
+				<view class="requirement" v-for="(requirement,index) in requirements[currentItem]">
+					<uni-icons type="checkmarkempty" color="#FFF"></uni-icons><text>{{requirement}}</text>
+				</view>
+			</view>
 		</view>
+		
 
 		<uni-popup ref="popup" type="bottom" background-color="#fff">
 			<view class="selector-container">
@@ -135,11 +141,13 @@
 					"有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。", "其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。",
 					"大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。"
 				],
+				requirements:['','','','',''],
 				currentItem:0,
 				defaultIndex: 2,
 				hasBigTrash: false,
 				bodyColors: ["#274883", "#4ba171", "#9f4342", "#6f7774", "#e0ab40"],
 				bodyColor: "#274883",
+				searchMode:false
 			}
 		},
 		methods: {
@@ -156,10 +164,10 @@
 				this.$data.selectedCity = this.$refs.picker.getValues()[0];
 				// 发送请求
 				this.loadCityData();
+				// 关闭弹出的选择栏
 				this.$refs.popup.close();
 				// 显示第一个item
 				this.currentItem = 0;
-				this.bodyColor = this.bodyColors[0];
 			},
 			// 改变初始index为用户默认选中的城市
 			getDefaultIndex() {
@@ -173,6 +181,7 @@
 			// swiper 被滑动
 			onSwiperChange(event) {
 				let index = event.detail.current;
+				this.currentItem = index;
 				this.$data.bodyColor = this.$data.bodyColors[index];
 			},
 			// 异步请求加载数据
@@ -203,9 +212,25 @@
 						return a.type - b.type
 					});
 					let data = res.data.data;
+					// 载入数据
 					this.swiperTips = data.map(item=>item.description);
 					this.swiperTitles = data.map(item=>item.typeName);
+					this.requirements = data.map(item=>item.requirement);
+					// 分割字符串
+					this.requirements = this.requirements.map(item=>item.split("\n"));
 				})
+			},
+			// 搜索栏获得焦点
+			searchBarFocused() {
+				// 隐藏其他部件
+				this.searchMode = true;
+			},
+			// 搜索栏失去焦点
+			searchBarBlured(event) {
+				// 当搜索栏不为空的时候显示部件
+				if(event.target.value.length===0){
+					this.searchMode = false;
+				}
 			}
 		},
 		mounted() {

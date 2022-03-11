@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7647,7 +7647,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7668,14 +7668,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7761,7 +7761,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"垃圾分类","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8635,9 +8635,9 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 /* 5 */
-/*!******************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/pages.json ***!
-  \******************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/pages.json ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9904,9 +9904,9 @@ module.exports = index_cjs;
 
 /***/ }),
 /* 10 */
-/*!********************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/package.json ***!
-  \********************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/package.json ***!
+  \**********************************************************************************************/
 /*! exports provided: id, name, displayName, version, description, scripts, repository, keywords, author, license, bugs, homepage, dependencies, dcloudext, uni_modules, uni-app, default */
 /***/ (function(module) {
 
@@ -9914,9 +9914,9 @@ module.exports = JSON.parse("{\"id\":\"hello-uniapp\",\"name\":\"hello-uniapp\",
 
 /***/ }),
 /* 11 */
-/*!****************************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-upgrade-center-app/utils/check-update.js ***!
-  \****************************************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-upgrade-center-app/utils/check-update.js ***!
+  \******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10080,9 +10080,9 @@ function updateUseModal(packageInfo) {var
 
 /***/ }),
 /* 12 */
-/*!**********************************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-upgrade-center-app/utils/call-check-version.js ***!
-  \**********************************************************************************************************************************************/
+/*!************************************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-upgrade-center-app/utils/call-check-version.js ***!
+  \************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10249,9 +10249,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 16 */
-/*!**********************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/store/index.js ***!
-  \**********************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/store/index.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11184,9 +11184,9 @@ if (hadRuntime) {
 /* 24 */,
 /* 25 */,
 /* 26 */
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/static/utils/request.js ***!
-  \*******************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/static/utils/request.js ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11234,9 +11234,9 @@ service;exports.default = _default;
 
 /***/ }),
 /* 27 */
-/*!***********************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/index.js ***!
-  \***********************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/index.js ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11244,9 +11244,9 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 28);
 
 /***/ }),
 /* 28 */
-/*!***************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/axios.js ***!
-  \***************************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/axios.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11311,9 +11311,9 @@ module.exports.default = axios;
 
 /***/ }),
 /* 29 */
-/*!***************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/utils.js ***!
-  \***************************************************************************************************************/
+/*!*****************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/utils.js ***!
+  \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11669,9 +11669,9 @@ module.exports = {
 
 /***/ }),
 /* 30 */
-/*!**********************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/bind.js ***!
-  \**********************************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11690,9 +11690,9 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 /* 31 */
-/*!********************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/Axios.js ***!
-  \********************************************************************************************************************/
+/*!**********************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11848,9 +11848,9 @@ module.exports = Axios;
 
 /***/ }),
 /* 32 */
-/*!**************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/buildURL.js ***!
-  \**************************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11928,9 +11928,9 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 /* 33 */
-/*!*********************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/InterceptorManager.js ***!
-  \*********************************************************************************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11992,9 +11992,9 @@ module.exports = InterceptorManager;
 
 /***/ }),
 /* 34 */
-/*!******************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/dispatchRequest.js ***!
-  \******************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12089,9 +12089,9 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 /* 35 */
-/*!****************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/transformData.js ***!
-  \****************************************************************************************************************************/
+/*!******************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12121,9 +12121,9 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 /* 36 */
-/*!******************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/defaults.js ***!
-  \******************************************************************************************************************/
+/*!********************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/defaults.js ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12623,9 +12623,9 @@ var substr = 'ab'.substr(-1) === 'b'
 
 /***/ }),
 /* 39 */
-/*!*************************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-  \*************************************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12645,9 +12645,9 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 /* 40 */
-/*!***************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/enhanceError.js ***!
-  \***************************************************************************************************************************/
+/*!*****************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12698,9 +12698,9 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 /* 41 */
-/*!**********************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/adapters/xhr.js ***!
-  \**********************************************************************************************************************/
+/*!************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12920,9 +12920,9 @@ module.exports = function xhrAdapter(config) {
 
 /***/ }),
 /* 42 */
-/*!*********************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/settle.js ***!
-  \*********************************************************************************************************************/
+/*!***********************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/settle.js ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12955,9 +12955,9 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 /* 43 */
-/*!**************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/createError.js ***!
-  \**************************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/createError.js ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12983,9 +12983,9 @@ module.exports = function createError(message, config, code, request, response) 
 
 /***/ }),
 /* 44 */
-/*!*************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/cookies.js ***!
-  \*************************************************************************************************************************/
+/*!***************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13045,9 +13045,9 @@ function nonStandardBrowserEnv() {
 
 /***/ }),
 /* 45 */
-/*!****************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/buildFullPath.js ***!
-  \****************************************************************************************************************************/
+/*!******************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13075,9 +13075,9 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 /***/ }),
 /* 46 */
-/*!*******************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \*******************************************************************************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13099,9 +13099,9 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 /* 47 */
-/*!*****************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/combineURLs.js ***!
-  \*****************************************************************************************************************************/
+/*!*******************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13123,9 +13123,9 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 /* 48 */
-/*!******************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \******************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13186,9 +13186,9 @@ module.exports = function parseHeaders(headers) {
 
 /***/ }),
 /* 49 */
-/*!*********************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \*********************************************************************************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13263,9 +13263,9 @@ function nonStandardBrowserEnv() {
 
 /***/ }),
 /* 50 */
-/*!***********************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/Cancel.js ***!
-  \***********************************************************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13292,9 +13292,9 @@ module.exports = Cancel;
 
 /***/ }),
 /* 51 */
-/*!*************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/isCancel.js ***!
-  \*************************************************************************************************************************/
+/*!***************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13307,9 +13307,9 @@ module.exports = function isCancel(value) {
 
 /***/ }),
 /* 52 */
-/*!**************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/mergeConfig.js ***!
-  \**************************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/mergeConfig.js ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13416,9 +13416,9 @@ module.exports = function mergeConfig(config1, config2) {
 
 /***/ }),
 /* 53 */
-/*!***************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/validator.js ***!
-  \***************************************************************************************************************************/
+/*!*****************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/validator.js ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13507,9 +13507,9 @@ module.exports = {
 
 /***/ }),
 /* 54 */
-/*!******************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/env/data.js ***!
-  \******************************************************************************************************************/
+/*!********************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/env/data.js ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -13518,9 +13518,9 @@ module.exports = {
 
 /***/ }),
 /* 55 */
-/*!****************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/CancelToken.js ***!
-  \****************************************************************************************************************************/
+/*!******************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13647,9 +13647,9 @@ module.exports = CancelToken;
 
 /***/ }),
 /* 56 */
-/*!************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/spread.js ***!
-  \************************************************************************************************************************/
+/*!**************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13684,9 +13684,9 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 57 */
-/*!******************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAxiosError.js ***!
-  \******************************************************************************************************************************/
+/*!********************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13714,9 +13714,9 @@ module.exports = function isAxiosError(payload) {
 /* 63 */,
 /* 64 */,
 /* 65 */
-/*!***********************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \***********************************************************************************************************************************/
+/*!*************************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \*************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14911,9 +14911,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 85 */,
 /* 86 */,
 /* 87 */
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** C:/Users/95314/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
+  \*********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
