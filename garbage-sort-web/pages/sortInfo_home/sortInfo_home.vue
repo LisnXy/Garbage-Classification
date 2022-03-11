@@ -1,6 +1,6 @@
 <template>
 	<view class="root">
-		<view class="header" style="background-image: url('../../static/image/垃圾分类.svg');">
+		<view class="header" style="background-image: url('../../static/image/background.svg');">
 			<view class="search">
 				<view class="search-header" @click="popSelector">
 					<text class="city-selector">{{selectedCity}}
@@ -14,7 +14,7 @@
 						<uni-icons type="search" size="20"></uni-icons>
 					</view>
 					<view class="search-input">
-						<input maxlength="10" type="text" placeholder="输入要搜索的物品(例电池)" style="width: 100%;"
+						<input v-model="inputValue" maxlength="10" type="text" placeholder="输入要搜索的物品(例电池)" style="width: 100%;"
 							@focus="searchBarFocused" @blur="searchBarBlured($event)" @input="search($event)" />
 					</view>
 				</view>
@@ -23,7 +23,7 @@
 		<view id="body" class="body" :style="{'background-color':bodyColor}">
 			<view class="cards-swiper" v-if="!searchMode">
 				<swiper :current="currentItem" :indicator-dots="false" :autoplay="false" next-margin="50rpx"
-					previous-margin="50rpx" ref='swiper' @change="onSwiperChange($event)">
+					previous-margin="50rpx" @change="onSwiperChange($event)">
 					<swiper-item>
 						<view class="swiper-item" style="background-color:#395a98 ;">
 							<view class="swiper-icon">
@@ -41,9 +41,9 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color: #65ba8a;">
+						<view class="swiper-item" style="background-color:#b85555;">
 							<view class="swiper-icon">
-								<image src="../../static/icons/厨余垃圾.png" mode="aspectFit"
+								<image src="../../static/icons/有害垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
@@ -57,9 +57,9 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#b85555 ;">
+						<view class="swiper-item" style="background-color:#65ba8a;">
 							<view class="swiper-icon">
-								<image src="../../static/icons/有害垃圾.png" mode="aspectFit"
+								<image src="../../static/icons/其他垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
@@ -73,9 +73,9 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#879696 ;">
+						<view class="swiper-item" style="background-color:#879696;">
 							<view class="swiper-icon">
-								<image src="../../static/icons/其他垃圾.png" mode="aspectFit"
+								<image src="../../static/icons/厨余垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
 							</view>
 							<view class="swiper-content">
@@ -114,7 +114,7 @@
 			<scroll-view class="search-result" scroll-y="true" v-if="searchMode">
 				<uni-list v-if="showResult">
 					<uni-list-item :title="item.garbageName" v-for="(item,index) in searchResult">
-						<view slot="footer" class="list-item-icon" :style="{color:bodyColors[item.type]}">{{swiperTitles[item.type]}}</view>
+						<view slot="footer" class="list-item-icon" :style="{color:bodyColors[item.type-1]}">{{swiperTitles[item.type-1]}}</view>
 					</uni-list-item>
 				</uni-list>
 			</scroll-view>
@@ -125,7 +125,7 @@
 					<uni-title type="h1" title="选择城市"></uni-title>
 				</view>
 				<view class="divider" />
-				<view class="picker-container" ref="picker">
+				<view class="picker-container">
 					<van-picker ref="picker" :columns="citiesList" style="height:100%;width: 100%;" @confirm="onConfirm"
 						show-toolbar="true" @cancel="onCancel" :default-index="defaultIndex">
 					</van-picker>
@@ -151,13 +151,14 @@
 				currentItem: 0,
 				defaultIndex: 2,
 				hasBigTrash: false,
-				bodyColors: ["#274883", "#4ba171", "#9f4342", "#6f7774", "#e0ab40"],
+				bodyColors: ["#274883", "#9f4342", "#4ba171", "#6f7774", "#e0ab40"],
 				bodyColor: "#274883",
 				searchMode: false,
 				cityId: 0,
 				searchResult: [],
 				typeNames:[],
 				showResult:false,
+				inputValue:'',
 			}
 		},
 		methods: {
@@ -181,6 +182,10 @@
 				// 当current为4时自动跳转第一项
 				if (this.currentItem === 4) {
 					this.currentItem = 0;
+				}
+				// 如果搜索栏不为空,则变更城市id,再次发送请求
+				if(this.inputValue.trim().length!==0){
+					this.search({detail:{value:this.inputValue}});
 				}
 			},
 			// 改变初始index为用户默认选中的城市
@@ -265,7 +270,11 @@
 						search: detail.value,
 					}).then((res) => {
 						this.searchResult = res.data.data;
-						this.showResult = true;
+						if(res.data.data.length!=0){
+							this.showResult = true;
+						}else{
+							this.showResult = false;
+						}
 					})
 				}
 			}
