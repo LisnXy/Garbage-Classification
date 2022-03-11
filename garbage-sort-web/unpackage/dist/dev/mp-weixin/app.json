@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/tabBar/component/component"
+    "pages/sortInfo_home/sortInfo_home"
   ],
   "subPackages": [],
   "permission": {
@@ -8,5 +8,6 @@
       "desc": "演示定位能力"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }
