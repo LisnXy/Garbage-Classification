@@ -1,16 +1,16 @@
 {
-  "pages": [
-    "pages/sortInfo_home/sortInfo_home"
-  ],
-  "subPackages": [],
-  "window": {},
-  "permission": {
-    "scope.userLocation": {
-      "desc": "演示定位能力"
-    }
-  },
-  "usingComponents": {
-    "van-picker": "/wxcomponents/vant/dist/picker/index"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/sortInfo_home/sortInfo_home"
+    ],
+    "subPackages": [],
+    "window": {},
+    "permission": {
+        "scope.userLocation": {
+            "desc": "演示定位能力"
+        }
+    },
+    "usingComponents": {
+        "van-picker": "/wxcomponents/vant/dist/picker/index"
+    },
+    "sitemapLocation": "sitemap.json"
 }
