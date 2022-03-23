@@ -25,7 +25,7 @@
 				<swiper :current="currentItem" :indicator-dots="false" :autoplay="false" next-margin="50rpx"
 					previous-margin="50rpx" @change="onSwiperChange($event)">
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#395a98 ;">
+						<view class="swiper-item" style="background-color:#395a98;" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image src="../../static/icons/可回收垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
@@ -41,7 +41,7 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#b85555;">
+						<view class="swiper-item" style="background-color:#b85555;" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image src="../../static/icons/有害垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
@@ -57,7 +57,7 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#65ba8a;">
+						<view class="swiper-item" style="background-color:#65ba8a;" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image src="../../static/icons/其他垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
@@ -73,7 +73,7 @@
 						</view>
 					</swiper-item>
 					<swiper-item>
-						<view class="swiper-item" style="background-color:#879696;">
+						<view class="swiper-item" style="background-color:#879696;" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image src="../../static/icons/厨余垃圾.png" mode="aspectFit"
 									style="width: 100%;height: 50%;"></image>
@@ -89,7 +89,7 @@
 						</view>
 					</swiper-item>
 					<swiper-item v-if="hasBigTrash">
-						<view class="swiper-item" style="background-color:#ebb852 ;">
+						<view class="swiper-item" style="background-color:#ebb852 ;" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image src="../../static/icons/大件垃圾.png" mode="aspectFit"
 									style="width: 120%;height: 50%;position: relative;right: 8px;"></image>
@@ -162,6 +162,7 @@
 			}
 		},
 		methods: {
+		
 			// 弹出选择栏
 			popSelector() {
 				this.$refs.popup.open();
@@ -277,10 +278,35 @@
 						}
 					})
 				}
+			},
+			// 跳转至 Detail 页面
+			gotoDetail(){
+				uni.navigateTo({
+					url:`../sortInfo_details/sortInfo_details?index=${this.currentItem}`,
+				})
+			},
+			// 初始化vuex
+			initStates(){
+				this.$store.commit('setCityId',this.cityId);
+				this.$store.commit('setClasses',this.swiperTitles);
+				this.$store.commit('setCityName',this.selectedCity);
+			}
+		},
+		// 实时更新Vuex状态
+		watch:{
+			cityId(newId,oldId){
+				this.$store.commit('setCityId',newId);
+			},
+			swiperTitles(newTitles,oldTitles){
+				this.$store.commit('setClasses',newTitles);
+			},
+			selectedCity(newCity,oldCity){
+				this.$store.commit('setCityName',newCity);
 			}
 		},
 		mounted() {
 			this.loadData();
+			this.initStates();
 		},
 	}
 
