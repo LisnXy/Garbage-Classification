@@ -1,0 +1,76 @@
+.test-root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height:100%;
+}
+
+.test-header {
+
+}
+
+.test-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height:55%;
+	width:90%;
+}
+
+.test-body-header {
+	width:100%;
+	margin-bottom: 1.5rem;
+}
+
+.query-counter {
+	background-color: #dee0e1;
+	color:#BFC7C7;
+	font-size:1rem;
+	padding:6rpx;
+	border-radius: 6px;
+	text {
+		color:#636567;
+		font-size: 1.2rem;
+	}
+}
+
+.query-body {
+	margin-left:1rem;
+	color:#828686;
+	font-size: 1rem;
+	.query-item {
+		margin-right:.5rem;
+		color:#444648;
+		font-weight: 700;
+		font-size: 1.3rem;
+	}
+}
+
+.test-body-answers {
+	display:grid;
+	width:100%;
+	height:100%;
+	grid-template-rows:1fr 1fr;
+	grid-template-columns:1fr 1fr;
+	grid-gap:1rem;
+}
+
+.answer-card {
+	height:100%;
+	width:100%;
+	border-radius: 12px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text {
+		display:block;
+		color:white;
+		font-size: 1.2rem;
+		margin-top:0.5rem;
+	}
+	image {
+		width:50%;
+		height:50%;
+	}
+}

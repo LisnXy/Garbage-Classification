@@ -10306,7 +10306,15 @@ store;exports.default = _default;
 /* 20 */,
 /* 21 */,
 /* 22 */,
-/* 23 */
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */
 /*!*******************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/static/utils/request.js ***!
   \*******************************************************************************************************/
@@ -10314,7 +10322,7 @@ store;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // create an axios instance
 var service = _axios.default.create({
@@ -10328,8 +10336,8 @@ var service = _axios.default.create({
 // 在main.js中放入这段自定义适配器的代码，就可以实现uniapp的app和小程序开发中能使用axios进行跨域网络请求，并支持携带cookie
 _axios.default.defaults.adapter = function (config) {
   return new Promise(function (resolve, reject) {
-    var settle = __webpack_require__(/*! axios/lib/core/settle */ 39);
-    var buildURL = __webpack_require__(/*! axios/lib/helpers/buildURL */ 29);
+    var settle = __webpack_require__(/*! axios/lib/core/settle */ 47);
+    var buildURL = __webpack_require__(/*! axios/lib/helpers/buildURL */ 37);
     uni.request({
       method: config.method.toUpperCase(),
       url: config.baseURL + buildURL(config.url, config.params, config.paramsSerializer),
@@ -10356,17 +10364,17 @@ service;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 24 */
+/* 32 */
 /*!***********************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/index.js ***!
   \***********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./lib/axios */ 25);
+module.exports = __webpack_require__(/*! ./lib/axios */ 33);
 
 /***/ }),
-/* 25 */
+/* 33 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/axios.js ***!
   \***************************************************************************************************************/
@@ -10376,11 +10384,11 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 25);
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./utils */ 26);
-var bind = __webpack_require__(/*! ./helpers/bind */ 27);
-var Axios = __webpack_require__(/*! ./core/Axios */ 28);
-var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 49);
-var defaults = __webpack_require__(/*! ./defaults */ 33);
+var utils = __webpack_require__(/*! ./utils */ 34);
+var bind = __webpack_require__(/*! ./helpers/bind */ 35);
+var Axios = __webpack_require__(/*! ./core/Axios */ 36);
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 57);
+var defaults = __webpack_require__(/*! ./defaults */ 41);
 
 /**
                                        * Create an instance of Axios
@@ -10413,19 +10421,19 @@ var axios = createInstance(defaults);
 axios.Axios = Axios;
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 47);
-axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 52);
-axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 48);
-axios.VERSION = __webpack_require__(/*! ./env/data */ 51).version;
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 55);
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 60);
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 56);
+axios.VERSION = __webpack_require__(/*! ./env/data */ 59).version;
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(/*! ./helpers/spread */ 53);
+axios.spread = __webpack_require__(/*! ./helpers/spread */ 61);
 
 // Expose isAxiosError
-axios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ 54);
+axios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ 62);
 
 module.exports = axios;
 
@@ -10433,7 +10441,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 26 */
+/* 34 */
 /*!***************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/utils.js ***!
   \***************************************************************************************************************/
@@ -10443,7 +10451,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var bind = __webpack_require__(/*! ./helpers/bind */ 27);
+var bind = __webpack_require__(/*! ./helpers/bind */ 35);
 
 // utils is a library of generic helper functions non-specific to axios
 
@@ -10791,7 +10799,7 @@ module.exports = {
   stripBOM: stripBOM };
 
 /***/ }),
-/* 27 */
+/* 35 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/bind.js ***!
   \**********************************************************************************************************************/
@@ -10812,7 +10820,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 28 */
+/* 36 */
 /*!********************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/Axios.js ***!
   \********************************************************************************************************************/
@@ -10822,12 +10830,12 @@ module.exports = function bind(fn, thisArg) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 29);
-var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 30);
-var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 31);
-var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 49);
-var validator = __webpack_require__(/*! ../helpers/validator */ 50);
+var utils = __webpack_require__(/*! ./../utils */ 34);
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 37);
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 38);
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 39);
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 57);
+var validator = __webpack_require__(/*! ../helpers/validator */ 58);
 
 var validators = validator.validators;
 /**
@@ -10970,7 +10978,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 29 */
+/* 37 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/buildURL.js ***!
   \**************************************************************************************************************************/
@@ -10980,7 +10988,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -11050,7 +11058,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 30 */
+/* 38 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/InterceptorManager.js ***!
   \*********************************************************************************************************************************/
@@ -11060,7 +11068,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -11114,7 +11122,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 31 */
+/* 39 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/dispatchRequest.js ***!
   \******************************************************************************************************************************/
@@ -11124,11 +11132,11 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var transformData = __webpack_require__(/*! ./transformData */ 32);
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 48);
-var defaults = __webpack_require__(/*! ../defaults */ 33);
-var Cancel = __webpack_require__(/*! ../cancel/Cancel */ 47);
+var utils = __webpack_require__(/*! ./../utils */ 34);
+var transformData = __webpack_require__(/*! ./transformData */ 40);
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 56);
+var defaults = __webpack_require__(/*! ../defaults */ 41);
+var Cancel = __webpack_require__(/*! ../cancel/Cancel */ 55);
 
 /**
                                            * Throws a `Cancel` if cancellation has been requested.
@@ -11211,7 +11219,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 32 */
+/* 40 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/transformData.js ***!
   \****************************************************************************************************************************/
@@ -11221,8 +11229,8 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var defaults = __webpack_require__(/*! ./../defaults */ 33);
+var utils = __webpack_require__(/*! ./../utils */ 34);
+var defaults = __webpack_require__(/*! ./../defaults */ 41);
 
 /**
                                           * Transform the data for a request or a response
@@ -11243,7 +11251,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 33 */
+/* 41 */
 /*!******************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/defaults.js ***!
   \******************************************************************************************************************/
@@ -11253,9 +11261,9 @@ module.exports = function transformData(data, headers, fns) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(/*! ./utils */ 26);
-var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 36);
-var enhanceError = __webpack_require__(/*! ./core/enhanceError */ 37);
+var utils = __webpack_require__(/*! ./utils */ 34);
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 44);
+var enhanceError = __webpack_require__(/*! ./core/enhanceError */ 45);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded' };
@@ -11271,10 +11279,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(/*! ./adapters/xhr */ 38);
+    adapter = __webpack_require__(/*! ./adapters/xhr */ 46);
   } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ 38);
+    adapter = __webpack_require__(/*! ./adapters/http */ 46);
   }
   return adapter;
 }
@@ -11385,10 +11393,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 34)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 42)))
 
 /***/ }),
-/* 34 */
+/* 42 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -11419,7 +11427,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 35);
+        if (!path) path = __webpack_require__(/*! path */ 43);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -11432,7 +11440,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 35 */
+/* 43 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -11742,10 +11750,10 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 34)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 42)))
 
 /***/ }),
-/* 36 */
+/* 44 */
 /*!*************************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \*************************************************************************************************************************************/
@@ -11755,7 +11763,7 @@ var substr = 'ab'.substr(-1) === 'b'
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 26);
+var utils = __webpack_require__(/*! ../utils */ 34);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -11767,7 +11775,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 37 */
+/* 45 */
 /*!***************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/enhanceError.js ***!
   \***************************************************************************************************************************/
@@ -11820,7 +11828,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 38 */
+/* 46 */
 /*!**********************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/adapters/xhr.js ***!
   \**********************************************************************************************************************/
@@ -11830,16 +11838,16 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
-var settle = __webpack_require__(/*! ./../core/settle */ 39);
-var cookies = __webpack_require__(/*! ./../helpers/cookies */ 41);
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 29);
-var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 42);
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 45);
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 46);
-var createError = __webpack_require__(/*! ../core/createError */ 40);
-var defaults = __webpack_require__(/*! ../defaults */ 33);
-var Cancel = __webpack_require__(/*! ../cancel/Cancel */ 47);
+var utils = __webpack_require__(/*! ./../utils */ 34);
+var settle = __webpack_require__(/*! ./../core/settle */ 47);
+var cookies = __webpack_require__(/*! ./../helpers/cookies */ 49);
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 37);
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ 50);
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 53);
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 54);
+var createError = __webpack_require__(/*! ../core/createError */ 48);
+var defaults = __webpack_require__(/*! ../defaults */ 41);
+var Cancel = __webpack_require__(/*! ../cancel/Cancel */ 55);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -12042,7 +12050,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 /***/ }),
-/* 39 */
+/* 47 */
 /*!*********************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/settle.js ***!
   \*********************************************************************************************************************/
@@ -12052,7 +12060,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var createError = __webpack_require__(/*! ./createError */ 40);
+var createError = __webpack_require__(/*! ./createError */ 48);
 
 /**
                                              * Resolve or reject a Promise based on response status.
@@ -12077,7 +12085,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 40 */
+/* 48 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/createError.js ***!
   \**************************************************************************************************************************/
@@ -12087,7 +12095,7 @@ module.exports = function settle(resolve, reject, response) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(/*! ./enhanceError */ 37);
+var enhanceError = __webpack_require__(/*! ./enhanceError */ 45);
 
 /**
                                                * Create an Error with the specified message, config, error code, request and response.
@@ -12105,7 +12113,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 41 */
+/* 49 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/cookies.js ***!
   \*************************************************************************************************************************/
@@ -12115,7 +12123,7 @@ module.exports = function createError(message, config, code, request, response) 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -12167,7 +12175,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 42 */
+/* 50 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/buildFullPath.js ***!
   \****************************************************************************************************************************/
@@ -12177,8 +12185,8 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 43);
-var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 44);
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ 51);
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ 52);
 
 /**
                                                       * Creates a new URL by combining the baseURL with the requestedURL,
@@ -12197,7 +12205,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 };
 
 /***/ }),
-/* 43 */
+/* 51 */
 /*!*******************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \*******************************************************************************************************************************/
@@ -12221,7 +12229,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 44 */
+/* 52 */
 /*!*****************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/combineURLs.js ***!
   \*****************************************************************************************************************************/
@@ -12245,7 +12253,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 45 */
+/* 53 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/parseHeaders.js ***!
   \******************************************************************************************************************************/
@@ -12255,7 +12263,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -12308,7 +12316,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 46 */
+/* 54 */
 /*!*********************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \*********************************************************************************************************************************/
@@ -12318,7 +12326,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -12385,7 +12393,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 47 */
+/* 55 */
 /*!***********************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/Cancel.js ***!
   \***********************************************************************************************************************/
@@ -12414,7 +12422,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 48 */
+/* 56 */
 /*!*************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/isCancel.js ***!
   \*************************************************************************************************************************/
@@ -12429,7 +12437,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 49 */
+/* 57 */
 /*!**************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/core/mergeConfig.js ***!
   \**************************************************************************************************************************/
@@ -12439,7 +12447,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 26);
+var utils = __webpack_require__(/*! ../utils */ 34);
 
 /**
                                   * Config-specific merge-function which creates a new config-object
@@ -12538,7 +12546,7 @@ module.exports = function mergeConfig(config1, config2) {
 };
 
 /***/ }),
-/* 50 */
+/* 58 */
 /*!***************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/validator.js ***!
   \***************************************************************************************************************************/
@@ -12548,7 +12556,7 @@ module.exports = function mergeConfig(config1, config2) {
 "use strict";
 
 
-var VERSION = __webpack_require__(/*! ../env/data */ 51).version;
+var VERSION = __webpack_require__(/*! ../env/data */ 59).version;
 
 var validators = {};
 
@@ -12629,7 +12637,7 @@ module.exports = {
   validators: validators };
 
 /***/ }),
-/* 51 */
+/* 59 */
 /*!******************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/env/data.js ***!
   \******************************************************************************************************************/
@@ -12640,7 +12648,7 @@ module.exports = {
   "version": "0.26.0" };
 
 /***/ }),
-/* 52 */
+/* 60 */
 /*!****************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/cancel/CancelToken.js ***!
   \****************************************************************************************************************************/
@@ -12650,7 +12658,7 @@ module.exports = {
 "use strict";
 
 
-var Cancel = __webpack_require__(/*! ./Cancel */ 47);
+var Cancel = __webpack_require__(/*! ./Cancel */ 55);
 
 /**
                                    * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -12769,7 +12777,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 53 */
+/* 61 */
 /*!************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/spread.js ***!
   \************************************************************************************************************************/
@@ -12806,7 +12814,7 @@ module.exports = function spread(callback) {
 };
 
 /***/ }),
-/* 54 */
+/* 62 */
 /*!******************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/node_modules/axios/lib/helpers/isAxiosError.js ***!
   \******************************************************************************************************************************/
@@ -12816,7 +12824,7 @@ module.exports = function spread(callback) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 26);
+var utils = __webpack_require__(/*! ./../utils */ 34);
 
 /**
                                     * Determines whether the payload is an error thrown by Axios
@@ -12829,14 +12837,6 @@ module.exports = function isAxiosError(payload) {
 };
 
 /***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
 /* 63 */,
 /* 64 */,
 /* 65 */,
@@ -12844,7 +12844,15 @@ module.exports = function isAxiosError(payload) {
 /* 67 */,
 /* 68 */,
 /* 69 */,
-/* 70 */
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */
 /*!***********************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***********************************************************************************************************************************/
@@ -14020,14 +14028,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     "unicode_decimal": 58929 }] };exports.default = _default;
 
 /***/ }),
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
 /* 79 */,
 /* 80 */,
 /* 81 */,
@@ -14069,7 +14069,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 117 */,
 /* 118 */,
 /* 119 */,
-/* 120 */
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */
 /*!*******************************************************************************************************************************************************!*\
   !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \*******************************************************************************************************************************************************/

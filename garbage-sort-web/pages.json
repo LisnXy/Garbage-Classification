@@ -1,6 +1,14 @@
 {
 	"pages": [
 		{
+			"path": "pages/sortTest/sortTest",
+			"style": {
+				"navigationBarBackgroundColor":"#efeff4",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
 			"path": "pages/sortInfo_home/sortInfo_home",
 			"style": {
 				"navigationBarBackgroundColor":"#efeff4",
@@ -15,7 +23,8 @@
 			"enablePullDownRefresh": false,
 			"navigationStyle":"custom"
 		}
-	} ],
+	}
+    ],
 	"globalStyle": {
 		"usingComponents": {
 			"van-picker": "/wxcomponents/vant/dist/picker/index"
