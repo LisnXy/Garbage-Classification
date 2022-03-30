@@ -1,13 +1,12 @@
 package com.flatangle.rubbishsearch.service;
 
 import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.flatangle.rubbishsearch.entity.City;
-import com.flatangle.rubbishsearch.entity.ClassificationDesc;
-import com.flatangle.rubbishsearch.entity.Garbage;
+import com.flatangle.rubbishsearch.POJO.entity.City;
+import com.flatangle.rubbishsearch.POJO.entity.ClassificationDesc;
+import com.flatangle.rubbishsearch.POJO.entity.Garbage;
 import com.flatangle.rubbishsearch.mapper.CityMapper;
 import com.flatangle.rubbishsearch.mapper.ClassificationDescMapper;
 import com.flatangle.rubbishsearch.mapper.GarbageMapper;

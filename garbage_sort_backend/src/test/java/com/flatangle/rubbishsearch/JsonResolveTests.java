@@ -1,11 +1,8 @@
 package com.flatangle.rubbishsearch;
 
-import cn.hutool.core.io.FileUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.flatangle.rubbishsearch.entity.City;
-import com.flatangle.rubbishsearch.entity.ClassificationDesc;
-import com.flatangle.rubbishsearch.entity.Garbage;
+import com.flatangle.rubbishsearch.POJO.entity.Garbage;
 import cn.hutool.core.io.file.FileReader;
 import com.flatangle.rubbishsearch.mapper.CityMapper;
 import com.flatangle.rubbishsearch.mapper.ClassificationDescMapper;
@@ -16,10 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import javax.sound.midi.Soundbank;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Data
