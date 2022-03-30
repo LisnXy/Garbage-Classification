@@ -1,9 +1,9 @@
 package com.flatangle.rubbishsearch;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.flatangle.rubbishsearch.entity.City;
-import com.flatangle.rubbishsearch.entity.ClassificationDesc;
-import com.flatangle.rubbishsearch.entity.Garbage;
+import com.flatangle.rubbishsearch.POJO.entity.City;
+import com.flatangle.rubbishsearch.POJO.entity.ClassificationDesc;
+import com.flatangle.rubbishsearch.POJO.entity.Garbage;
 import com.flatangle.rubbishsearch.service.CityInfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

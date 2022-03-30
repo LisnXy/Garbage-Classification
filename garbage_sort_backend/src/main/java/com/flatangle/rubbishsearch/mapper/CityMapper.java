@@ -1,7 +1,7 @@
 package com.flatangle.rubbishsearch.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.flatangle.rubbishsearch.entity.City;
+import com.flatangle.rubbishsearch.POJO.entity.City;
 
 /**
  * @author DaY1zz

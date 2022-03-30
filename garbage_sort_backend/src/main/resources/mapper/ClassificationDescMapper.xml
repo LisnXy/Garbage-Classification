@@ -4,7 +4,7 @@
 
 <mapper namespace="com.flatangle.rubbishsearch.mapper.ClassificationDescMapper">
 
-    <select id="findTargetDesc" resultType="com.flatangle.rubbishsearch.entity.ClassificationDesc" parameterType="String">
+    <select id="findTargetDesc" resultType="com.flatangle.rubbishsearch.POJO.entity.ClassificationDesc" parameterType="String">
         SELECT cd.* FROM (classification_desc AS cd)
         LEFT OUTER JOIN city AS c ON c.cityID = cd.cityID
         WHERE c.city_name = #{targetCity}

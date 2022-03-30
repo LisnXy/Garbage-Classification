@@ -1,4 +1,4 @@
-package com.flatangle.rubbishsearch.entity;
+package com.flatangle.rubbishsearch.POJO.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

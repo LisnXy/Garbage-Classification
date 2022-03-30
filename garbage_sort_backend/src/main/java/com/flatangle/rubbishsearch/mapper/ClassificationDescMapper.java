@@ -1,7 +1,7 @@
 package com.flatangle.rubbishsearch.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.flatangle.rubbishsearch.entity.ClassificationDesc;
+import com.flatangle.rubbishsearch.POJO.entity.ClassificationDesc;
 
 import java.util.List;
 
