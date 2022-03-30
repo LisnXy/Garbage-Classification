@@ -1,14 +1,25 @@
-{	
-	"pages": [{
-		"path": "pages/sortInfo_home/sortInfo_home",
+{
+	"pages": [
+		{
+			"path": "pages/sortInfo_home/sortInfo_home",
+			"style": {
+				"navigationBarBackgroundColor":"#efeff4",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+		"path": "pages/sortInfo_details/sortInfo_details",
 		"style": {
 			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
+			"enablePullDownRefresh": false,
+			"navigationStyle":"custom"
 		}
-	}],
+	} ],
 	"globalStyle": {
 		"usingComponents": {
-			"van-picker" : "/wxcomponents/vant/dist/picker/index"
-		}
+			"van-picker": "/wxcomponents/vant/dist/picker/index"
+		},
+		"navigationStyle":"default"
 	}
 }
