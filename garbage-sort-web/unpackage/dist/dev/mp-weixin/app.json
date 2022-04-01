@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/sortTest/sortTest",
+        "pages/sortTestFinished/sortTestFinished",
         "pages/sortInfo_home/sortInfo_home",
         "pages/sortInfo_details/sortInfo_details"
     ],

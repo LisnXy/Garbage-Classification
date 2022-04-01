@@ -1,34 +1,42 @@
 {
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/sortTest/sortTest",
 			"style": {
-				"navigationBarBackgroundColor":"#efeff4",
+				"navigationBarBackgroundColor": "#efeff4",
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 		},
+		{
+			"path": "pages/sortTestFinished/sortTestFinished",
+			"style": {
+				"navigationBarBackgroundColor": "#efeff4",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+
 		{
 			"path": "pages/sortInfo_home/sortInfo_home",
 			"style": {
-				"navigationBarBackgroundColor":"#efeff4",
+				"navigationBarBackgroundColor": "#efeff4",
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 		},
 		{
-		"path": "pages/sortInfo_details/sortInfo_details",
-		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false,
-			"navigationStyle":"custom"
+			"path": "pages/sortInfo_details/sortInfo_details",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
 		}
-	}
-    ],
+	],
 	"globalStyle": {
 		"usingComponents": {
 			"van-picker": "/wxcomponents/vant/dist/picker/index"
 		},
-		"navigationStyle":"default"
+		"navigationStyle": "default"
 	}
 }
