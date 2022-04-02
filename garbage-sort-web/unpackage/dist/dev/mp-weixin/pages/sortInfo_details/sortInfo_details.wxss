@@ -1,120 +1,119 @@
-.root{
-	width:100%;
-	height:100vh;
-	display:flex;
-	flex-direction: column;
+.root {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .nav-icon {
-	display: flex;
-	justify-content: center;
-	position:relative;
-	height:100%;
-	width:100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 view {
-	transition-property: background-color;
-	transition-duration: 0.5s;
-	transition-timing-function: linear;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 }
-.details-selectBox{
-	height: 75rpx;
-	width: 100%;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	box-shadow:0px 12px 8px -12px #666666;
+.details-selectBox {
+    height: 75rpx;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 12px 8px -12px #666666;
 }
-.details-selectItems{
-	flex: 1;
-	line-height: 75rpx;
-	text-align: center;
+.details-selectItems {
+    flex: 1;
+    line-height: 75rpx;
+    text-align: center;
 }
-.details-selectItemTitle{
-	color: #ffffff;
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height:100%;
+.details-selectItemTitle {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
-.details-selectItemTitle text{
-	line-height: 20px;
+.details-selectItemTitle text {
+    line-height: 20px;
 }
-.details-body{
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.details-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.details-list-block{
-	width: 85%;
-	height: 50vh;
-	margin-top:1vh;
-	padding:10px;
-	background-color: #ffffff;
-	border-radius: 12px;
+.details-list-block {
+    width: 85%;
+    height: 50vh;
+    margin-top: 1vh;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
 }
-.details-list{
-	height: 90%;
-	width: 88%;
-	align-items: center;
+.details-list {
+    height: 90%;
+    width: 88%;
+    align-items: center;
 }
-.garbageName{
-	border-bottom: #000000 ;
+.garbageName {
+    border-bottom: #000000;
 }
 .select-indicator {
-	width:55px;
-	height:7rpx;
-	background-color: #FFF;
-	margin-top: 5px;
-	position:relative;
-	transition-duration: 200ms;
-	transition-property: left;
+    width: 55px;
+    height: 7rpx;
+    background-color: #fff;
+    margin-top: 5px;
+    position: relative;
+    transition-duration: 200ms;
+    transition-property: left;
 }
 .items-container {
-	display:flex;
-	flex-direction: row;
-	height: 100%;
-	align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
 }
 .trash-icons {
-	width:85%;
-	height:20vh;
-	flex: 0 0 auto;
-	margin-top:1vh;
-	border-radius: 12px;
-	padding: 10px;
-	display: grid;
-	grid-template-rows:1fr 1fr;
-	grid-template-columns:1fr 1fr 1fr;
+    width: 85%;
+    height: 20vh;
+    flex: 0 0 auto;
+    margin-top: 1vh;
+    border-radius: 12px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .trash-icon-container {
-	width:100%;
-	height:100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .trash-icon-container image {
-	width:50%;
-	height:50%;
+    width: 50%;
+    height: 50%;
 }
-.trash-icon-container text{
-	color:#FFFFFF;
-	font-size: 1rem;
-	margin-top:10rpx;
+.trash-icon-container text {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 10rpx;
 }
 .nav-title {
-	width:100%;
-	height:100%;
-	display: flex;
-	justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
-.nav-title text{
-	font-size: 1rem;
-	color:#FFF;
-	position:relative;
+.nav-title text {
+    font-size: 1rem;
+    color: #fff;
+    position: relative;
 }
-

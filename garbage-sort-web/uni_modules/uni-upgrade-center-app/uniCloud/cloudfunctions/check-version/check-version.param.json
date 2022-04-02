@@ -3,7 +3,7 @@
 // 配置教程参考：https://uniapp.dcloud.net.cn/uniCloud/quickstart?id=runparam
 
 {
-	"appid": "__YOUR_APPID__",
-	"appVersion": "2.2.0",
-	"wgtVersion": "2.2.2"
+    "appid": "__YOUR_APPID__",
+    "appVersion": "2.2.0",
+    "wgtVersion": "2.2.2"
 }

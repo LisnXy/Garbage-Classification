@@ -151,6 +151,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -263,6 +292,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
     } },
 
   data: function data() {
@@ -306,7 +337,10 @@ __webpack_require__.r(__webpack_exports__);
       return this.popupWidth >= 500 && this.popupHeight >= 500;
     },
     bg: function bg() {
-      if (this.backgroundColor === '' || this.backgroundColor === 'none') {
+      if (
+      this.backgroundColor === '' ||
+      this.backgroundColor === 'none')
+      {
         return 'transparent';
       }
       return this.backgroundColor;
@@ -314,6 +348,13 @@ __webpack_require__.r(__webpack_exports__);
 
   mounted: function mounted() {var _this = this;
     var fixSize = function fixSize() {var _uni$getSystemInfoSyn =
+
+
+
+
+
+
+
       uni.getSystemInfoSync(),windowWidth = _uni$getSystemInfoSyn.windowWidth,windowHeight = _uni$getSystemInfoSyn.windowHeight,windowTop = _uni$getSystemInfoSyn.windowTop,safeArea = _uni$getSystemInfoSyn.safeArea,screenHeight = _uni$getSystemInfoSyn.screenHeight,safeAreaInsets = _uni$getSystemInfoSyn.safeAreaInsets;
       _this.popupWidth = windowWidth;
       _this.popupHeight = windowHeight + windowTop;
@@ -342,7 +383,8 @@ __webpack_require__.r(__webpack_exports__);
     if (this.isMaskClick === null && this.maskClick === null) {
       this.mkclick = true;
     } else {
-      this.mkclick = this.isMaskClick !== null ? this.isMaskClick : this.maskClick;
+      this.mkclick =
+      this.isMaskClick !== null ? this.isMaskClick : this.maskClick;
     }
     if (this.animation) {
       this.duration = 300;
@@ -377,7 +419,16 @@ __webpack_require__.r(__webpack_exports__);
     },
 
     open: function open(direction) {
-      var innerType = ['top', 'center', 'bottom', 'left', 'right', 'message', 'dialog', 'share'];
+      var innerType = [
+      'top',
+      'center',
+      'bottom',
+      'left',
+      'right',
+      'message',
+      'dialog',
+      'share'];
+
       if (!(direction && innerType.indexOf(direction) !== -1)) {
         direction = this.type;
       }

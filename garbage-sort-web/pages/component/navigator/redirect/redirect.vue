@@ -1,14 +1,14 @@
 <template>
-	<view>
-		<page-head :title="title"></page-head>
-	</view>
+    <view>
+        <page-head :title="title"></page-head>
+    </view>
 </template>
 <script>
-	export default {
-		data() {
-			return {
-				title: '当前页'
-			}
-		}
-	}
+export default {
+    data() {
+        return {
+            title: '当前页',
+        };
+    },
+};
 </script>

@@ -1,5 +1,4 @@
 class GestureLock {
-
     constructor(containerWidth, cycleRadius) {
         this.containerWidth = containerWidth; // 容器宽度
         this.cycleRadius = cycleRadius; // 圆的半径
@@ -26,15 +25,25 @@ class GestureLock {
                 count++;
                 this.circleArray.push({
                     count: count,
-                    x: this.rpxTopx((cycleMargin + this.cycleRadius) * (j * 2 + 1)),
-                    y: this.rpxTopx((cycleMargin + this.cycleRadius) * (i * 2 + 1)),
+                    x: this.rpxTopx(
+                        (cycleMargin + this.cycleRadius) * (j * 2 + 1),
+                    ),
+                    y: this.rpxTopx(
+                        (cycleMargin + this.cycleRadius) * (i * 2 + 1),
+                    ),
                     radius: this.rpxTopx(this.cycleRadius),
                     check: false,
                     style: {
-                        left: (cycleMargin + this.cycleRadius) * (j * 2 + 1) - this.cycleRadius + 'rpx',
-                        top: (cycleMargin + this.cycleRadius) * (i * 2 + 1) - this.cycleRadius + 'rpx',
+                        left:
+                            (cycleMargin + this.cycleRadius) * (j * 2 + 1) -
+                            this.cycleRadius +
+                            'rpx',
+                        top:
+                            (cycleMargin + this.cycleRadius) * (i * 2 + 1) -
+                            this.cycleRadius +
+                            'rpx',
                         width: this.cycleRadius * 2 + 'rpx',
-                    }
+                    },
                 });
             }
         }
@@ -44,12 +53,12 @@ class GestureLock {
         this.setOffset(e);
         this.checkTouch({
             x: e.touches[0].pageX - this.offsetX,
-            y: e.touches[0].pageY - this.offsetY
+            y: e.touches[0].pageY - this.offsetY,
         });
     }
 
     onTouchMove(e) {
-        this.moveDraw(e)
+        this.moveDraw(e);
     }
 
     onTouchEnd(e) {
@@ -65,10 +74,7 @@ class GestureLock {
     }
 
     // 检测当时 触摸位置是否位于 锁上
-    checkTouch({
-        x,
-        y
-    }) {
+    checkTouch({ x, y }) {
         for (let i = 0; i < this.circleArray.length; i++) {
             let point = this.circleArray[i];
             if (this.isPointInCycle(x, y, point.x, point.y, point.radius)) {
@@ -96,9 +102,8 @@ class GestureLock {
             activeLeft: start.x + 'px',
             activeTop: start.y + 'px',
             activeWidth: width + 'px',
-            activeRotate: rotate + 'deg'
-        }
-
+            activeRotate: rotate + 'deg',
+        };
     }
 
     // 获取 画线的 角度
@@ -106,15 +111,15 @@ class GestureLock {
         var diff_x = end.x - start.x,
             diff_y = end.y - start.y;
         if (diff_x >= 0) {
-            return 360 * Math.atan(diff_y / diff_x) / (2 * Math.PI);
+            return (360 * Math.atan(diff_y / diff_x)) / (2 * Math.PI);
         } else {
-            return 180 + 360 * Math.atan(diff_y / diff_x) / (2 * Math.PI);
+            return 180 + (360 * Math.atan(diff_y / diff_x)) / (2 * Math.PI);
         }
     }
 
     // 判断 当前点是否位于 锁内
     isPointInCycle(x, y, circleX, circleY, radius) {
-        return (this.getPointDis(x, y, circleX, circleY) < radius) ? true : false;
+        return this.getPointDis(x, y, circleX, circleY) < radius ? true : false;
     }
 
     // 获取两点之间距离
@@ -129,13 +134,13 @@ class GestureLock {
         const y = e.touches[0].pageY - this.offsetY;
         this.checkTouch({
             x,
-            y
+            y,
         });
 
         // 画 最后一个激活的锁与当前位置之间的线段
         this.activeLine = this.drawLine(this.lastCheckPoint, {
             x,
-            y
+            y,
         });
     }
 
@@ -149,7 +154,6 @@ class GestureLock {
         this.activeLine = {};
         this.lastCheckPoint = 0;
     }
-
 
     // 获取 最后一个激活的锁与当前位置之间的线段
     getActiveLine() {
@@ -168,7 +172,7 @@ class GestureLock {
 
     // 将 RPX 转换成 PX
     rpxTopx(rpx) {
-        return rpx / 750 * this.windowWidth;
+        return (rpx / 750) * this.windowWidth;
     }
 }
 

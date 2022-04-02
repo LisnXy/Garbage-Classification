@@ -186,6 +186,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var getVal = function getVal(val) {return typeof val === 'number' ? val + 'px' : val;};
 
 /**
@@ -208,7 +266,7 @@ var getVal = function getVal(val) {return typeof val === 'number' ? val + 'px' :
                                                                                          * @event {Function} clickTitle 中间标题点击时触发
                                                                                          */var _default =
 {
-  name: "UniNavBar",
+  name: 'UniNavBar',
   components: {
     statusBar: statusBar },
 
@@ -220,23 +278,23 @@ var getVal = function getVal(val) {return typeof val === 'number' ? val + 'px' :
 
     title: {
       type: String,
-      default: "" },
+      default: '' },
 
     leftText: {
       type: String,
-      default: "" },
+      default: '' },
 
     rightText: {
       type: String,
-      default: "" },
+      default: '' },
 
     leftIcon: {
       type: String,
-      default: "" },
+      default: '' },
 
     rightIcon: {
       type: String,
-      default: "" },
+      default: '' },
 
     fixed: {
       type: [Boolean, String],
@@ -244,11 +302,11 @@ var getVal = function getVal(val) {return typeof val === 'number' ? val + 'px' :
 
     color: {
       type: String,
-      default: "" },
+      default: '' },
 
     backgroundColor: {
       type: String,
-      default: "" },
+      default: '' },
 
     statusBar: {
       type: [Boolean, String],
@@ -315,13 +373,13 @@ var getVal = function getVal(val) {return typeof val === 'number' ? val + 'px' :
   },
   methods: {
     onClickLeft: function onClickLeft() {
-      this.$emit("clickLeft");
+      this.$emit('clickLeft');
     },
     onClickRight: function onClickRight() {
-      this.$emit("clickRight");
+      this.$emit('clickRight');
     },
     onClickTitle: function onClickTitle() {
-      this.$emit("clickTitle");
+      this.$emit('clickTitle');
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

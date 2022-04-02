@@ -5,20 +5,20 @@
 </template>
 
 <script>
-    export default {
-        methods: {
-            send() {
-                let num = parseInt(Math.random() * 10000)
-                uni.$emit('cc', {
-                    msg: 'From uni.$emit -> ' + num
-                })
-            }
-        }
-    }
+export default {
+    methods: {
+        send() {
+            let num = parseInt(Math.random() * 10000);
+            uni.$emit('cc', {
+                msg: 'From uni.$emit -> ' + num,
+            });
+        },
+    },
+};
 </script>
 
 <style>
-    .sender-container{
-        padding: 20px;
-    }
+.sender-container {
+    padding: 20px;
+}
 </style>

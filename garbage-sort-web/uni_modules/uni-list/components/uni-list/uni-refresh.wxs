@@ -3,11 +3,11 @@ var pullDown = {
     maxHeight: 200,
     callRefresh: 'onrefresh',
     callPullingDown: 'onpullingdown',
-    refreshSelector: '.uni-refresh'
+    refreshSelector: '.uni-refresh',
 };
 
 function ready(newValue, oldValue, ownerInstance, instance) {
-    var state = instance.getState()
+    var state = instance.getState();
     state.canPullDown = newValue;
     // console.log(newValue);
 }
@@ -15,9 +15,10 @@ function ready(newValue, oldValue, ownerInstance, instance) {
 function touchStart(e, instance) {
     var state = instance.getState();
     state.refreshInstance = instance.selectComponent(pullDown.refreshSelector);
-    state.canPullDown = (state.refreshInstance != null && state.refreshInstance != undefined);
+    state.canPullDown =
+        state.refreshInstance != null && state.refreshInstance != undefined;
     if (!state.canPullDown) {
-        return
+        return;
     }
 
     // console.log("touchStart");
@@ -25,16 +26,16 @@ function touchStart(e, instance) {
     state.height = 0;
     state.touchStartY = e.touches[0].pageY || e.changedTouches[0].pageY;
     state.refreshInstance.setStyle({
-        'height': 0
+        height: 0,
     });
-    state.refreshInstance.callMethod("onchange", true);
+    state.refreshInstance.callMethod('onchange', true);
 }
 
 function touchMove(e, ownerInstance) {
     var instance = e.instance;
     var state = instance.getState();
     if (!state.canPullDown) {
-        return
+        return;
     }
 
     var oldHeight = state.height;
@@ -46,23 +47,23 @@ function touchMove(e, ownerInstance) {
 
     var refreshInstance = state.refreshInstance;
     refreshInstance.setStyle({
-        'height': height + 'px'
+        height: height + 'px',
     });
 
     height = height < pullDown.maxHeight ? height : pullDown.maxHeight;
     state.height = height;
     refreshInstance.callMethod(pullDown.callPullingDown, {
-        height: height
+        height: height,
     });
 }
 
 function touchEnd(e, ownerInstance) {
     var state = e.instance.getState();
     if (!state.canPullDown) {
-        return
+        return;
     }
 
-    state.refreshInstance.callMethod("onchange", false);
+    state.refreshInstance.callMethod('onchange', false);
 
     var refreshInstance = state.refreshInstance;
     if (state.height > pullDown.threshold) {
@@ -71,7 +72,7 @@ function touchEnd(e, ownerInstance) {
     }
 
     refreshInstance.setStyle({
-        'height': 0
+        height: 0,
     });
 }
 
@@ -83,5 +84,5 @@ module.exports = {
     touchmove: touchMove,
     touchstart: touchStart,
     touchend: touchEnd,
-    propObserver: propObserver
-}
+    propObserver: propObserver,
+};

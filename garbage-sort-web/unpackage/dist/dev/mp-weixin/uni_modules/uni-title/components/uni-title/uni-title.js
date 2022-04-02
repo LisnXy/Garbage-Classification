@@ -120,6 +120,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /**
  * Title 章节标题
@@ -140,7 +146,7 @@ __webpack_require__.r(__webpack_exports__);
  * @property {Boolean} stat = [true|false] 是否开启统计功能呢，如不填写type值，默认为开启，填写 type 属性，默认为关闭
  */var _default =
 {
-  name: "UniTitle",
+  name: 'UniTitle',
   props: {
     type: {
       type: String,
@@ -165,8 +171,6 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {};
-
-
   },
   computed: {
     textAlign: function textAlign() {
@@ -208,9 +212,10 @@ __webpack_require__.r(__webpack_exports__);
       if (this.stat === '') {
         this.isStat = false;
       }
-      var stat_type = typeof this.stat === 'boolean' && this.stat || typeof this.stat === 'string' && this.stat !==
-      '';
-      if (this.type === "") {
+      var stat_type =
+      typeof this.stat === 'boolean' && this.stat ||
+      typeof this.stat === 'string' && this.stat !== '';
+      if (this.type === '') {
         this.isStat = true;
         if (this.stat.toString() === 'false') {
           this.isStat = false;

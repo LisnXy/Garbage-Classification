@@ -1,42 +1,69 @@
 {
-	"pages": [{
-			"path": "pages/sortTest/sortTest",
-			"style": {
-				"navigationBarBackgroundColor": "#efeff4",
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/sortTestFinished/sortTestFinished",
-			"style": {
-				"navigationBarBackgroundColor": "#efeff4",
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-
-		{
-			"path": "pages/sortInfo_home/sortInfo_home",
-			"style": {
-				"navigationBarBackgroundColor": "#efeff4",
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/sortInfo_details/sortInfo_details",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false,
-				"navigationStyle": "custom"
-			}
-		}
-	],
-	"globalStyle": {
-		"usingComponents": {
-			"van-picker": "/wxcomponents/vant/dist/picker/index"
-		},
-		"navigationStyle": "default"
-	}
+    "pages": [
+        {
+            "path": "pages/userPage/userPage",
+            "style": {
+                "navigationBarBackgroundColor": "#000",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/sortTest/sortTest",
+            "style": {
+                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/sortTestFinished/sortTestFinished",
+            "style": {
+                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/sortInfo_home/sortInfo_home",
+            "style": {
+                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/sortInfo_details/sortInfo_details",
+            "style": {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom"
+            }
+        }
+    ],
+    "globalStyle": {
+        "usingComponents": {
+            "van-picker": "/wxcomponents/vant/dist/picker/index"
+        },
+        "navigationStyle": "default"
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#395A98",
+        "backgroundColor": "#FFF",
+        "list": [
+            {
+                "pagePath": "pages/sortInfo_home/sortInfo_home",
+                "iconPath": "static/icons/tabbar-search.png",
+                "selectedIconPath": "static/icons/tabbar-search.png",
+                "text": "搜索"
+            },
+            {
+                "pagePath": "pages/userPage/userPage",
+                "iconPath": "static/icons/tabbar-user.png",
+                "selectedIconPath": "static/icons/tabbar-user.png",
+                "text": "个人中心"
+            }
+        ]
+    }
 }
