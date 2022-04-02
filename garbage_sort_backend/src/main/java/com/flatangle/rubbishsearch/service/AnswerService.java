@@ -54,15 +54,15 @@ public class AnswerService {
             int index = random.nextInt(recycleGList.size());
             result.add(recycleGList.get(index));
         }
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 2; i++) {
             int index = random.nextInt(harmfulGList.size());
             result.add(harmfulGList.get(index));
         }
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 3; i++) {
             int index = random.nextInt(wetGList.size());
             result.add(wetGList.get(index));
         }
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 2; i++) {
             int index = random.nextInt(dryGList.size());
             result.add(dryGList.get(index));
         }
