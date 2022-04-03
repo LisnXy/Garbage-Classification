@@ -226,10 +226,11 @@ var _default = { data: function data() {return {};}, methods: { /**
                                                                                                                                                                         */avatarUrl: function avatarUrl() {return this.$store.state.user.avatarUrl;}, /**
                                                                                                                                                                                                                                                        * @description 返回用户昵称
                                                                                                                                                                                                                                                        * @returns {String} 用户昵称
-                                                                                                                                                                                                                                                       */userName: function userName() {return this.$store.state.user.nickName;} }, mounted: function mounted() {var _this = this;wx.getUserInfo({ lang: 'zh_CN', success: function success(res) {// 设置用户信息
-        if (res.userInfo) {_this.$store.dispatch('user/setUser', res.userInfo);}
-      } });
-
+                                                                                                                                                                                                                                                       */userName: function userName() {return this.$store.state.user.nickName;} }, // TODO 处理后续的数据
+  onShow: function onShow() {_request.default.get('/user/userInfo', { params: { openID: this.$store.state.user.openId } }).
+    then(function (res) {
+      console.log(res.data);
+    });
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

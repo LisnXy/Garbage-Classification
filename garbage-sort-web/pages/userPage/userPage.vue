@@ -59,16 +59,17 @@ export default {
             return this.$store.state.user.nickName;
         }
     },
-    mounted() {
-        wx.getUserInfo({
-            lang: 'zh_CN',
-            success: (res) => {
-                // 设置用户信息
-                if (res.userInfo) {
-                    this.$store.dispatch('user/setUser', res.userInfo);
+    // TODO 处理后续的数据
+    onShow() {
+        axios
+            .get('/user/userInfo', {
+                params: {
+                    openID: this.$store.state.user.openId
                 }
-            }
-        });
+            })
+            .then((res) => {
+                console.log(res.data);
+            });
     }
 };
 </script>

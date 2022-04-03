@@ -83,8 +83,8 @@ export default {
             correctItems: [],
             // 当前题目,默认反馈为加载中
             currentItem: {
-                garbageName: '加载中····',
-            },
+                garbageName: '加载中····'
+            }
         };
     },
     methods: {
@@ -93,8 +93,8 @@ export default {
             axios
                 .get('/answer', {
                     params: {
-                        cityID: this.$store.state.cityId,
-                    },
+                        cityID: this.$store.state.cityId
+                    }
                 })
                 .then((res) => {
                     this.questionItems = res.data.data;
@@ -119,7 +119,7 @@ export default {
                             this.correctItems.push(this.currentItem);
                             this.nextItem();
                         }, 1000);
-                    },
+                    }
                 });
             } else {
                 uni.showModal({
@@ -129,7 +129,7 @@ export default {
                     success: () => {
                         this.falseItems.push(this.currentItem);
                         this.nextItem();
-                    },
+                    }
                 });
             }
         },
@@ -143,17 +143,29 @@ export default {
                 uni.redirectTo({
                     url: '../sortTestFinished/sortTestFinished',
                     success: () => {
-                        console.log('emited');
+                        this.postTestResult();
                         uni.$once('loaded', () => {
                             uni.$emit('questionItems', {
                                 falseItems: this.falseItems,
-                                correctItems: this.correctItems,
+                                correctItems: this.correctItems
                             });
                         });
-                    },
+                    }
                 });
             }
         },
+        // 结果发送至后端服务器
+        postTestResult() {
+            axios
+                .post('/answer/complete', {
+                    userID: this.$store.state.user.openId,
+                    score: this.correctItems.length * 10,
+                    falseRecord: this.falseItems.map((item) => item.type)
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
     },
     computed: {
         // 将垃圾种类的id映射到类别
@@ -168,11 +180,11 @@ export default {
                 default:
                     return '其他垃圾';
             }
-        },
+        }
     },
     mounted() {
         this.getQuestions();
-    },
+    }
 };
 </script>
 

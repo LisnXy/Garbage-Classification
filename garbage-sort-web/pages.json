@@ -1,6 +1,14 @@
 {
     "pages": [
         {
+            "path": "pages/sortInfo_home/sortInfo_home",
+            "style": {
+                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
             "path": "pages/userPage/userPage",
             "style": {
                 "navigationBarBackgroundColor": "#000",
@@ -18,14 +26,6 @@
         },
         {
             "path": "pages/sortTestFinished/sortTestFinished",
-            "style": {
-                "navigationBarBackgroundColor": "#efeff4",
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        },
-        {
-            "path": "pages/sortInfo_home/sortInfo_home",
             "style": {
                 "navigationBarBackgroundColor": "#efeff4",
                 "navigationBarTitleText": "",

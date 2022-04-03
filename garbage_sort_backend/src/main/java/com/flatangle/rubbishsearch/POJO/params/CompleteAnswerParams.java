@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 public class CompleteAnswerParams {
-    int userID;
+    String userID;
     int score;
     int[] falseRecord;
 }

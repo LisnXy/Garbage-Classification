@@ -99,10 +99,10 @@ __webpack_require__.r(__webpack_exports__);
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _vuex = __webpack_require__(/*! vuex */ 9);
 var _package = __webpack_require__(/*! ./package.json */ 10);
-var _checkUpdate = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-upgrade-center-app/utils/check-update */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
-
+var _checkUpdate = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-upgrade-center-app/utils/check-update */ 11));
+var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/request.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
-  onLaunch: function onLaunch() {
+  onLaunch: function onLaunch() {var _this = this;
 
 
 
@@ -136,10 +136,36 @@ var _checkUpdate = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/
 
 
 
+
+    // 载入用户信息
+    wx.getUserInfo({
+      lang: 'zh_CN',
+      success: function success(res) {
+        // 设置用户信息
+        if (res.userInfo) {
+          _this.$store.dispatch('user/setUser', res.userInfo);
+        }
+      } });
+
+    // 获得openid
+    wx.login({
+      success: function success(res) {
+        _request.default.
+        post('/user/login', {
+          code: res.code,
+          userName: _this.$store.state.user.nickName,
+          avatar: _this.$store.state.user.avatarUrl }).
+
+        then(function (res) {
+          _this.$store.commit(
+          'user/setOpenId',
+          res.data.data.openid);
+
+        });
+      } });
+
   },
-  onShow: function onShow() {
-    console.log('App Show');
-  },
+  onShow: function onShow() {},
   onHide: function onHide() {
     console.log('App Hide');
   },

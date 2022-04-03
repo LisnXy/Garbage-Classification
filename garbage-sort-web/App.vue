@@ -2,14 +2,14 @@
 import { mapMutations } from 'vuex';
 import { version } from './package.json';
 import checkUpdate from '@/uni_modules/uni-upgrade-center-app/utils/check-update';
-
+import axios from './static/utils/request.js';
 export default {
     onLaunch: function () {
         // #ifdef H5
         console.log(
             `%c hello uniapp %c v${version} `,
             'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
-            'background:#007aff ;padding: 1px; border-radius: 0 3px 3px 0;  color: #fff; font-weight: bold;',
+            'background:#007aff ;padding: 1px; border-radius: 0 3px 3px 0;  color: #fff; font-weight: bold;'
         );
         // #endif
         // 线上示例使用
@@ -35,22 +35,48 @@ export default {
                 this.setUniverifyErrorMsg(res.errMsg);
                 // 失败
                 console.log('preLogin fail res: ', res);
-            },
+            }
         });
         // #endif
+
+        // 载入用户信息
+        wx.getUserInfo({
+            lang: 'zh_CN',
+            success: (res) => {
+                // 设置用户信息
+                if (res.userInfo) {
+                    this.$store.dispatch('user/setUser', res.userInfo);
+                }
+            }
+        });
+        // 获得openid
+        wx.login({
+            success: (res) => {
+                axios
+                    .post('/user/login', {
+                        code: res.code,
+                        userName: this.$store.state.user.nickName,
+                        avatar: this.$store.state.user.avatarUrl
+                    })
+                    .then((res) => {
+                        this.$store.commit(
+                            'user/setOpenId',
+                            res.data.data.openid
+                        );
+                    });
+            }
+        });
     },
-    onShow: function () {
-        console.log('App Show');
-    },
+    onShow: function () {},
     onHide: function () {
         console.log('App Hide');
     },
     globalData: {
-        test: '',
+        test: ''
     },
     methods: {
-        ...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin']),
-    },
+        ...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin'])
+    }
 };
 </script>
 

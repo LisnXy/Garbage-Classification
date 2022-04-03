@@ -3,6 +3,7 @@ package com.flatangle.rubbishsearch.service;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.flatangle.rubbishsearch.POJO.entity.AnswerRecord;
+import com.flatangle.rubbishsearch.POJO.entity.SearchRecord;
 import com.flatangle.rubbishsearch.POJO.entity.User;
 import com.flatangle.rubbishsearch.common.WechatException;
 import com.flatangle.rubbishsearch.mapper.AnswerRecordMapper;
@@ -86,11 +87,14 @@ public class UserService {
         Map<String, Object> result = new HashMap<>();
         if(optionalUser.isPresent()) {
             User user = optionalUser.get();
-            AnswerRecord answerRecord = answerRecordMapper.selectById(openID);
-            Map<String, Object> answerRecordInfo = getAnswerRecordPercent(answerRecord);
-
             result.put("user",user);
-            result.put("answerRecordInfo",answerRecordInfo);
+
+            Optional<AnswerRecord> optionalAnswerRecord = Optional.ofNullable(answerRecordMapper.selectById(openID));
+            optionalAnswerRecord.ifPresent(o -> {
+                Map<String, Object> answerRecordInfo = getAnswerRecordInfo(o);
+                result.put("answerRecordInfo",answerRecordInfo);
+            });
+
             return result;
         }
         else{
@@ -99,7 +103,7 @@ public class UserService {
 
     }
 
-    private Map<String,Object> getAnswerRecordPercent(AnswerRecord answerRecord) {
+    private Map<String,Object> getAnswerRecordInfo(AnswerRecord answerRecord) {
 
         double recycleFalseCount = (double) answerRecord.getRecycleFalseCount();
         double harmfulFalseCount = (double) answerRecord.getHarmfulFalseCount();

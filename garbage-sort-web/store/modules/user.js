@@ -5,9 +5,9 @@
  */
 
 const state = {
-    nickName: 'lisn',
-    avatarUrl:
-        'https://img2.baidu.com/it/u=3895119537,2684520677&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
+    nickName: '',
+    avatarUrl: null,
+    openId: null
 };
 
 const mutations = {
@@ -16,6 +16,9 @@ const mutations = {
     },
     setAvatarUrl(state, payload) {
         state.avatarUrl = payload;
+    },
+    setOpenId(state, payload) {
+        state.openId = payload;
     }
 };
 

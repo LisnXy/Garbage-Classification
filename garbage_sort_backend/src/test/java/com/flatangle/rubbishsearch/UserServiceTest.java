@@ -18,13 +18,13 @@ public class UserServiceTest {
     @Resource
     UserService userService;
 
-    @Test
-    public void testLogin() {
-        try {
-            Map<String, String> result = userService.login("0010bD1w3mMzhY2jaG1w3QCUtf40bD11");
-            System.out.println(result);
-        } catch (WechatException e) {
-            e.printStackTrace();
-        }
-    }
+//    @Test
+//    public void testLogin() {
+//        try {
+//            Map<String, String> result = userService.login("0010bD1w3mMzhY2jaG1w3QCUtf40bD11");
+//            System.out.println(result);
+//        } catch (WechatException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
