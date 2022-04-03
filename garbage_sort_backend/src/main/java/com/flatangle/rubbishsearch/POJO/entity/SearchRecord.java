@@ -13,7 +13,7 @@ import lombok.Data;
 public class SearchRecord {
 
     @TableId("userID")
-    private String userID;
+    private int userID;
 
     private int recycleCount;   //可回收垃圾查询数
 
@@ -23,15 +23,5 @@ public class SearchRecord {
 
     private int otherCount;     //其他垃圾查询数
 
-    public SearchRecord() {
 
-    }
-
-    public SearchRecord(String userID, int recycleCount, int harmfulCount, int kitchenCount, int otherCount) {
-        this.userID = userID;
-        this.recycleCount = recycleCount;
-        this.harmfulCount = harmfulCount;
-        this.kitchenCount = kitchenCount;
-        this.otherCount = otherCount;
-    }
 }
