@@ -1,12 +1,10 @@
 package com.flatangle.rubbishsearch.controller;
 
+import com.flatangle.rubbishsearch.POJO.params.UserLoginParams;
 import com.flatangle.rubbishsearch.common.Result;
 import com.flatangle.rubbishsearch.common.WechatException;
 import com.flatangle.rubbishsearch.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -23,19 +21,37 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @PostMapping
-    public Result<?> login(@RequestBody Map<String,Object> requestBody) {
+    @PostMapping("/login")
+    public Result<?> login(@RequestBody UserLoginParams userLoginParams) {
 
-        String code = (String) requestBody.get("code");
+        String code = userLoginParams.getCode();
+        String userName = userLoginParams.getUserName();
+        String avatar = userLoginParams.getAvatar();
 
         try {
-            Map<String, String> resultMap = userService.login(code);
+            Map<String, String> resultMap = userService.login(code,userName,avatar);
             return Result.success(resultMap);
 
         } catch (WechatException e) {
             return Result.error("-1",e.getMessage());
         }
     }
+
+    @GetMapping("/userInfo")
+    public Result<?> getUserInfo(@RequestParam String openID) {
+
+        try {
+            Map<String, Object> userInfo = userService.getUserInfo(openID);
+            return Result.success(userInfo);
+        } catch (WechatException e) {
+            return Result.error("-1", e.getMessage());
+        }
+
+    }
+
+
+
+
 
 
 }
