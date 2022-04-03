@@ -1,76 +1,77 @@
 .finished-root.data-v-f0f78c74 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 .finished-header.data-v-f0f78c74 {
-    margin-top: 3vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 30%;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30%;
 }
 .finished-header image.data-v-f0f78c74 {
-    width: 100vw;
-    margin-top: -10vh;
+  width: 100vw;
+  margin-top: -10vh;
 }
 .score.data-v-f0f78c74 {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 .score text.data-v-f0f78c74 {
-    font-size: 4rem;
-    color: #4285df;
+  font-size: 4rem;
+  color: #4285df;
 }
 .finished-body.data-v-f0f78c74 {
-    height: 55%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -15%;
+  height: 55%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -15%;
 }
 .list-container.data-v-f0f78c74 {
-    background-color: #fff;
-    max-height: 100%;
-    width: 85%;
-    padding: 8px;
-    border-radius: 12px;
-    font-size: 2rem;
+  background-color: #fff;
+  max-height: 100%;
+  width: 85%;
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 2rem;
 }
 .list-container text.data-v-f0f78c74 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 .list-item-header.data-v-f0f78c74 {
-    margin: 5px 0;
-    padding: 1px;
-    border-radius: 6px;
+  margin: 5px 0;
+  padding: 1px;
+  border-radius: 6px;
 }
 .list-item-body.data-v-f0f78c74 {
-    margin: 5px 0;
-    font-size: 1.1rem;
-    vertical-align: bottom;
-    margin-left: 1rem;
-    width: 100%;
+  margin: 5px 0;
+  font-size: 1.1rem;
+  vertical-align: bottom;
+  margin-left: 1rem;
+  width: 100%;
 }
 .list-item-footer.data-v-f0f78c74 {
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    border-width: 1px;
-    border-style: solid;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .list-item-footer text.data-v-f0f78c74 {
-    white-space: nowrap;
-    font-size: 1rem;
+  white-space: nowrap;
+  font-size: 1rem;
 }
 .next-button-container.data-v-f0f78c74 {
-    margin-top: 5%;
-    width: 90%;
+  margin-top: 5%;
+  width: 90%;
 }
+

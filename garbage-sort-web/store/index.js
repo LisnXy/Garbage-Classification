@@ -1,6 +1,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import Vuex from 'vuex'
+import user from './modules/user'
 Vue.use(Vuex)
 const store = new Vuex.Store({
 // #endif
@@ -36,6 +37,9 @@ const store = createStore({
 	},
 	actions: {
 			
+	},
+	modules: {
+		user:user
 	}
 })
 

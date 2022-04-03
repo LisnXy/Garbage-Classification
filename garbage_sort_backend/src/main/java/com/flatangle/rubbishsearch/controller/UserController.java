@@ -23,7 +23,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/login")
     public Result<?> login(@RequestBody Map<String,Object> requestBody) {
 
         String code = (String) requestBody.get("code");

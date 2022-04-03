@@ -36,5 +36,6 @@
     },
     "usingComponents": {
         "van-picker": "/wxcomponents/vant/dist/picker/index"
-    }
+    },
+    "sitemapLocation": "sitemap.json"
 }

@@ -1,1 +1,79 @@
-/* pages/userPage/userPage.wxss */
+/**
+  * @description:用于 userPage 界面的主要样式文件
+  * @author Lisn
+  * @date 2022/4/2
+*/
+view.data-v-88efa074 {
+  width: 100%;
+}
+.flex-column.data-v-88efa074 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card.data-v-88efa074 {
+  height: 15vh;
+  background-color: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card image.data-v-88efa074 {
+  width: 36px;
+  height: 36px;
+}
+.card text.data-v-88efa074 {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+.user-root.data-v-88efa074 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-header.data-v-88efa074 {
+  min-height: 30%;
+  background-color: #3f536e;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar-container.data-v-88efa074 {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar.data-v-88efa074 {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.user-name-container.data-v-88efa074 {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-name.data-v-88efa074 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.user-body.data-v-88efa074 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cards-container.data-v-88efa074 {
+  width: 90%;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+

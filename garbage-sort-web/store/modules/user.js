@@ -5,11 +5,12 @@
  */
 
 const state = {
-    nickName: null,
-    avatarUrl: null
+    nickName: 'lisn',
+    avatarUrl:
+        'https://img2.baidu.com/it/u=3895119537,2684520677&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
 };
 
-const mutation = {
+const mutations = {
     setNickName(state, payload) {
         state.nickName = payload;
     },
@@ -20,4 +21,19 @@ const mutation = {
 
 const getters = {};
 
-const actions = {};
+const actions = {
+    setUser(context, userInfo) {
+        if (userInfo) {
+            context.commit('setNickName', userInfo.nickName);
+            context.commit('setAvatarUrl', userInfo.avatarUrl);
+        }
+    }
+};
+
+export default {
+    namespaced: true,
+    state,
+    mutations,
+    getters,
+    actions
+};

@@ -1,66 +1,67 @@
 .test-root.data-v-20eddef4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 .test-body.data-v-20eddef4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 55%;
-    width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 55%;
+  width: 90%;
 }
 .test-body-header.data-v-20eddef4 {
-    width: 100%;
-    margin-bottom: 1.5rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 .query-counter.data-v-20eddef4 {
-    background-color: #dee0e1;
-    color: #bfc7c7;
-    font-size: 1rem;
-    padding: 6rpx;
-    border-radius: 6px;
+  background-color: #dee0e1;
+  color: #bfc7c7;
+  font-size: 1rem;
+  padding: 6rpx;
+  border-radius: 6px;
 }
 .query-counter text.data-v-20eddef4 {
-    color: #636567;
-    font-size: 1.2rem;
+  color: #636567;
+  font-size: 1.2rem;
 }
 .query-body.data-v-20eddef4 {
-    margin-left: 1rem;
-    color: #828686;
-    font-size: 1rem;
+  margin-left: 1rem;
+  color: #828686;
+  font-size: 1rem;
 }
 .query-body .query-item.data-v-20eddef4 {
-    margin-right: 0.5rem;
-    color: #444648;
-    font-weight: 700;
-    font-size: 1.3rem;
+  margin-right: 0.5rem;
+  color: #444648;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
 .test-body-answers.data-v-20eddef4 {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 .answer-card.data-v-20eddef4 {
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .answer-card text.data-v-20eddef4 {
-    display: block;
-    color: white;
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
+  display: block;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 .answer-card image.data-v-20eddef4 {
-    width: 50%;
-    height: 50%;
+  width: 50%;
+  height: 50%;
 }
+

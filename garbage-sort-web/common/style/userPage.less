@@ -4,10 +4,76 @@
   * @date 2022/4/2
 */
 
-.user-root {
+view {
     width: 100%;
-    height: 100%;
+}
+
+.flex-column {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.card {
+    height: 15vh;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    image {
+        width: 36px;
+        height: 36px;
+    }
+    text {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+}
+
+.user-root {
+    width: 100%;
+    height: 100%;
+    .flex-column();
+}
+
+.user-header {
+    min-height: 30%;
+    background-color: #3f536e;
+    justify-content: center;
+    .flex-column();
+}
+
+.avatar-container {
+    justify-content: center;
+    .flex-column();
+}
+
+.avatar {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.user-name-container {
+    justify-content: center;
+    .flex-column();
+}
+
+.user-name {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.user-body {
+    .flex-column();
+}
+
+.cards-container {
+    width: 90%;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
 }

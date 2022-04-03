@@ -32,7 +32,7 @@
                             slot="footer"
                             :style="{
                                 'border-color': bodyColors[item.type - 1],
-                                color: bodyColors[item.type - 1],
+                                color: bodyColors[item.type - 1]
                             }"
                         >
                             <text>{{ getText(item.type) }}</text>
@@ -58,7 +58,7 @@
                             slot="footer"
                             :style="{
                                 'border-color': bodyColors[item.type - 1],
-                                color: bodyColors[item.type - 1],
+                                color: bodyColors[item.type - 1]
                             }"
                         >
                             <text>{{ getText(item.type) }}</text>
@@ -82,24 +82,24 @@ export default {
             correctItems: [
                 {
                     garbageName: '垃圾1',
-                    type: 1,
+                    type: 1
                 },
                 {
                     garbageName: '垃圾2',
-                    type: 2,
-                },
+                    type: 2
+                }
             ],
             falseItems: [
                 {
                     garbageName: '垃圾1',
-                    type: 1,
+                    type: 1
                 },
                 {
                     garbageName: '垃圾2',
-                    type: 2,
-                },
+                    type: 2
+                }
             ],
-            bodyColors: ['#426AAD', '#B45454', '#64BC8C', '#849494'],
+            bodyColors: ['#426AAD', '#B45454', '#64BC8C', '#849494']
         };
     },
     methods: {
@@ -119,9 +119,9 @@ export default {
         // 下一批
         nextBatch() {
             uni.redirectTo({
-                url: '../sortTest/sortTest',
+                url: '../sortTest/sortTest'
             });
-        },
+        }
     },
     mounted() {
         uni.$once('questionItems', (data) => {
@@ -129,7 +129,7 @@ export default {
             this.falseItems = data.falseItems;
         });
         uni.$emit('loaded');
-    },
+    }
 };
 </script>
 
