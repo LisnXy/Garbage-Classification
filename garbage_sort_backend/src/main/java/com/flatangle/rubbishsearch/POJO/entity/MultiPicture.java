@@ -6,10 +6,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-
 @Data
-@TableName("resource")
-public class Picture {
+@TableName("multi_resource")
+public class MultiPicture {
 
     @TableId(value = "id",type = IdType.AUTO)
     private int id;
