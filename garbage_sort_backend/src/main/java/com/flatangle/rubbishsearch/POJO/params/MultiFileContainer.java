@@ -1,11 +1,13 @@
 package com.flatangle.rubbishsearch.POJO.params;
 
+import java.util.List;
+
 public class MultiFileContainer {
 
     private String imgstr;
-    private String[] label;
+    private List<String> label;
 
-    public MultiFileContainer(String imgstr, String[] label) {
+    public MultiFileContainer(String imgstr, List<String> label) {
         this.imgstr = imgstr;
         this.label = label;
     }
@@ -18,11 +20,11 @@ public class MultiFileContainer {
         this.imgstr = imgstr;
     }
 
-    public String[] getLabel() {
+    public List<String> getLabel() {
         return label;
     }
 
-    public void setLabel(String[] label) {
+    public void setLabel(List<String> label) {
         this.label = label;
     }
 }

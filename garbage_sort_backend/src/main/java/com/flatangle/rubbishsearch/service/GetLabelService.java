@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,10 @@ public class GetLabelService {
 
     @Resource
     private PictureMapper pictureMapper;
+    @Resource
     private MultiPictureMapper multiPictureMapper;
+
+    private String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile\\";
 
     public List<Picture> findByPath(String path){
         LambdaQueryWrapper<Picture> queryWrapper = Wrappers.lambdaQuery();
@@ -54,7 +58,7 @@ public class GetLabelService {
 
     }
 
-    public String getMultiLabel(String path){
+    public String getMultiLabel(String path) throws IOException{
 
         LambdaQueryWrapper<MultiPicture> queryWrapper = Wrappers.lambdaQuery();
         queryWrapper.eq(MultiPicture::getPath, path);
@@ -62,7 +66,7 @@ public class GetLabelService {
             MultiPicture picture = multiPictureMapper.selectList(queryWrapper).get(0);
             if(picture.getLabel() != -1){
                 multiPictureMapper.delete(queryWrapper);
-                return (String.valueOf(picture.getLabel()));
+                return ( getImageStr(targetSrc+path));
             }
         }
     }
@@ -90,7 +94,6 @@ public class GetLabelService {
             inputStream.read(bytes);
 
             String base64Str = encoder.encodeToString(bytes);
-            System.out.println(base64Str);
             return base64Str;
 
         } catch (Exception e) {
@@ -105,8 +108,9 @@ public class GetLabelService {
      * 开发中
      * @return 模型输出的结果数组
      */
-    public String[] getLabels(){
-        String[] labels = {"88"};
+    public List<String> getLabels(){
+        List<String> labels = new ArrayList<>();
+        labels.add("88");
         return labels;
     }
 
