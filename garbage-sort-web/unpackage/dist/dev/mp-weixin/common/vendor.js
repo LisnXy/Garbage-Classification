@@ -11202,7 +11202,11 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 24)))
+=======
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 24)))
+>>>>>>> 7b05c5b767b82b0047168365bd047eabb6def5ac
 
 /***/ }),
 /* 24 */
@@ -12778,7 +12782,11 @@ function normalizeComponent (
 /***/ }),
 /* 48 */
 /*!**********************************************************************************************!*\
+<<<<<<< HEAD
   !*** D:/IDEA 2019.3.3/workspace_idea/Garbage-Classification/garbage-sort-web/store/index.js ***!
+=======
+  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/store/index.js ***!
+>>>>>>> 7b05c5b767b82b0047168365bd047eabb6def5ac
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -12834,7 +12842,11 @@ store;exports.default = _default;
 /***/ }),
 /* 49 */
 /*!*****************************************************************************************************!*\
+<<<<<<< HEAD
   !*** D:/IDEA 2019.3.3/workspace_idea/Garbage-Classification/garbage-sort-web/store/modules/user.js ***!
+=======
+  !*** C:/Users/win/Desktop/repository/Garbage-Classification/garbage-sort-web/store/modules/user.js ***!
+>>>>>>> 7b05c5b767b82b0047168365bd047eabb6def5ac
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

@@ -4,6 +4,12 @@
   align-items: center;
   height: 100%;
 }
+.test-header.data-v-20eddef4 {
+  background-image: linear-gradient(rgba(107, 151, 226, 0.7), rgba(142, 209, 252, 0.7), rgba(142, 209, 252, 0));
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .test-body.data-v-20eddef4 {
   display: flex;
   flex-direction: column;

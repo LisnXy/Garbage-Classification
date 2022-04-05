@@ -5,24 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2f461ee-a654-4755-a030-762b4e98ba44" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_alibaba_fastjson_1_2_80.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/icons/商城.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/icons/问答.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/商城.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/商城.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/问答.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/问答.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_usthe_sureness_sureness_core_1_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_11_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_11_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_11_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/sortTest/sortTest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sortTest/sortTest.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/style/userPage.less" beforeDir="false" afterPath="$PROJECT_DIR$/common/style/userPage.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/userPage/userPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/userPage/userPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/modules/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTest/sortTest.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTest/sortTest.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/badge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/collapse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/color.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/combox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/countdown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/data-checkbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/data-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/dateformat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/datetime-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/drawer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/fab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/fav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/file-picker.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/userPage/userPage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/userPage/userPage.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortTest/sortTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortTest/sortTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/AnswerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/test/java/com/flatangle/rubbishsearch/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/test/java/com/flatangle/rubbishsearch/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/MultiFileContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/MultiFileContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/AnswerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/AnswerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/GetLabelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/GetLabelService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +110,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\icons" />
+      <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\icons" />
@@ -118,7 +152,9 @@
       <workItem from="1648815626174" duration="607000" />
       <workItem from="1648887093860" duration="483000" />
       <workItem from="1648887588674" duration="8170000" />
-      <workItem from="1648958126022" duration="10230000" />
+      <workItem from="1648958126022" duration="10523000" />
+      <workItem from="1649055895387" duration="6324000" />
+      <workItem from="1649143518890" duration="4146000" />
     </task>
     <servers />
   </component>

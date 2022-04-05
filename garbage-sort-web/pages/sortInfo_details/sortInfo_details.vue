@@ -48,7 +48,7 @@
                     left: selectedIndicatorPosition,
                     'background-color': selectedIndicatorColor,
                     'margin-left': selectedIndicatorMargin,
-                    width: selectedIndicatorLength,
+                    width: selectedIndicatorLength
                 }"
             ></view>
         </view>
@@ -103,7 +103,7 @@ export default {
                 '#b85555',
                 '#65ba8a;',
                 '#879696',
-                '#ebb852',
+                '#ebb852'
             ],
             selectColor: '#395a98',
             indicatorColors: [
@@ -111,7 +111,7 @@ export default {
                 '#d97978',
                 '#8dd1a9',
                 '#dce6ec',
-                '#ffc859',
+                '#ffc859'
             ],
             swiperTitles: ['可回收物', '厨余垃圾', '有害垃圾', '其他垃圾'],
             garbageDetailsList: [],
@@ -130,7 +130,7 @@ export default {
                     '过期药品',
                     '废旧灯泡',
                     '废旧小家电',
-                    '蓄电池',
+                    '蓄电池'
                 ],
                 leftover: [
                     '剩菜剩饭',
@@ -138,7 +138,7 @@ export default {
                     '果壳',
                     '果皮',
                     '菜梗菜叶',
-                    '鱼骨',
+                    '鱼骨'
                 ],
                 recyclable: [
                     '玻璃类',
@@ -146,7 +146,7 @@ export default {
                     '牛奶盒',
                     '织物类',
                     '金属类',
-                    '塑料类',
+                    '塑料类'
                 ],
                 other: [
                     '宠物粪便',
@@ -154,10 +154,10 @@ export default {
                     '女性卫生用品',
                     '破旧陶瓷品',
                     '烟头',
-                    '污染纸张',
+                    '污染纸张'
                 ],
-                bigItems: ['椅子', '柜子', '桌子', '床', '沙发', '门'],
-            },
+                bigItems: ['椅子', '柜子', '桌子', '床', '沙发', '门']
+            }
         };
     },
     methods: {
@@ -166,13 +166,13 @@ export default {
             //修改主题色,如果是页面间跳转，则取消动画效果
             this.bodyColor = this.bodyColors[index];
             this.selectColor = this.selectColors[index];
+            this.garbageType = index + 1;
             if (this.currentItem !== index) {
                 this.currentItem = index;
                 //初始化垃圾数据
                 this.garbageDetailsList = [];
                 this.pageIndex = 1;
                 //更新垃圾类型并加载数据
-                this.garbageType = index + 1;
                 this.getGarbageTypeDetails();
             }
         },
@@ -185,8 +185,8 @@ export default {
                         this.pageIndex,
                     {
                         cityID: this.cityID,
-                        type: this.garbageType,
-                    },
+                        type: this.garbageType
+                    }
                 )
                 .then((res) => {
                     let data = res.data.data.records;
@@ -194,7 +194,7 @@ export default {
                     //将新获取的20条数据加载到垃圾详情数组中
                     this.garbageDetailsList = [
                         ...this.garbageDetailsList,
-                        ...str,
+                        ...str
                     ];
                 });
         },
@@ -203,7 +203,7 @@ export default {
             //判断数据是否加载完成
             if (this.isOver) {
                 uni.showToast({
-                    title: '没有更多了',
+                    title: '没有更多了'
                 });
             } else {
                 //每加载一页令页数+1
@@ -235,7 +235,7 @@ export default {
                     this.selectedIndicatorLength = width;
                     this.selectedIndicatorMargin = margin;
                 });
-        },
+        }
     },
     computed: {
         //计算自定义导航栏的高度
@@ -282,23 +282,25 @@ export default {
                 default:
                     return null;
             }
-        },
+        }
     },
     mounted() {
         //初始化加载数据
         this.initData();
         this.getGarbageTypeDetails();
         this.setMargin();
+        console.log(`mounted`);
     },
     onLoad(data) {
+        console.log(`load`);
         this.initData();
         wx.setNavigationBarColor({
             frontColor: '#ffffff',
-            backgroundColor: this.selectColors[data.index],
+            backgroundColor: this.selectColors[data.index]
         });
         this.currentItem = parseInt(data.index);
         this.selectGarbageType(parseInt(data.index));
-    },
+    }
 };
 </script>
 

@@ -15,14 +15,19 @@
 .finished-header image.data-v-f0f78c74 {
   width: 100vw;
   margin-top: -10vh;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 .score.data-v-f0f78c74 {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15%;
   width: 100%;
   text-align: center;
 }
 .score text.data-v-f0f78c74 {
-  font-size: 4rem;
-  color: #4285df;
+  font-size: 3rem;
+  color: #759cd1;
 }
 .finished-body.data-v-f0f78c74 {
   height: 55%;
@@ -30,7 +35,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -15%;
 }
 .list-container.data-v-f0f78c74 {
   background-color: #fff;

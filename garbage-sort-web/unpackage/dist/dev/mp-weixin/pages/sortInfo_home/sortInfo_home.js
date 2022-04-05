@@ -404,6 +404,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -642,7 +653,18 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
 //
 //
 //
-var _default = { data: function data() {return { selectedCity: '南京市', citiesList: [], swiperTitles: ['可回收物', '厨余垃圾', '有害垃圾', '其他垃圾', '大件垃圾'], swiperTips: ['可回收物指适宜回收利用和资源化利用的生活废弃物。', '厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。', '有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。', '其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。', '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。'], requirements: ['', '', '', '', ''], currentItem: 0, defaultIndex: 2, hasBigTrash: false, bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'], bodyColor: '#274883', searchMode: false, cityId: 0, searchResult: [], typeNames: [], showResult: false, inputValue: '' };}, methods: { // 弹出选择栏
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { bodyImage: null, selectedCity: '南京市', citiesList: [], swiperTitles: ['可回收物', '厨余垃圾', '有害垃圾', '其他垃圾', '大件垃圾'], swiperTips: ['可回收物指适宜回收利用和资源化利用的生活废弃物。', '厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。', '有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。', '其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。', '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。'], requirements: ['', '', '', '', ''], currentItem: 0, defaultIndex: 2, hasBigTrash: false, bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'], bodyColor: '#274883', searchMode: false, cityId: 0, searchResult: [], typeNames: [], showResult: false, inputValue: '' };}, methods: { // 弹出选择栏
     popSelector: function popSelector() {this.$refs.popup.open();}, // 用户点击取消，关闭选择栏
     onCancel: function onCancel() {this.$refs.popup.close();}, // 用户点击确认，关闭选择栏并绑定数值
     onConfirm: function onConfirm() {// 更改信息
@@ -662,9 +684,9 @@ var _default = { data: function data() {return { selectedCity: '南京市', citi
         _this3.swiperTips = data.map(function (item) {return item.description;});_this3.swiperTitles = data.map(function (item) {return item.typeName;});_this3.requirements = data.map(function (item) {return item.requirement;}); // 分割字符串
         _this3.requirements = _this3.requirements.map(function (item) {return item.split('\n');});});}, // 搜索栏获得焦点
     searchBarFocused: function searchBarFocused() {// 隐藏其他部件
-      this.searchMode = true;this.bodyColor = '#8ebae5';}, // 搜索栏失去焦点
+      this.searchMode = true;this.bodyColor = null;this.bodyImage = "linear-gradient(rgba(107, 151, 226, 0.7), rgba(142, 209, 252, 0.7));";}, // 搜索栏失去焦点
     searchBarBlured: function searchBarBlured(event) {// 当搜索栏不为空的时候显示部件
-      if (event.target.value.length === 0) {this.searchMode = false;this.bodyColor = this.bodyColors[this.currentItem];}}, // 搜索
+      if (event.target.value.length === 0) {this.searchMode = false;this.bodyColor = this.bodyColors[this.currentItem];this.bodyImage = null;}}, // 搜索
     search: function search(event) {var _this4 = this;var detail = event.detail; // 如果内容为空，则清空搜索结果框
       if (detail.value.trim().length == 0) {this.searchResult = [];this.showResult = false;} else {// 内容不为空，向后端发送请求
         _request.default.post('/cityinfo/garbagesearch', { cityID: this.cityId, search: detail.value }).then(function (res) {_this4.searchResult = res.data.data;if (res.data.data.length != 0) {_this4.showResult = true;} else {_this4.showResult = false;}});}}, // 跳转至 Detail 页面

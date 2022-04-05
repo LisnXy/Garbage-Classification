@@ -73,9 +73,8 @@ public class AnswerService {
     /**
      * 一轮答题结束，更新答题记录
      */
-    public void completeAnswer(int userID, int score, int[] falseRecord) {
+    public void completeAnswer(String userID, int score, int[] falseRecord) {
         AnswerRecord answerRecord = answerRecordMapper.selectById(userID);
-
         answerRecord.setScore(answerRecord.getScore()+score);
 
         for(int i : falseRecord) {
@@ -87,6 +86,7 @@ public class AnswerService {
             }
         }
         answerRecordMapper.updateById(answerRecord);
+
     }
 
 

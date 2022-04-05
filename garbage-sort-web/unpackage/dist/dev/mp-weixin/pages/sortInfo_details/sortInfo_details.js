@@ -330,13 +330,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
       //修改主题色,如果是页面间跳转，则取消动画效果
       this.bodyColor = this.bodyColors[index];
       this.selectColor = this.selectColors[index];
+      this.garbageType = index + 1;
       if (this.currentItem !== index) {
         this.currentItem = index;
         //初始化垃圾数据
         this.garbageDetailsList = [];
         this.pageIndex = 1;
         //更新垃圾类型并加载数据
-        this.garbageType = index + 1;
         this.getGarbageTypeDetails();
       }
     },
@@ -453,8 +453,10 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
     this.initData();
     this.getGarbageTypeDetails();
     this.setMargin();
+    console.log("mounted");
   },
   onLoad: function onLoad(data) {
+    console.log("load");
     this.initData();
     wx.setNavigationBarColor({
       frontColor: '#ffffff',

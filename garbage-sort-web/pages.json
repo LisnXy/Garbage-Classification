@@ -3,9 +3,10 @@
         {
             "path": "pages/sortInfo_home/sortInfo_home",
             "style": {
-                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarBackgroundColor": "#8EBAE5",
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom"
             }
         },
         {
@@ -13,7 +14,8 @@
             "style": {
                 "navigationBarBackgroundColor": "#000",
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom"
             }
         },
         {
@@ -21,15 +23,17 @@
             "style": {
                 "navigationBarBackgroundColor": "#efeff4",
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/sortTestFinished/sortTestFinished",
             "style": {
-                "navigationBarBackgroundColor": "#efeff4",
+                "navigationBarBackgroundColor": "#96C2F0",
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom"
             }
         },
         {
@@ -54,14 +58,14 @@
         "list": [
             {
                 "pagePath": "pages/sortInfo_home/sortInfo_home",
-                "iconPath": "static/icons/tabbar-search.png",
-                "selectedIconPath": "static/icons/tabbar-search.png",
+                "iconPath": "static/icons/home_off.png",
+                "selectedIconPath": "static/icons/home_on.png",
                 "text": "搜索"
             },
             {
                 "pagePath": "pages/userPage/userPage",
-                "iconPath": "static/icons/tabbar-user.png",
-                "selectedIconPath": "static/icons/tabbar-user.png",
+                "iconPath": "static/icons/user_off.png",
+                "selectedIconPath": "static/icons/account_on.png",
                 "text": "个人中心"
             }
         ]

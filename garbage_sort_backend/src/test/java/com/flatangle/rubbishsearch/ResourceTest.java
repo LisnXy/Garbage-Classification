@@ -8,6 +8,7 @@ import com.flatangle.rubbishsearch.service.GetLabelService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -22,7 +23,7 @@ public class ResourceTest {
     @Test
     public void testfind(){
 
-        System.out.println(getLabelService.findByPath("a"));
+        System.out.println(pictureMapper.selectById(1));
 
     }
 
@@ -34,4 +35,21 @@ public class ResourceTest {
         picture.setLabel(-1);
         pictureMapper.insert(picture);
     }
+
+    @Test
+    public void testexe(){
+        getLabelService.insertPicture("D:\\TrashC\\ConvNeXt\\eval\\a.jpg");
+        System.out.println(getLabelService.getLabel("D:\\TrashC\\ConvNeXt\\eval\\a.jpg"));
+    }
+
+    @Test
+    public void testjson(){
+        getLabelService.readJson("88");
+    }
+
+    @Test
+    public void testbase64() throws IOException {
+        getLabelService.getImageStr("D:\\TrashC\\ConvNeXt\\eval\\a.jpg");
+    }
+
 }

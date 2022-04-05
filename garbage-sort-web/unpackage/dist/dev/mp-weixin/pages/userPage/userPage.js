@@ -160,7 +160,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -198,11 +228,7 @@ var _default = { data: function data() {return {};}, methods: { /**
                                                                                                                                                                                                                                                        * @description 返回用户昵称
                                                                                                                                                                                                                                                        * @returns {String} 用户昵称
                                                                                                                                                                                                                                                        */userName: function userName() {return this.$store.state.user.nickName;} }, // TODO 处理后续的数据
-  onShow: function onShow() {_request.default.get('/user/userInfo', { params: { openID: this.$store.state.user.openId } }).
-    then(function (res) {
-      console.log(res.data);
-    });
-  } };exports.default = _default;
+  onShow: function onShow() {_request.default.get('/user/userInfo', { params: { openID: this.$store.state.user.openId } }).then(function (res) {console.log(res.data);});} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
