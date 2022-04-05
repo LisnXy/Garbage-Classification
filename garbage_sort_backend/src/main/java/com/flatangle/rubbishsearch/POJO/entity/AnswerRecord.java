@@ -12,7 +12,7 @@ import lombok.Data;
 @TableName("answer_record")
 public class AnswerRecord {
     @TableId("userID")
-    private String userID;
+    private int userID;
 
     private int recycleFalseCount;   //可回收垃圾错误数
 
@@ -23,12 +23,4 @@ public class AnswerRecord {
     private int otherFalseCount;     //其他垃圾错误数
 
     private int score;   //答题得分
-
-    public AnswerRecord() {
-
-    }
-
-    public AnswerRecord(String userID) {
-        this.userID = userID;
-    }
 }

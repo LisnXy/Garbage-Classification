@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RubbishsearchApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(RubbishsearchApplication.class, args);
     }
 
