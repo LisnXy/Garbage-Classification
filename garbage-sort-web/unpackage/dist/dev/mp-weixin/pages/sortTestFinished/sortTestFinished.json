@@ -1,7 +1,8 @@
 {
-  "navigationBarBackgroundColor": "#efeff4",
+  "navigationBarBackgroundColor": "#96C2F0",
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
   "usingComponents": {
     "uni-list": "/uni_modules/uni-list/components/uni-list/uni-list",
     "uni-list-item": "/uni_modules/uni-list/components/uni-list-item/uni-list-item",

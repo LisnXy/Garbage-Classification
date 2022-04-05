@@ -1,13 +1,25 @@
 <template>
     <view class="finished-root">
         <view class="finished-header">
-            <view class="score">
-                <text>得分：{{ correctItems.length * 10 }}</text>
-            </view>
             <image
-                src="../../static/image/finished-bg.svg"
+                src="../../static/image/test-bg2.svg"
                 mode="aspectFit"
             ></image>
+            <view class="score">
+                <text>{{ correctItems.length * 10 }} 分</text>
+                <text
+                    style="
+                        background-color: rgba(117, 156, 209, 0.7);
+                        font-size: 0.9rem;
+                        color: #f5f5f5;
+                        margin: auto;
+                        border-radius: 6px;
+                        padding: 5px 20px;
+                    "
+                >
+                    下次你会做的更好
+                </text>
+            </view>
         </view>
         <view class="finished-body">
             <scroll-view class="list-container" scroll-y="true">

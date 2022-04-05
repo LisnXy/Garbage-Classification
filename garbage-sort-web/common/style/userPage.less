@@ -39,7 +39,11 @@ view {
 
 .user-header {
     min-height: 30%;
-    background-color: #3f536e;
+    background-image: linear-gradient(
+        rgba(107, 151, 226, 0.7),
+        rgba(142, 209, 252, 0.7),
+        rgba(142, 209, 252, 0)
+    );
     justify-content: center;
     .flex-column();
 }
@@ -76,4 +80,27 @@ view {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
+}
+
+.member-card-container {
+    display: flex;
+    justify-content: center;
+    height: 140px;
+    width: 100%;
+}
+
+.member-card {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    background-image: url('../../static/image/member-card-bg.png');
+    background-repeat: no-repeat;
+    background-size: 105% 110%;
+    background-color: #b0dffd;
+    border-radius: 15px;
+    text {
+        text-align: center;
+        margin: auto;
+        font-size: 1.5rem;
+    }
 }

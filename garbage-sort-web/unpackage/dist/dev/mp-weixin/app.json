@@ -17,14 +17,14 @@
     "list": [
       {
         "pagePath": "pages/sortInfo_home/sortInfo_home",
-        "iconPath": "static/icons/tabbar-search.png",
-        "selectedIconPath": "static/icons/tabbar-search.png",
+        "iconPath": "static/icons/home_off.png",
+        "selectedIconPath": "static/icons/home_on.png",
         "text": "搜索"
       },
       {
         "pagePath": "pages/userPage/userPage",
-        "iconPath": "static/icons/tabbar-user.png",
-        "selectedIconPath": "static/icons/tabbar-user.png",
+        "iconPath": "static/icons/user_off.png",
+        "selectedIconPath": "static/icons/account_on.png",
         "text": "个人中心"
       }
     ]

@@ -13,6 +13,13 @@
             </view>
         </view>
         <view class="user-body">
+            <view class="member-card-container">
+                <view class="member-card">
+                    <text>我的积分</text>
+                    <!--TODO 绑定变量-->
+                    <text style="font-weight: 700">1234</text>
+                </view>
+            </view>
             <view class="cards-container">
                 <view class="card" @click="goTestPage">
                     <image

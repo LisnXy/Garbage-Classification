@@ -33,7 +33,14 @@
                 </view>
             </view>
         </view>
-        <view id="body" class="body" :style="{ 'background-color': bodyColor }">
+        <view
+            id="body"
+            class="body"
+            :style="{
+                'background-color': bodyColor,
+                'background-image': bodyImage
+            }"
+        >
             <view class="cards-swiper" v-if="!searchMode">
                 <swiper
                     :current="currentItem"
@@ -53,7 +60,11 @@
                                 <image
                                     src="../../static/icons/可回收垃圾.png"
                                     mode="aspectFit"
-                                    style="width: 100%; height: 50%"
+                                    style="
+                                        width: 100%;
+                                        height: 50%;
+                                        transform: scale(0.8);
+                                    "
                                 ></image>
                             </view>
                             <view class="swiper-content">
@@ -103,7 +114,7 @@
                         >
                             <view class="swiper-icon">
                                 <image
-                                    src="../../static/icons/其他垃圾.png"
+                                    src="../../static/icons/厨余垃圾.png"
                                     mode="aspectFit"
                                     style="width: 100%; height: 50%"
                                 ></image>
@@ -129,7 +140,7 @@
                         >
                             <view class="swiper-icon">
                                 <image
-                                    src="../../static/icons/厨余垃圾.png"
+                                    src="../../static/icons/其他垃圾.png"
                                     mode="aspectFit"
                                     style="width: 100%; height: 50%"
                                 ></image>
@@ -241,6 +252,7 @@ import axios from '../../static/utils/request.js';
 export default {
     data() {
         return {
+            bodyImage: null,
             selectedCity: '南京市',
             citiesList: [],
             swiperTitles: [
@@ -248,14 +260,14 @@ export default {
                 '厨余垃圾',
                 '有害垃圾',
                 '其他垃圾',
-                '大件垃圾',
+                '大件垃圾'
             ],
             swiperTips: [
                 '可回收物指适宜回收利用和资源化利用的生活废弃物。',
                 '厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。',
                 '有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。',
                 '其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。',
-                '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。',
+                '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。'
             ],
             requirements: ['', '', '', '', ''],
             currentItem: 0,
@@ -268,7 +280,7 @@ export default {
             searchResult: [],
             typeNames: [],
             showResult: false,
-            inputValue: '',
+            inputValue: ''
         };
     },
     methods: {
@@ -301,7 +313,7 @@ export default {
         // 改变初始index为用户默认选中的城市
         getDefaultIndex() {
             const index = this.$data.citiesList.findIndex(
-                (e) => e === this.$data.selectedCity,
+                (e) => e === this.$data.selectedCity
             );
             if (index > 0) {
                 this.$data.defaultIndex = index;
@@ -332,7 +344,7 @@ export default {
         loadCityData() {
             axios
                 .post('/cityinfo/desc', {
-                    cityName: this.selectedCity,
+                    cityName: this.selectedCity
                 })
                 .then((res) => {
                     // 判断该城市是否拥有大件垃圾
@@ -352,7 +364,7 @@ export default {
                     this.requirements = data.map((item) => item.requirement);
                     // 分割字符串
                     this.requirements = this.requirements.map((item) =>
-                        item.split('\n'),
+                        item.split('\n')
                     );
                 });
         },
@@ -360,7 +372,8 @@ export default {
         searchBarFocused() {
             // 隐藏其他部件
             this.searchMode = true;
-            this.bodyColor = '#8ebae5';
+            this.bodyColor = null;
+            this.bodyImage = `linear-gradient(rgba(107, 151, 226, 0.7), rgba(142, 209, 252, 0.7));`;
         },
         // 搜索栏失去焦点
         searchBarBlured(event) {
@@ -368,6 +381,7 @@ export default {
             if (event.target.value.length === 0) {
                 this.searchMode = false;
                 this.bodyColor = this.bodyColors[this.currentItem];
+                this.bodyImage = null;
             }
         },
         // 搜索
@@ -382,7 +396,7 @@ export default {
                 axios
                     .post('/cityinfo/garbagesearch', {
                         cityID: this.cityId,
-                        search: detail.value,
+                        search: detail.value
                     })
                     .then((res) => {
                         this.searchResult = res.data.data;
@@ -397,7 +411,7 @@ export default {
         // 跳转至 Detail 页面
         gotoDetail() {
             uni.navigateTo({
-                url: `../sortInfo_details/sortInfo_details?index=${this.currentItem}`,
+                url: `../sortInfo_details/sortInfo_details?index=${this.currentItem}`
             });
         },
         // 初始化vuex
@@ -405,7 +419,7 @@ export default {
             this.$store.commit('setCityId', this.cityId);
             this.$store.commit('setClasses', this.swiperTitles);
             this.$store.commit('setCityName', this.selectedCity);
-        },
+        }
     },
     // 实时更新Vuex状态
     watch: {
@@ -417,12 +431,12 @@ export default {
         },
         selectedCity(newCity, oldCity) {
             this.$store.commit('setCityName', newCity);
-        },
+        }
     },
     mounted() {
         this.loadData();
         this.initStates();
-    },
+    }
 };
 </script>
 
