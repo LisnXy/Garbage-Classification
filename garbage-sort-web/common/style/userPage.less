@@ -14,6 +14,11 @@ view {
     align-items: center;
 }
 
+.top-20 {
+    position: relative;
+    top: 20px;
+}
+
 .card {
     height: 15vh;
     background-color: #fff;
@@ -22,13 +27,16 @@ view {
     align-items: center;
     justify-content: center;
     image {
-        width: 36px;
-        height: 36px;
+        width: 30px;
+        height: 30px;
+        padding: 12px;
+        border-radius: 6px;
     }
     text {
-        font-size: 1.2rem;
-        margin-left: 1rem;
+        font-size: 1.1rem;
+        margin-left: 0.5rem;
     }
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 
 .user-root {
@@ -51,6 +59,7 @@ view {
 .avatar-container {
     justify-content: center;
     .flex-column();
+    .top-20();
 }
 
 .avatar {
@@ -63,6 +72,7 @@ view {
 .user-name-container {
     justify-content: center;
     .flex-column();
+    .top-20();
 }
 
 .user-name {
@@ -103,4 +113,5 @@ view {
         margin: auto;
         font-size: 1.5rem;
     }
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }

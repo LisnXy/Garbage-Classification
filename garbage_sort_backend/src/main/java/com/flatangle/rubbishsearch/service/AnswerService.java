@@ -73,8 +73,14 @@ public class AnswerService {
     /**
      * 一轮答题结束，更新答题记录
      */
-    public void completeAnswer(int userID, int score, int[] falseRecord) {
+    public void completeAnswer(String userID, int score, int[] falseRecord) {
         AnswerRecord answerRecord = answerRecordMapper.selectById(userID);
+        boolean flag = true;
+
+        if(answerRecord == null){
+            answerRecord = new AnswerRecord(userID);
+            flag = false;
+        }
 
         answerRecord.setScore(answerRecord.getScore()+score);
 
@@ -86,7 +92,11 @@ public class AnswerService {
                 case 4:answerRecord.setOtherFalseCount(answerRecord.getOtherFalseCount() + 1); break;
             }
         }
-        answerRecordMapper.updateById(answerRecord);
+        if(flag)
+            answerRecordMapper.updateById(answerRecord);
+        else{
+            answerRecordMapper.insert(answerRecord);
+        }
     }
 
 

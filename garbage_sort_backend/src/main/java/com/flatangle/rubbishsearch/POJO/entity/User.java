@@ -13,10 +13,18 @@ import lombok.Data;
 public class User {
 
     @TableId(value = "userID")
-    private int userID;
+    private String userID;
 
     private String userName;
 
     private String avatar;
 
+    public User(){
+
+    }
+    public User(String userID, String userName, String avatar) {
+        this.userID = userID;
+        this.userName = userName;
+        this.avatar = avatar;
+    }
 }

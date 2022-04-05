@@ -11,6 +11,10 @@ view.data-v-88efa074 {
   flex-direction: column;
   align-items: center;
 }
+.top-20.data-v-88efa074 {
+  position: relative;
+  top: 20px;
+}
 .card.data-v-88efa074 {
   height: 15vh;
   background-color: #fff;
@@ -18,14 +22,17 @@ view.data-v-88efa074 {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 .card image.data-v-88efa074 {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
+  padding: 12px;
+  border-radius: 6px;
 }
 .card text.data-v-88efa074 {
-  font-size: 1.2rem;
-  margin-left: 1rem;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
 }
 .user-root.data-v-88efa074 {
   width: 100%;
@@ -47,6 +54,8 @@ view.data-v-88efa074 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  top: 20px;
 }
 .avatar.data-v-88efa074 {
   height: 5rem;
@@ -59,6 +68,8 @@ view.data-v-88efa074 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  top: 20px;
 }
 .user-name.data-v-88efa074 {
   font-size: 1.5rem;
@@ -91,6 +102,7 @@ view.data-v-88efa074 {
   background-size: 105% 110%;
   background-color: #b0dffd;
   border-radius: 15px;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 .member-card text.data-v-88efa074 {
   text-align: center;

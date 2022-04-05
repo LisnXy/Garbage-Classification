@@ -23,12 +23,20 @@
             <view class="cards-container">
                 <view class="card" @click="goTestPage">
                     <image
-                        src="../../static/icons/知识问答.png"
+                        src="../../static/icons/问答.svg"
                         mode="scaleToFill"
+                        style="background-color: #f7eff2"
                     ></image>
                     <text>知识问答</text>
                 </view>
-                <view class="card"></view>
+                <view class="card">
+                    <image
+                        src="../../static/icons/商城.svg"
+                        mode="scaleToFill"
+                        style="background-color: #eeeff7"
+                    ></image>
+                    <text>积分商城</text>
+                </view>
             </view>
         </view>
     </view>
