@@ -10,7 +10,7 @@ import com.flatangle.rubbishsearch.common.WechatException;
 import com.flatangle.rubbishsearch.mapper.AnswerRecordMapper;
 import com.flatangle.rubbishsearch.mapper.SearchRecordMapper;
 import com.flatangle.rubbishsearch.mapper.UserMapper;
-import javafx.util.Pair;
+import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -160,11 +160,14 @@ public class UserService {
     private double getSurPassPercent(String userID, double targetScore) {
         List<AnswerRecord> answerRecords = answerRecordMapper.selectList(Wrappers.lambdaQuery());
         List<SearchRecord> searchRecords = searchRecordMapper.selectList(Wrappers.lambdaQuery());
-        List<Pair<String,Double>> rankScores = new ArrayList<>(answerRecords.size());
+        if(answerRecords.size() == 1)
+            return 100.0;
+
+        List<Pair> rankScores = new ArrayList<>(answerRecords.size());
 
         for(int i = 0; i < answerRecords.size(); i++) {
             double rankScore = getRankScore(answerRecords.get(i), searchRecords.get(i));
-            rankScores.add(new Pair<String,Double>(answerRecords.get(i).getUserID(),rankScore));
+            rankScores.add(new Pair(answerRecords.get(i).getUserID(),rankScore));
         }
 
         rankScores = rankScores.stream().sorted(Comparator.comparingDouble(Pair::getValue)).collect(Collectors.toList());
@@ -178,8 +181,8 @@ public class UserService {
             }
             else
                 l = mid + 1;
-
         }
+
         //可能有同分的情况
         while(rankScores.get(l).getValue() == targetScore) {
             if(rankScores.get(l).getKey().equals(userID)){
@@ -224,6 +227,9 @@ public class UserService {
         
         double sum = recycle + harmful + kitchen + other;
 
+        if(sum == 0)
+            return null;
+
         double recyclePercent = new BigDecimal(100 * recycle / sum).setScale(1, RoundingMode.HALF_UP).doubleValue();
         double harmfulPercent = new BigDecimal(100 * harmful / sum).setScale(1, RoundingMode.HALF_UP).doubleValue();
         double kitchenPercent = new BigDecimal(100 * kitchen / sum).setScale(1, RoundingMode.HALF_UP).doubleValue();
@@ -239,4 +245,19 @@ public class UserService {
 
     }
 
+}
+
+@Data
+class Pair {
+    private String key;
+    private double value;
+
+    public Pair() {
+
+    }
+
+    public Pair(String key, double value) {
+        this.key = key;
+        this.value = value;
+    }
 }

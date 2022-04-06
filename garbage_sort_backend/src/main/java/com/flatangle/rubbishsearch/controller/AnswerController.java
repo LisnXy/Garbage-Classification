@@ -27,7 +27,7 @@ public class AnswerController {
         return Result.success(questions);
     }
 
-    @PostMapping
+    @PostMapping("/complete")
     public Result<?> completeAnswer(@RequestBody CompleteAnswerParams completeAnswerParams) {
         answerService.completeAnswer(completeAnswerParams.getUserID(),completeAnswerParams.getScore(),completeAnswerParams.getFalseRecord());
         return Result.success();

@@ -1,5 +1,19 @@
 <template>
     <view class="test-root">
+        <view
+            style="
+                position: absolute;
+                background-color: transparent;
+                top: 50px;
+                left: 20px;
+                height: 40px;
+                weight: 40px;
+                z-index: 100;
+            "
+            @click="back"
+        >
+            <uni-icons type="back" size="40px" color="#FAFAFA"></uni-icons>
+        </view>
         <view class="test-header">
             <image src="../../static/image/test-bg.svg" mode=""></image>
         </view>
@@ -165,6 +179,10 @@ export default {
                 .catch((err) => {
                     console.log(err);
                 });
+        },
+        // 返回上一页
+        back() {
+            uni.navigateBack();
         }
     },
     computed: {

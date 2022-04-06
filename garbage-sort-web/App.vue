@@ -3,6 +3,7 @@ import { mapMutations } from 'vuex';
 import { version } from './package.json';
 import checkUpdate from '@/uni_modules/uni-upgrade-center-app/utils/check-update';
 import axios from './static/utils/request.js';
+
 export default {
     onLaunch: function () {
         // #ifdef H5
@@ -46,24 +47,8 @@ export default {
                 // 设置用户信息
                 if (res.userInfo) {
                     this.$store.dispatch('user/setUser', res.userInfo);
+                    this.login();
                 }
-            }
-        });
-        // 获得openid
-        wx.login({
-            success: (res) => {
-                axios
-                    .post('/user/login', {
-                        code: res.code,
-                        userName: this.$store.state.user.nickName,
-                        avatar: this.$store.state.user.avatarUrl
-                    })
-                    .then((res) => {
-                        this.$store.commit(
-                            'user/setOpenId',
-                            res.data.data.openid
-                        );
-                    });
             }
         });
     },
@@ -75,7 +60,26 @@ export default {
         test: ''
     },
     methods: {
-        ...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin'])
+        ...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin']),
+        login() {
+            wx.login({
+                success: (res) => {
+                    axios
+                        .post('/user/login', {
+                            code: res.code,
+                            userName: this.$store.state.user.nickName,
+                            avatar: this.$store.state.user.avatarUrl
+                        })
+                        .then((res) => {
+                            this.$store.commit(
+                                'user/setOpenId',
+                                res.data.data.openid
+                            );
+                            uni.$emit('loginSuccess');
+                        });
+                }
+            });
+        }
     }
 };
 </script>
@@ -119,7 +123,7 @@ uni-page-body {
 page {
     background-color: #efeff4;
     height: 100%;
-    font-size: 28rpx;
+    font-size: 28 rpx;
     /* line-height: 1.8; */
 }
 
@@ -128,11 +132,11 @@ page {
 }
 
 .uni-header-logo {
-    padding: 30rpx;
+    padding: 30 rpx;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10rpx;
+    margin-top: 10 rpx;
 }
 
 .uni-header-image {
@@ -146,11 +150,11 @@ page {
 
 .uni-hello-addfile {
     text-align: center;
-    line-height: 300rpx;
+    line-height: 300 rpx;
     background: #fff;
-    padding: 50rpx;
+    padding: 50 rpx;
     margin-top: 10px;
-    font-size: 38rpx;
+    font-size: 38 rpx;
     color: #808080;
 }
 

@@ -44,6 +44,15 @@
                 "navigationStyle": "custom"
             }
         }
+        ,{
+            "path" : "pages/blank/blank",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "usingComponents": {
@@ -64,7 +73,7 @@
                 "text": "主页"
             },
             {
-                "pagePath": "pages/sortTest/sortTest",
+                "pagePath": "pages/blank/blank",
                 "iconPath": "static/icons/Search_off.png",
                 "selectedIconPath": "static/icons/Search_on.png",
                 "text": "搜索"

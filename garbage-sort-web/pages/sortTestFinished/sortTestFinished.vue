@@ -1,5 +1,19 @@
 <template>
     <view class="finished-root">
+        <view
+            style="
+                position: absolute;
+                background-color: transparent;
+                top: 50px;
+                left: 20px;
+                height: 40px;
+                weight: 40px;
+                z-index: 100;
+            "
+            @click="back"
+        >
+            <uni-icons type="back" size="40px" color="#FAFAFA"></uni-icons>
+        </view>
         <view class="finished-header">
             <image
                 src="../../static/image/test-bg2.svg"
@@ -133,6 +147,10 @@ export default {
             uni.redirectTo({
                 url: '../sortTest/sortTest'
             });
+        },
+        // 返回页面
+        back() {
+            uni.navigateBack();
         }
     },
     mounted() {

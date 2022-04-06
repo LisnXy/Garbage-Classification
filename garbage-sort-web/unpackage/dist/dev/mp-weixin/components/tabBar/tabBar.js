@@ -148,6 +148,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   name: 'tabBar',
@@ -156,20 +166,20 @@ var _default =
       list: [
       {
         pagePath: '../../pages/sortInfo_home/sortInfo_home',
-        iconPath: '../../static/icons/home_off.png',
-        selectedIconPath: '../../static/icons/home_on.png',
+        iconPath: '../../static/icons/home_off.svg',
+        selectedIconPath: '../../static/icons/home_on.svg',
         text: '主页' },
 
       {
-        pagePath: '../../pages/sortInfo_home/sortInfo_home',
-        iconPath: '../../static/icons/Search_off.png',
-        selectedIconPath: '../../static/icons/Search_on.png',
+        pagePath: '../../pages/blank/blank',
+        iconPath: '../../static/icons/Search_off.svg',
+        selectedIconPath: '../../static/icons/Search_on.svg',
         text: '搜索' },
 
       {
         pagePath: '../../pages/userPage/userPage',
-        iconPath: '../../static/icons/user_off.png',
-        selectedIconPath: '../../static/icons/account_on.png',
+        iconPath: '../../static/icons/user_off.svg',
+        selectedIconPath: '../../static/icons/account_on.svg',
         text: '个人中心' }] };
 
 

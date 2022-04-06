@@ -1,0 +1,1 @@
+<view><tab-bar style="position:absolute;bottom:0;width:100%;" vue-id="29d0ead4-1" selected-index="{{1}}" bind:__l="__l"></tab-bar></view>

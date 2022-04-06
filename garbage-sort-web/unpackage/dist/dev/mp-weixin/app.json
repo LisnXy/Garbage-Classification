@@ -1,49 +1,49 @@
 {
-    "pages": [
-        "pages/sortInfo_home/sortInfo_home",
-        "pages/userPage/userPage",
-        "pages/sortTest/sortTest",
-        "pages/sortTestFinished/sortTestFinished",
-        "pages/sortInfo_details/sortInfo_details"
-    ],
-    "subPackages": [],
-    "window": {
-        "navigationStyle": "default"
-    },
-    "tabBar": {
-        "custom": true,
-        "color": "#000",
-        "selectedColor": "#395A98",
-        "backgroundColor": "#FFF",
-        "list": [
-            {
-                "pagePath": "pages/sortInfo_home/sortInfo_home",
-                "iconPath": "static/icons/home_off.png",
-                "selectedIconPath": "static/icons/home_on.png",
-                "text": "主页"
-            },
-            {
-                "pagePath": "pages/sortTest/sortTest",
-                "iconPath": "static/icons/Search_off.png",
-                "selectedIconPath": "static/icons/Search_on.png",
-                "text": "搜索"
-            },
-            {
-                "pagePath": "pages/userPage/userPage",
-                "iconPath": "static/icons/user_off.png",
-                "selectedIconPath": "static/icons/account_on.png",
-                "text": "个人中心"
-            }
-        ]
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "演示定位能力"
-        }
-    },
-    "usingComponents": {
-        "van-picker": "/wxcomponents/vant/dist/picker/index",
-        "tab-bar": "/components/tabBar/tabBar"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/sortInfo_home/sortInfo_home",
+    "pages/userPage/userPage",
+    "pages/sortTest/sortTest",
+    "pages/sortTestFinished/sortTestFinished",
+    "pages/sortInfo_details/sortInfo_details",
+    "pages/blank/blank"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000",
+    "selectedColor": "#395A98",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/sortInfo_home/sortInfo_home",
+        "iconPath": "static/icons/home_off.png",
+        "selectedIconPath": "static/icons/home_on.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/blank/blank",
+        "iconPath": "static/icons/Search_off.png",
+        "selectedIconPath": "static/icons/Search_on.png",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/userPage/userPage",
+        "iconPath": "static/icons/user_off.png",
+        "selectedIconPath": "static/icons/account_on.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  },
+  "usingComponents": {
+    "van-picker": "/wxcomponents/vant/dist/picker/index",
+    "tab-bar": "/components/tabBar/tabBar"
+  }
 }

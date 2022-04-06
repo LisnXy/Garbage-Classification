@@ -20,7 +20,7 @@ view {
 }
 
 .card {
-    height: 15vh;
+    height: 10vh;
     background-color: #fff;
     border-radius: 12px;
     display: flex;
@@ -102,23 +102,60 @@ view {
 
 .member-card {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     width: 90%;
     background-image: url('../../static/image/member-card-bg.png');
     background-repeat: no-repeat;
     background-size: 105% 110%;
     background-color: #b0dffd;
     border-radius: 15px;
-    text {
-        text-align: center;
-        margin: auto;
-        font-size: 1.5rem;
-    }
     box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 }
 
 .chart-container {
     grid-column-start: 1;
     grid-column-end: 3;
-    height: 20vh;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.chart {
+    height: 90%;
+    width: 80%;
+}
+
+.chart-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7px;
+    text {
+        font-size: 0.9rem;
+    }
+}
+
+.main-line {
+    display: flex;
+    justify-content: space-between;
+    text {
+        text-align: center;
+        margin: auto;
+        font-size: 1.5rem;
+    }
+}
+
+.sub-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text {
+        font-size: 0.8rem;
+        margin: auto;
+        text-align: center;
+    }
 }

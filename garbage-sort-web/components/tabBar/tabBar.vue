@@ -1,7 +1,11 @@
 <template>
     <view class="tabBar-root">
         <view class="tabBar-item" @click="switchTab(0)">
-            <image :src="iconPath(0)" mode="scaleToFill"></image>
+            <image
+                :src="iconPath(0)"
+                mode="scaleToFill"
+                class="aside-image"
+            ></image>
             <text>主页</text>
         </view>
         <view class="tabBar-item" @click="switchTab(1)">
@@ -10,10 +14,16 @@
                 mode="scaleToFill"
                 class="mid-btn"
             ></image>
-            <text style="z-index: 2000">搜索</text>
+            <text style="z-index: 2000; position: relative; top: 2vh">
+                搜索
+            </text>
         </view>
         <view class="tabBar-item" @click="switchTab(2)">
-            <image :src="iconPath(2)" mode="scaleToFill"></image>
+            <image
+                :src="iconPath(2)"
+                mode="scaleToFill"
+                class="aside-image"
+            ></image>
             <text>个人中心</text>
         </view>
     </view>
@@ -27,20 +37,20 @@ export default {
             list: [
                 {
                     pagePath: '../../pages/sortInfo_home/sortInfo_home',
-                    iconPath: '../../static/icons/home_off.png',
-                    selectedIconPath: '../../static/icons/home_on.png',
+                    iconPath: '../../static/icons/home_off.svg',
+                    selectedIconPath: '../../static/icons/home_on.svg',
                     text: '主页'
                 },
                 {
-                    pagePath: '../../pages/sortInfo_home/sortInfo_home',
-                    iconPath: '../../static/icons/Search_off.png',
-                    selectedIconPath: '../../static/icons/Search_on.png',
+                    pagePath: '../../pages/blank/blank',
+                    iconPath: '../../static/icons/Search_off.svg',
+                    selectedIconPath: '../../static/icons/Search_on.svg',
                     text: '搜索'
                 },
                 {
                     pagePath: '../../pages/userPage/userPage',
-                    iconPath: '../../static/icons/user_off.png',
-                    selectedIconPath: '../../static/icons/account_on.png',
+                    iconPath: '../../static/icons/user_off.svg',
+                    selectedIconPath: '../../static/icons/account_on.svg',
                     text: '个人中心'
                 }
             ]
@@ -88,8 +98,8 @@ export default {
     align-items: center;
     justify-content: center;
     image {
-        width: 36px;
-        height: 36px;
+        width: 33px;
+        height: 33px;
     }
     text {
         display: block;
@@ -103,6 +113,11 @@ export default {
     position: absolute;
     bottom: 40%;
     background-color: #fff;
-    padding: 1rem;
+    padding: 0.7rem;
+}
+
+.aside-image {
+    position: relative;
+    bottom: 10px;
 }
 </style>

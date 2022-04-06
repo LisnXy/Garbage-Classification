@@ -15,9 +15,13 @@
         <view class="user-body">
             <view class="member-card-container">
                 <view class="member-card">
-                    <text>我的积分</text>
-                    <!--TODO 绑定变量-->
-                    <text style="font-weight: 700">1234</text>
+                    <view class="main-line">
+                        <text>我的积分</text>
+                        <text style="font-weight: 700">{{ score }}</text>
+                    </view>
+                    <view class="sub-line">
+                        <text>您的表现超过了{{ percentage }}%的用户</text>
+                    </view>
                 </view>
             </view>
             <view class="cards-container">
@@ -38,11 +42,20 @@
                     <text>积分商城</text>
                 </view>
                 <view class="card chart-container">
-                    <qiun-data-charts
-                        type="pie"
-                        :chartData="pieData"
-                        style="height: 90%"
-                    />
+                    <view class="chart">
+                        <qiun-data-charts
+                            type="pie"
+                            :chartData="pieData"
+                            style="height: 100%; width: 100%"
+                        />
+                    </view>
+                    <view class="chart-caption">
+                        <text>
+                            你对
+                            <text>{{ weak }}</text>
+                            的了解较弱
+                        </text>
+                    </view>
                 </view>
             </view>
         </view>
@@ -57,28 +70,15 @@
 import axios from '../../static/utils/request.js';
 
 export default {
+    components: {},
+
     data() {
         return {
             pieData: {
-                series: [
-                    {
-                        name: '一班',
-                        data: 50
-                    },
-                    {
-                        name: '二班',
-                        data: 30
-                    },
-                    {
-                        name: '三班',
-                        data: 20
-                    },
-                    {
-                        name: '四班',
-                        data: 18
-                    }
-                ]
-            }
+                series: []
+            },
+            score: '',
+            percentage: ''
         };
     },
     methods: {
@@ -89,6 +89,66 @@ export default {
             uni.navigateTo({
                 url: '../sortTest/sortTest'
             });
+        },
+        /**
+         * 接收参数，修改数据
+         */
+        setData(data) {
+            this.score = data.score;
+            this.percentage = data.surpassPercent;
+            this.pieData.series = Object.keys(data.recordInfo).map((item) => {
+                return {
+                    name: this.mapName(item),
+                    data: data.recordInfo[item]
+                };
+            });
+        },
+        /**
+         * 获得数据
+         */
+        getData() {
+            axios
+                .get('/user/userInfo', {
+                    params: {
+                        openID: this.$store.state.user.openId
+                    }
+                })
+                .then((res) => {
+                    this.setData(res.data.data);
+                })
+                .catch((err) => {
+                    setTimeout(() => {
+                        this.getData();
+                    }, 500);
+                });
+        },
+        /**
+         * 名称映射，用于 setData
+         */
+        mapName(name) {
+            switch (name) {
+                case 'otherPercent':
+                    return '其他垃圾';
+                case 'harmfulPercent':
+                    return '有害垃圾';
+                case 'recyclePercent':
+                    return '可回收垃圾';
+                case 'kitchenPercent':
+                    return '厨余垃圾';
+                default:
+                    return null;
+            }
+        },
+        weak() {
+            if (!this.pieData.series.length) {
+                let weakItem = this.pieData.series[0];
+                for (const item of this.pieData.series) {
+                    if (item.data >= weakItem.data) {
+                        weakItem = item;
+                    }
+                }
+                return weakItem.name;
+            }
         }
     },
     computed: {
@@ -109,15 +169,7 @@ export default {
     },
     // TODO 处理后续的数据
     onShow() {
-        axios
-            .get('/user/userInfo', {
-                params: {
-                    openID: this.$store.state.user.openId
-                }
-            })
-            .then((res) => {
-                console.log(res.data);
-            });
+        this.getData();
     }
 };
 </script>
