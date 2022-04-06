@@ -43,13 +43,14 @@
                 "enablePullDownRefresh": false,
                 "navigationStyle": "custom"
             }
-        }
-        ,{
-            "path" : "pages/blank/blank",
+        },
+        {
+            "path" : "pages/upload_photo/uploadphototest",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "图片上传",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -71,7 +72,7 @@
                 "text": "主页"
             },
             {
-                "pagePath": "pages/blank/blank",
+                "pagePath": "pages/upload_photo/uploadphototest",
                 "text": "搜索"
             },
             {

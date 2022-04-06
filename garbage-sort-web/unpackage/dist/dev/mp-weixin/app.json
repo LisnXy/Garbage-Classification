@@ -1,44 +1,43 @@
 {
-    "pages": [
-        "pages/sortInfo_home/sortInfo_home",
-        "pages/userPage/userPage",
-        "pages/sortTest/sortTest",
-        "pages/sortTestFinished/sortTestFinished",
-        "pages/sortInfo_details/sortInfo_details",
-        "pages/blank/blank"
-    ],
-    "subPackages": [],
-    "window": {
-        "navigationStyle": "default"
-    },
-    "tabBar": {
-        "custom": true,
-        "color": "#000",
-        "selectedColor": "#395A98",
-        "backgroundColor": "#FFF",
-        "list": [
-            {
-                "pagePath": "pages/sortInfo_home/sortInfo_home",
-                "text": "主页"
-            },
-            {
-                "pagePath": "pages/blank/blank",
-                "text": "搜索"
-            },
-            {
-                "pagePath": "pages/userPage/userPage",
-                "text": "个人中心"
-            }
-        ]
-    },
-    "permission": {
-        "scope.userLocation": {
-            "desc": "演示定位能力"
-        }
-    },
-    "usingComponents": {
-        "van-picker": "/wxcomponents/vant/dist/picker/index",
-        "tab-bar": "/components/tabBar/tabBar"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/sortInfo_home/sortInfo_home",
+    "pages/userPage/userPage",
+    "pages/sortTest/sortTest",
+    "pages/sortTestFinished/sortTestFinished",
+    "pages/sortInfo_details/sortInfo_details",
+    "pages/upload_photo/uploadphototest"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000",
+    "selectedColor": "#395A98",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/sortInfo_home/sortInfo_home",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/upload_photo/uploadphototest",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/userPage/userPage",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  },
+  "usingComponents": {
+    "van-picker": "/wxcomponents/vant/dist/picker/index",
+    "tab-bar": "/components/tabBar/tabBar"
+  }
 }
