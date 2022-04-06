@@ -75,13 +75,6 @@ public class AnswerService {
      */
     public void completeAnswer(String userID, int score, int[] falseRecord) {
         AnswerRecord answerRecord = answerRecordMapper.selectById(userID);
-        boolean flag = true;
-
-        if(answerRecord == null){
-            answerRecord = new AnswerRecord(userID);
-            flag = false;
-        }
-
         answerRecord.setScore(answerRecord.getScore()+score);
 
         for(int i : falseRecord) {
@@ -92,11 +85,8 @@ public class AnswerService {
                 case 4:answerRecord.setOtherFalseCount(answerRecord.getOtherFalseCount() + 1); break;
             }
         }
-        if(flag)
-            answerRecordMapper.updateById(answerRecord);
-        else{
-            answerRecordMapper.insert(answerRecord);
-        }
+        answerRecordMapper.updateById(answerRecord);
+
     }
 
 

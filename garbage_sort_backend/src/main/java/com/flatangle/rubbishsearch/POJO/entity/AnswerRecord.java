@@ -28,7 +28,12 @@ public class AnswerRecord {
 
     }
 
-    public AnswerRecord(String userID) {
+    public AnswerRecord(String userID, int recycleFalseCount, int harmfulFalseCount, int kitchenFalseCount, int otherFalseCount, int score) {
         this.userID = userID;
+        this.recycleFalseCount = recycleFalseCount;
+        this.harmfulFalseCount = harmfulFalseCount;
+        this.kitchenFalseCount = kitchenFalseCount;
+        this.otherFalseCount = otherFalseCount;
+        this.score = score;
     }
 }
