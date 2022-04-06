@@ -20,7 +20,9 @@
                         <text style="font-weight: 700">{{ score }}</text>
                     </view>
                     <view class="sub-line">
-                        <text>您的表现超过了{{ percentage }}%的用户</text>
+                        <text>
+                            您对垃圾分类知识的了解超过了{{ percentage }}%的用户
+                        </text>
                     </view>
                 </view>
             </view>
@@ -42,16 +44,27 @@
                     <text>积分商城</text>
                 </view>
                 <view class="card chart-container">
-                    <view class="chart">
+                    <view class="empty" v-if="!renderChart">
+                        <image src="../../static/image/empty.svg"></image>
+                        <text>暂无统计数据</text>
+                    </view>
+                    <view class="chart" v-if="renderChart">
                         <qiun-data-charts
                             type="pie"
                             :chartData="pieData"
                             style="height: 100%; width: 100%"
                         />
                     </view>
-                    <view class="chart-caption">
+                    <view class="chart-caption" v-if="renderChart">
                         <text>
-                            你对<text :style="{color:weakColor}" style="margin:0 0.5rem;">{{ weakItem }}</text>的了解较弱
+                            你对
+                            <text
+                                :style="{ color: weakColor }"
+                                style="margin: 0 0.5rem"
+                            >
+                                {{ weakItem }}
+                            </text>
+                            的了解较弱
                         </text>
                     </view>
                 </view>
@@ -78,6 +91,7 @@ export default {
             score: '',
             percentage: '',
             weakItem: '',
+            renderChart: true
         };
     },
     methods: {
@@ -95,13 +109,20 @@ export default {
         setData(data) {
             this.score = data.score;
             this.percentage = data.surpassPercent;
-            this.pieData.series = Object.keys(data.recordInfo).map((item) => {
-                return {
-                    name: this.mapName(item),
-                    data: data.recordInfo[item]
-                };
-            });
             this.weakItem = this.findWeak();
+            // 判断是否有数据
+            if (data.recordInfo) {
+                this.pieData.series = Object.keys(data.recordInfo).map(
+                    (item) => {
+                        return {
+                            name: this.mapName(item),
+                            data: data.recordInfo[item]
+                        };
+                    }
+                );
+            } else {
+                this.renderChart = false;
+            }
         },
         /**
          * 获得数据
@@ -171,12 +192,16 @@ export default {
             return this.$store.state.user.nickName;
         },
 
-        weakColor(){
-            switch(this.weakItem){
-                case "有害垃圾":return '#e97a7a';
-                case "可回收垃圾":return "#6b9ffe";
-                case "厨余垃圾":return "#82e0ac";
-                default:return '#adc8c8';
+        weakColor() {
+            switch (this.weakItem) {
+                case '有害垃圾':
+                    return '#e97a7a';
+                case '可回收垃圾':
+                    return '#6b9ffe';
+                case '厨余垃圾':
+                    return '#82e0ac';
+                default:
+                    return '#adc8c8';
             }
         }
     },
