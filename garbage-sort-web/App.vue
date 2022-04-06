@@ -47,8 +47,10 @@ export default {
                 // 设置用户信息
                 if (res.userInfo) {
                     this.$store.dispatch('user/setUser', res.userInfo);
-                    this.login();
                 }
+            },
+            complete:()=>{
+                this.login();
             }
         });
     },

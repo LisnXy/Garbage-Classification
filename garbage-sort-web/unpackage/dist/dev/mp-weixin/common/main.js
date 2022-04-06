@@ -175,8 +175,10 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
         // 设置用户信息
         if (res.userInfo) {
           _this.$store.dispatch('user/setUser', res.userInfo);
-          _this.login();
         }
+      },
+      complete: function complete() {
+        _this.login();
       } });
 
   },
