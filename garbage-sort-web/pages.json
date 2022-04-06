@@ -68,20 +68,14 @@
         "list": [
             {
                 "pagePath": "pages/sortInfo_home/sortInfo_home",
-                "iconPath": "static/icons/home_off.png",
-                "selectedIconPath": "static/icons/home_on.png",
                 "text": "主页"
             },
             {
                 "pagePath": "pages/blank/blank",
-                "iconPath": "static/icons/Search_off.png",
-                "selectedIconPath": "static/icons/Search_on.png",
                 "text": "搜索"
             },
             {
                 "pagePath": "pages/userPage/userPage",
-                "iconPath": "static/icons/user_off.png",
-                "selectedIconPath": "static/icons/account_on.png",
                 "text": "个人中心"
             }
         ]

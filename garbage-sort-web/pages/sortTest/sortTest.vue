@@ -23,7 +23,6 @@
                     <text>{{ itemIndex }}</text>
                     /10
                 </text>
-                <!-- @todo 绑定query-body-->
                 <text class="query-body">
                     <text class="query-item">
                         {{ currentItem.garbageName }}

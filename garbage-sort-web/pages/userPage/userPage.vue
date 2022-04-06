@@ -51,9 +51,7 @@
                     </view>
                     <view class="chart-caption">
                         <text>
-                            你对
-                            <text>{{ weak }}</text>
-                            的了解较弱
+                            你对<text :style="{color:weakColor}" style="margin:0 0.5rem;">{{ weakItem }}</text>的了解较弱
                         </text>
                     </view>
                 </view>
@@ -78,7 +76,8 @@ export default {
                 series: []
             },
             score: '',
-            percentage: ''
+            percentage: '',
+            weakItem: '',
         };
     },
     methods: {
@@ -102,6 +101,7 @@ export default {
                     data: data.recordInfo[item]
                 };
             });
+            this.weakItem = this.findWeak();
         },
         /**
          * 获得数据
@@ -139,8 +139,12 @@ export default {
                     return null;
             }
         },
-        weak() {
-            if (!this.pieData.series.length) {
+        /**
+         * 找到数值最大的垃圾类别
+         * @returns {String} 垃圾类别名称
+         */
+        findWeak() {
+            if (this.pieData.series.length) {
                 let weakItem = this.pieData.series[0];
                 for (const item of this.pieData.series) {
                     if (item.data >= weakItem.data) {
@@ -165,9 +169,17 @@ export default {
          */
         userName() {
             return this.$store.state.user.nickName;
+        },
+
+        weakColor(){
+            switch(this.weakItem){
+                case "有害垃圾":return '#e97a7a';
+                case "可回收垃圾":return "#6b9ffe";
+                case "厨余垃圾":return "#82e0ac";
+                default:return '#adc8c8';
+            }
         }
     },
-    // TODO 处理后续的数据
     onShow() {
         this.getData();
     }

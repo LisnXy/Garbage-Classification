@@ -130,7 +130,7 @@ view.data-v-88efa074 {
 }
 .main-line.data-v-88efa074 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .main-line text.data-v-88efa074 {
   text-align: center;
@@ -147,5 +147,6 @@ view.data-v-88efa074 {
   font-size: 0.8rem;
   margin: auto;
   text-align: center;
+  color: #596666;
 }
 
