@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    qiunDataCharts: function() {
+      return Promise.all(/*! import() | uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts")]).then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-data-charts/qiun-data-charts.vue */ 221))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -131,6 +154,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -219,15 +253,26 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
 //
 //
 //
-var _default = { data: function data() {return {};}, methods: { /**
-                                                                 * 跳转到测试页面
-                                                                 */goTestPage: function goTestPage() {uni.navigateTo({ url: '../sortTest/sortTest' });} }, computed: { /**
-                                                                                                                                                                        * @description 返回用户的头像URL
-                                                                                                                                                                        * @returns {String} 用户头像url
-                                                                                                                                                                        */avatarUrl: function avatarUrl() {return this.$store.state.user.avatarUrl;}, /**
-                                                                                                                                                                                                                                                       * @description 返回用户昵称
-                                                                                                                                                                                                                                                       * @returns {String} 用户昵称
-                                                                                                                                                                                                                                                       */userName: function userName() {return this.$store.state.user.nickName;} }, // TODO 处理后续的数据
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { pieData: { series: [{ name: '一班', data: 50 }, { name: '二班', data: 30 }, { name: '三班', data: 20 }, { name: '四班', data: 18 }] } };}, methods: { /**
+                                                                                                                                                                                                * 跳转到测试页面
+                                                                                                                                                                                                */goTestPage: function goTestPage() {uni.navigateTo({ url: '../sortTest/sortTest' });} }, computed: { /**
+                                                                                                                                                                                                                                                                                                       * @description 返回用户的头像URL
+                                                                                                                                                                                                                                                                                                       * @returns {String} 用户头像url
+                                                                                                                                                                                                                                                                                                       */avatarUrl: function avatarUrl() {return this.$store.state.user.avatarUrl;}, /**
+                                                                                                                                                                                                                                                                                                                                                                                      * @description 返回用户昵称
+                                                                                                                                                                                                                                                                                                                                                                                      * @returns {String} 用户昵称
+                                                                                                                                                                                                                                                                                                                                                                                      */userName: function userName() {return this.$store.state.user.nickName;} }, // TODO 处理后续的数据
   onShow: function onShow() {_request.default.get('/user/userInfo', { params: { openID: this.$store.state.user.openId } }).then(function (res) {console.log(res.data);});} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -37,16 +37,49 @@
                     ></image>
                     <text>积分商城</text>
                 </view>
+                <view class="card chart-container">
+                    <qiun-data-charts
+                        type="pie"
+                        :chartData="pieData"
+                        style="height: 90%"
+                    />
+                </view>
             </view>
         </view>
+        <tab-bar
+            :selected-index="2"
+            style="width: 100%; position: absolute; bottom: 0"
+        ></tab-bar>
     </view>
 </template>
 
 <script>
 import axios from '../../static/utils/request.js';
+
 export default {
     data() {
-        return {};
+        return {
+            pieData: {
+                series: [
+                    {
+                        name: '一班',
+                        data: 50
+                    },
+                    {
+                        name: '二班',
+                        data: 30
+                    },
+                    {
+                        name: '三班',
+                        data: 20
+                    },
+                    {
+                        name: '四班',
+                        data: 18
+                    }
+                ]
+            }
+        };
     },
     methods: {
         /**

@@ -1,5 +1,6 @@
 import App from './App';
 import store from './store';
+import tabBar from './components/tabBar/tabBar';
 
 // #ifndef VUE3
 import Vue from 'vue';
@@ -9,12 +10,13 @@ Vue.prototype.$adpid = '1111111111';
 Vue.prototype.$backgroundAudioData = {
     playing: false,
     playTime: 0,
-    formatedPlayTime: '00:00:00',
+    formatedPlayTime: '00:00:00'
 };
+Vue.component('tabBar', tabBar);
 App.mpType = 'app';
 const app = new Vue({
     store,
-    ...App,
+    ...App
 });
 app.$mount();
 // #endif
@@ -28,10 +30,10 @@ export function createApp() {
     app.config.globalProperties.$backgroundAudioData = {
         playing: false,
         playTime: 0,
-        formatedPlayTime: '00:00:00',
+        formatedPlayTime: '00:00:00'
     };
     return {
-        app,
+        app
     };
 }
 // #endif

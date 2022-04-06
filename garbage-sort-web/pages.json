@@ -52,6 +52,7 @@
         "navigationStyle": "default"
     },
     "tabBar": {
+        "custom": true,
         "color": "#000",
         "selectedColor": "#395A98",
         "backgroundColor": "#FFF",
@@ -60,6 +61,12 @@
                 "pagePath": "pages/sortInfo_home/sortInfo_home",
                 "iconPath": "static/icons/home_off.png",
                 "selectedIconPath": "static/icons/home_on.png",
+                "text": "主页"
+            },
+            {
+                "pagePath": "pages/sortTest/sortTest",
+                "iconPath": "static/icons/Search_off.png",
+                "selectedIconPath": "static/icons/Search_on.png",
                 "text": "搜索"
             },
             {

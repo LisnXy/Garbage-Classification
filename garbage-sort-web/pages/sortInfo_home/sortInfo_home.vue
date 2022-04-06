@@ -244,6 +244,7 @@
                 </view>
             </view>
         </uni-popup>
+        <tab-bar :selected-index="0"></tab-bar>
     </view>
 </template>
 

@@ -5,57 +5,104 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2f461ee-a654-4755-a030-762b4e98ba44" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__com_alibaba_fastjson_1_2_80.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/icons/商城.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/icons/问答.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/商城.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/商城.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/问答.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/问答.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__com_usthe_sureness_sureness_core_1_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_11_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_11_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_11_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/tabBar/tabBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/component/Echart/src/echarts.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/component/Echart/src/wx-canvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/components/Echart/src/echarts.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/components/mpvue-echarts/src/echarts.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/components/tabBar/tabBar.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/node-modules/mpvue-echarts/src/echarts.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/components/tabBar/tabBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/components/tabBar/tabBar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/components/tabBar/tabBar.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/components/tabBar/tabBar.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/style/userPage.less" beforeDir="false" afterPath="$PROJECT_DIR$/common/style/userPage.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/sortInfo_home/sortInfo_home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sortInfo_home/sortInfo_home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/userPage/userPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/userPage/userPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/badge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/calendar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/card.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/collapse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/color.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/combox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/countdown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/data-checkbox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/data-picker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/dateformat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/datetime-picker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/drawer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/fab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/fav.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons/file-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/forms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/space.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/steps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/swipe-action.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/swiper-dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/tabbar-search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/tabbar-user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/tag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons/transition.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/runtime.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/runtime.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/common/vendor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortInfo_details/sortInfo_details.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortInfo_details/sortInfo_details.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortInfo_home/sortInfo_home.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortInfo_home/sortInfo_home.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTest/sortTest.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTest/sortTest.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTestFinished/sortTestFinished.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/sortTestFinished/sortTestFinished.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/userPage/userPage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/pages/userPage/userPage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-badge/components/uni-badge/uni-badge.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-badge/components/uni-badge/uni-badge.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-icons/components/uni-icons/uni-icons.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-icons/components/uni-icons/uni-icons.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-list/components/uni-list-item/uni-list-item.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-list/components/uni-list-item/uni-list-item.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-list/components/uni-list/uni-list.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-list/components/uni-list/uni-list.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-popup/components/uni-popup/uni-popup.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-popup/components/uni-popup/uni-popup.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-title/components/uni-title/uni-title.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/.sourcemap/mp-weixin/uni_modules/uni-title/components/uni-title/uni-title.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/runtime.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/runtime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/common/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_details/sortInfo_details.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_details/sortInfo_details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_home/sortInfo_home.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_home/sortInfo_home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_home/sortInfo_home.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortInfo_home/sortInfo_home.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortTestFinished/sortTestFinished.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/sortTestFinished/sortTestFinished.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.json" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/pages/userPage/userPage.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/AnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/java/com/flatangle/rubbishsearch/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/badge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/calendar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/collapse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/color.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/combox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/countdown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/data-checkbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/data-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/dateformat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/datetime-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/drawer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/fab.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/fav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/file-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/forms.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/space.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/steps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/swipe-action.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/swiper-dot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/tabbar-search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/tabbar-user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/tag.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/transition.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/商城.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/static/icons/问答.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-badge/components/uni-badge/uni-badge.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-badge/components/uni-badge/uni-badge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-icons/components/uni-icons/uni-icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-icons/components/uni-icons/uni-icons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-list/components/uni-list-item/uni-list-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-list/components/uni-list-item/uni-list-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-list/components/uni-list/uni-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-list/components/uni-list/uni-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-nav-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-popup/components/uni-popup/uni-popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-popup/components/uni-popup/uni-popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-title/components/uni-title/uni-title.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-title/components/uni-title/uni-title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-transition/components/uni-transition/uni-transition.js" beforeDir="false" afterPath="$PROJECT_DIR$/unpackage/dist/dev/mp-weixin/uni_modules/uni-transition/components/uni-transition/uni-transition.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/AnswerRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/CompleteAnswerParams.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/MultiFileContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/POJO/params/MultiFileContainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/controller/FileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/AnswerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/AnswerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/GetLabelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../garbage_sort_backend/target/classes/com/flatangle/rubbishsearch/service/GetLabelService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +113,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Less File" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
         <option value="Prettier Config" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -100,7 +147,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\win\AppData\Roaming\npm\node_modules\prettier" />
@@ -109,10 +156,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\common" />
+      <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\components" />
+      <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\pages\component\Echart" />
       <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\icons" />
       <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\common" />
       <recent name="C:\Users\win\Desktop\repository\Garbage-Classification\garbage-sort-web\static\icons" />
     </key>
   </component>
@@ -155,6 +206,8 @@
       <workItem from="1648958126022" duration="10523000" />
       <workItem from="1649055895387" duration="6324000" />
       <workItem from="1649143518890" duration="4146000" />
+      <workItem from="1649150186210" duration="2102000" />
+      <workItem from="1649214934274" duration="12712000" />
     </task>
     <servers />
   </component>
