@@ -42,7 +42,7 @@ export default {
                     text: '主页'
                 },
                 {
-                    pagePath: '../../pages/blank/blank',
+                    pagePath: '../../pages/upload_photo/uploadphototest',
                     iconPath: '../../static/icons/Search_off.svg',
                     selectedIconPath: '../../static/icons/Search_on.svg',
                     text: '搜索'
