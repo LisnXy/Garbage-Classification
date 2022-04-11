@@ -19,6 +19,7 @@ const app = new Vue({
     ...App
 });
 app.$mount();
+console.log(document);
 // #endif
 
 // #ifdef VUE3

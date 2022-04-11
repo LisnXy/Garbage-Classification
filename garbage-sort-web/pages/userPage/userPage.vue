@@ -120,6 +120,7 @@ export default {
                         };
                     }
                 );
+				this.renderChart = true;
             } else {
                 this.renderChart = false;
             }

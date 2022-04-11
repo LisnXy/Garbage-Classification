@@ -437,7 +437,10 @@ export default {
     mounted() {
         this.loadData();
         this.initStates();
-    }
+    },
+	onLoad() {
+		
+	}
 };
 </script>
 

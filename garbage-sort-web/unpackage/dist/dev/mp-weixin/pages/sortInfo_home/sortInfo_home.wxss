@@ -81,8 +81,7 @@
     align-items: center;
 }
 
-/* body
- */
+/* body */
 .body {
     height: 100%;
     width: 100%;

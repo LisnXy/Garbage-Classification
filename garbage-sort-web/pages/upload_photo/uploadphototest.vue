@@ -94,7 +94,7 @@
 				</scroll-view>
 			</uni-popup>
 		</view>
-		
+		<tab-bar :selectedIndex="1" style="position:absolute;bottom: 0;width:100%;"></tab-bar>
 	</view>
 </template>
 
