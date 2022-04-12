@@ -23,8 +23,8 @@
 				<view class="grid col-4 grid-square flex-sub">
 					<view class="bg-img" v-for="(item,index) in imgList" :key="index" @tap="ViewImage" :data-url="imgList[index]">
 						<image :src="imgList[index]" 
-							   mode="widthFix"
-							   style="margin:auto;width: 100%;"
+							   mode="aspectFit"
+							   style="margin:auto;max-width: 100%;max-height: 40vh;"
 							   >
 						</image>
 						<view class="cu-tag bg-red" @tap.stop="DelImg" :data-index="index">
@@ -68,9 +68,9 @@
 					<!-- <image class="resultImage" :src="'data:image/png;base64,{{baseImage}}'"></image> -->
 					<!-- 用前端保存的图片测试 -->
 					<image :src="imgList[0]"
-						   mode="widthFix"
+						   mode="aspectFit"
 						   class="resultImage"
-						   style="margin:auto;width: 100%;"
+						   style="margin:auto;max-width: 100%;max-height: 40vh;"
 						   >
 					</image>
 				</view>
@@ -94,7 +94,7 @@
 				</scroll-view>
 			</uni-popup>
 		</view>
-		<tab-bar :selectedIndex="1" style="position:absolute;bottom: 0;width:100%;"></tab-bar>
+		<tab-bar :selectedIndex="1" style="position:absolute;bottom: 0;width:100%;" @switch-tab="initPage"></tab-bar>
 	</view>
 </template>
 
@@ -139,13 +139,15 @@
 				]
 			}
 		},
-		// components:{
-		// 	breathBtn
-		// },
-		onLoad() {
- 
-		},
+
 		methods: {
+			// 初始化
+			initPage() {
+				// clear imageList
+				this.imgList = [];
+				// close preview window
+				this.ifChoosed = false;
+			},
 			//图片选择
 			ChooseImage() {
 				console.log("点击按键");
@@ -156,7 +158,7 @@
 					success: (res) => {
 						console.log(res);
 						//返回图片url数组
-						var tempFilePaths = res.tempFilePaths;
+						const tempFilePaths = res.tempFilePaths;
 						//上传图片过多
 						if (tempFilePaths.length > this.imgMaxNum) {
 							uni.showToast({
@@ -168,6 +170,10 @@
 							this.ifChoosed = true;
 						}
 						console.log(this.imgList);
+					},
+					// new
+					complete:()=>{
+						this.ifChoosed = true;
 					}
 				});
 			},
