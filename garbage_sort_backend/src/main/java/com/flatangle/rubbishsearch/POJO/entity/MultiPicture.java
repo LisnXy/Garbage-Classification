@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("multi_resource")
+@TableName("multi_resource1")
 public class MultiPicture {
 
     @TableId(value = "id",type = IdType.AUTO)
@@ -17,5 +17,5 @@ public class MultiPicture {
     private String path;
 
     @TableField(value = "label")
-    private int label;
+    private String label;
 }

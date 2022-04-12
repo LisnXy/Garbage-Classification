@@ -11,13 +11,9 @@ import com.flatangle.rubbishsearch.mapper.PictureMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Map;
+import java.beans.JavaBean;
+import java.io.*;
+import java.util.*;
 
 @Service
 public class GetLabelService {
@@ -29,6 +25,17 @@ public class GetLabelService {
 
     private String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile\\";
 
+    private String saveDir = "C:\\Users\\86187\\Desktop\\0\\";
+
+    private String command = "";
+
+    private String multi_command = "D:\\TrashC\\yolov5\\process\\process.exe -p 95279527hyz -d resource -t multi_resource1 -m D:\\TrashC\\yolov5\\yolov5s.pt -y D:\\TrashC\\yolov5\\data\\coco128.yaml --save_dir C:\\Users\\86187\\Desktop\\0";
+
+    /**
+     * 基本无用
+     * @param path
+     * @return
+     */
     public List<Picture> findByPath(String path){
         LambdaQueryWrapper<Picture> queryWrapper = Wrappers.lambdaQuery();
         queryWrapper.eq(Picture::getPath, path);
@@ -36,6 +43,11 @@ public class GetLabelService {
         return pictures;
     }
 
+    /**
+     * 返回单目标种类
+     * @param path
+     * @return
+     */
     public String getLabel(String path){
 
         LambdaQueryWrapper<Picture> queryWrapper = Wrappers.lambdaQuery();
@@ -44,7 +56,7 @@ public class GetLabelService {
             Picture picture = pictureMapper.selectList(queryWrapper).get(0);
             if(picture.getLabel() != -1){
                 pictureMapper.delete(queryWrapper);
-                return (String.valueOf(picture.getLabel()));
+                return (readJson(String.valueOf(picture.getLabel())));
             }
         }
     }
@@ -58,15 +70,15 @@ public class GetLabelService {
 
     }
 
-    public String getMultiLabel(String path) throws IOException{
+    public String getMultiImg(String path) throws IOException{
 
         LambdaQueryWrapper<MultiPicture> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.eq(MultiPicture::getPath, path);
+        queryWrapper.eq(MultiPicture::getPath, targetSrc+path);
         while (true){
             MultiPicture picture = multiPictureMapper.selectList(queryWrapper).get(0);
-            if(picture.getLabel() != -1){
+            if(!Objects.equals(picture.getLabel(), "-1")){
                 multiPictureMapper.delete(queryWrapper);
-                return ( getImageStr(targetSrc+path));
+                return (getImageStr(saveDir+path));
             }
         }
     }
@@ -75,7 +87,7 @@ public class GetLabelService {
 
         MultiPicture picture = new MultiPicture();
         picture.setPath(path);
-        picture.setLabel(-1);
+        picture.setLabel("-1");
         multiPictureMapper.insert(picture);
 
     }
@@ -108,14 +120,56 @@ public class GetLabelService {
      * 开发中
      * @return 模型输出的结果数组
      */
-    public List<String> getLabels(){
+    public List<String> getLabels(String path) throws IOException {
         List<String> labels = new ArrayList<>();
+
         labels.add("88");
         return labels;
     }
 
+    public List<String> getmultiLabels(InputStream inputStream){
+        List<String> labels = new ArrayList<>();
 
-    public void readJson(String label){
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+        try {
+
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line).append("\n");
+            }
+            inputStream.close();
+            reader.close();
+            return Filter(stringBuilder.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return labels;
+    }
+
+    public List<String> Filter(String raw){
+        List<String> result = new ArrayList<>();
+
+        return result;
+    }
+
+    public void executeFile() throws IOException {
+
+        Process process_file = Runtime.getRuntime().exec(command);
+    }
+
+    public InputStream executeMultiFile() throws IOException {
+
+
+        Process process_multifile = Runtime.getRuntime().exec(multi_command);
+        InputStream inputStream = process_multifile.getInputStream();
+
+        return inputStream;
+    }
+
+
+    public String readJson(String label){
 
         JSONObject object = JSONObject
                 .parseObject("{\n" +
@@ -265,8 +319,8 @@ public class GetLabelService {
                         "    \"143\": \"\\u9c7c\\u9aa8\"\n" +
                         "}");
 
-        System.out.println( object.getString(label));
-        System.out.println(object);
+        System.out.println(object.getString(label));
+        return object.getString(label);
     }
 
 

@@ -38,7 +38,7 @@ public class FileController {
             try {
                 //外层文件目录
 //                String targetSrc = request.getServletContext().getRealPath("/")+"files";
-                String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile";
+                String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile\\";
                 fileName = file.getOriginalFilename();
                 fileName = fileName.substring(fileName.lastIndexOf("."));
                 fileName = UUID.randomUUID().toString() + fileName;
@@ -51,11 +51,12 @@ public class FileController {
                     targetFile.delete();
                 }
                 file.transferTo(targetFile);
+                fileName = targetSrc + fileName;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             getLabelService.insertPicture(fileName);
-            result = getLabelService.getLabel(fileName); // 已修改
+            result = getLabelService.getLabel(fileName);
             return Result.success(result);
         }
         return Result.success("null");
@@ -70,6 +71,7 @@ public class FileController {
     @PostMapping("/getImg_labels")
     public Result uploadImgAPP2(@RequestParam("imgFile") MultipartFile file, HttpServletRequest request)throws IOException {
         String fileName = "";
+        String extendName = "";
         String result_img = "-1";
         List<String> labels = new ArrayList<>();
         MultiFileContainer multiFileContainer = new MultiFileContainer(result_img, labels);
@@ -78,7 +80,7 @@ public class FileController {
             try {
                 //外层文件目录
 //                String targetSrc = request.getServletContext().getRealPath("/")+"files";
-                String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile";
+                String targetSrc = "C:\\Users\\86187\\Pictures\\ImageFile\\";
                 fileName = file.getOriginalFilename();
                 fileName = fileName.substring(fileName.lastIndexOf("."));
                 fileName = UUID.randomUUID().toString() + fileName;
@@ -91,12 +93,14 @@ public class FileController {
                     targetFile.delete();
                 }
                 file.transferTo(targetFile);
+                extendName = fileName;
+                fileName = targetSrc + fileName;
             } catch (Exception e) {
                 e.printStackTrace();
             }
             getLabelService.insertMultiPicture(fileName);
-            result_img = getLabelService.getMultiLabel(fileName);
-            labels = getLabelService.getLabels();
+            result_img = getLabelService.getMultiImg(extendName);
+            labels = getLabelService.getLabels(fileName);
             multiFileContainer = new MultiFileContainer(result_img, labels);
             return Result.success(multiFileContainer);
         }
