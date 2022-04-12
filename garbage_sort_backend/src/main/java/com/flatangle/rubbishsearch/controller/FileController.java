@@ -31,9 +31,9 @@ public class FileController {
      * @return  图片的种类
      */
     @PostMapping("/getLabel")
-    public Result<String> uploadImgAPP(@RequestParam("imgFile") MultipartFile file, HttpServletRequest request){
+    public Result uploadImgAPP(@RequestParam("imgFile") MultipartFile file, HttpServletRequest request){
         String fileName = "";
-        String result = "-1";
+        List<String> result = new ArrayList<>();
         if (file != null && !file.isEmpty()) {
             try {
                 //外层文件目录
@@ -56,7 +56,7 @@ public class FileController {
                 e.printStackTrace();
             }
             getLabelService.insertPicture(fileName);
-            result = getLabelService.getLabel(fileName);
+            result.addAll(getLabelService.getLabel(fileName));
             return Result.success(result);
         }
         return Result.success("null");
@@ -99,8 +99,8 @@ public class FileController {
                 e.printStackTrace();
             }
             getLabelService.insertMultiPicture(fileName);
-            result_img = getLabelService.getMultiImg(extendName);
             labels = getLabelService.getLabels(fileName);
+            result_img = getLabelService.getMultiImg(extendName);
             multiFileContainer = new MultiFileContainer(result_img, labels);
             return Result.success(multiFileContainer);
         }

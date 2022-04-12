@@ -27,9 +27,9 @@ public class GetLabelService {
 
     private String saveDir = "C:\\Users\\86187\\Desktop\\0\\";
 
-    private String command = "";
+    private String command = "D:\\TrashC\\process_conv\\process -p 95279527hyz -d resource -t resource1 --class_num 144 -m D:\\TrashC\\ConvNeXt\\weights\\best_model1.pth";
 
-    private String multi_command = "D:\\TrashC\\yolov5\\process\\process.exe -p 95279527hyz -d resource -t multi_resource1 -m D:\\TrashC\\yolov5\\yolov5s.pt -y D:\\TrashC\\yolov5\\data\\coco128.yaml --save_dir C:\\Users\\86187\\Desktop\\0";
+    private String multi_command = "D:\\TrashC\\process_yolo5\\process.exe -p 95279527hyz -d resource -t multi_resource1 -m D:\\TrashC\\yolov5\\yolov5s.pt -y D:\\TrashC\\yolov5\\data\\coco128.yaml --save_dir C:\\Users\\86187\\Desktop\\0";
 
     /**
      * 基本无用
@@ -48,7 +48,10 @@ public class GetLabelService {
      * @param path
      * @return
      */
-    public String getLabel(String path){
+    public List<String> getLabel(String path){
+
+        float odd = 0;
+        List<String> result = new ArrayList<>();
 
         LambdaQueryWrapper<Picture> queryWrapper = Wrappers.lambdaQuery();
         queryWrapper.eq(Picture::getPath, path);
@@ -56,7 +59,9 @@ public class GetLabelService {
             Picture picture = pictureMapper.selectList(queryWrapper).get(0);
             if(picture.getLabel() != -1){
                 pictureMapper.delete(queryWrapper);
-                return (readJson(String.valueOf(picture.getLabel())));
+                result.add(String.valueOf(picture.getOdd()));
+                result.add(readJson(String.valueOf(picture.getLabel())));
+                return result;
             }
         }
     }
@@ -122,9 +127,14 @@ public class GetLabelService {
      */
     public List<String> getLabels(String path) throws IOException {
         List<String> labels = new ArrayList<>();
-
-        labels.add("88");
-        return labels;
+        LambdaQueryWrapper<MultiPicture> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(MultiPicture::getPath, path);
+        while (true){
+            MultiPicture picture = multiPictureMapper.selectList(queryWrapper).get(0);
+            if(!Objects.equals(picture.getLabel(), "-1")){
+                return (Filter(picture.getLabel()));
+            }
+        }
     }
 
     public List<String> getmultiLabels(InputStream inputStream){
@@ -150,6 +160,10 @@ public class GetLabelService {
 
     public List<String> Filter(String raw){
         List<String> result = new ArrayList<>();
+
+        int start = raw.indexOf(";") + 1;
+        String semi_raw = raw.substring(start);
+        result.addAll(List.of(semi_raw.split(";")));
 
         return result;
     }

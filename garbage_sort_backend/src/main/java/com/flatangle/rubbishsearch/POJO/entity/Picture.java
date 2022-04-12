@@ -8,7 +8,7 @@ import lombok.Data;
 
 
 @Data
-@TableName("resource")
+@TableName("resource1")
 public class Picture {
 
     @TableId(value = "id",type = IdType.AUTO)
@@ -19,4 +19,7 @@ public class Picture {
 
     @TableField(value = "label")
     private int label;
+
+    @TableField(value = "odd")
+    private float odd;
 }

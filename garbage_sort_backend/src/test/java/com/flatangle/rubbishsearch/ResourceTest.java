@@ -58,6 +58,10 @@ public class ResourceTest {
     }
 
     @Test
+    public void testFilter(){
+        System.out.println(getLabelService.Filter("C:/Users/86187/Desktop/0/bf5157b2-52ed-47db-8dbc-a247ca239c2f.png;dining table 0.33;bottle 0.61"));
+    }
+    @Test
     public void testBu() throws IOException {
 
         MultiProcessService p = new MultiProcessService();
