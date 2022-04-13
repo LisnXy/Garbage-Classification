@@ -19,4 +19,7 @@ public class Picture {
 
     @TableField(value = "label")
     private int label;
+
+    @TableField(value = "odd")
+    private float odd;
 }

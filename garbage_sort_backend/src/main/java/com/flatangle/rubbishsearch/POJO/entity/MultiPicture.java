@@ -17,5 +17,5 @@ public class MultiPicture {
     private String path;
 
     @TableField(value = "label")
-    private int label;
+    private String label;
 }

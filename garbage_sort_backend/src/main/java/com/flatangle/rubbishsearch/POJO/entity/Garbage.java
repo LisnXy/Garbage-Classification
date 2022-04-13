@@ -24,4 +24,13 @@ public class Garbage {
 
     private  String garbageName;
 
+    public Garbage() {
+
+    }
+
+    public Garbage(int cityID, int type, String garbageName) {
+        this.cityID = cityID;
+        this.type = type;
+        this.garbageName = garbageName;
+    }
 }
