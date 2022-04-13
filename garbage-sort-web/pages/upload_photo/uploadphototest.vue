@@ -4,7 +4,7 @@
 	<view class="root">
 		<view class="header">
 			<view class="header-caption" v-if="!ifChoosed">
-				<text>123123123123213</text>
+				<text></text>
 			</view>
 			<image src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/upload-bg.png"
 				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;"></image>
@@ -25,7 +25,8 @@
 				<view class="cu-tag bg-red" @tap.stop="DelImg" :data-index="index">
 					<text class='cuIcon-close'></text>
 				</view>
-				<uni-transition :duration="500" :mode-class="['slide-bottom','fade']" :show="showBtnContainer" @change="resAniHandler">
+				<uni-transition :duration="500" :mode-class="['slide-bottom','fade']" :show="showBtnContainer"
+					@change="resAniHandler">
 					<view class="button-container">
 						<view class="single-btn" @click="UploadImage('single')"><text>单目标</text></view>
 						<view class="multi-btn" @click="UploadImage('multi')"><text>多目标</text></view>
@@ -35,7 +36,14 @@
 					<scroll-view class="result-list-block" :scroll-y="true">
 						<uni-list class="result-list">
 							<uni-list-item v-for="(item, inde) in result" :key="inde" :title="item.label"
-								:note="item.type" :rightText="item.Similarity" :clickable="false" :showArrow="false">
+								:note="item.Similarity" :clickable="false" :showArrow="false">
+								<view
+								    slot="footer"
+								    class="list-item-icon"
+								    :style="{ color: bodyColors[item.type - 1] }"
+								>
+								    {{ mapName(item.type)}}
+								</view>
 							</uni-list-item>
 						</uni-list>
 					</scroll-view>
@@ -51,28 +59,6 @@
 		</view>
 
 
-		<!-- 普通弹窗 -->
-		<view class="container">
-			<!-- 返回结果部分 -->
-			<uni-popup ref="popup" background-color="#fff" @change="change">
-				<!-- 预计返回base64的图片 -->
-				<view>
-					<!-- <image class="resultImage" :src="'data:image/png;base64,{{baseImage}}'"></image> -->
-					<!-- 用前端保存的图片测试 -->
-					<image :src="imgList[0]" mode="aspectFit" class="resultImage"
-						style="margin:auto;max-width: 100%;max-height: 40vh;">
-					</image>
-				</view>
-				<!-- 预计返回预测结果列表 -->
-				<scroll-view class="result-list-block" :scroll-y="true">
-					<uni-list class="result-list">
-						<uni-list-item v-for="(item, index) in result" :key="index" :title="item.label"
-							:note="item.type" :rightText="item.Similarity" :clickable="false" :showArrow="false">
-						</uni-list-item>
-					</uni-list>
-				</scroll-view>
-			</uni-popup>
-		</view>
 		<tab-bar :selectedIndex="1" style="position:absolute;bottom: 0;width:100%;z-index: 2;" @switch-tab="initPage">
 		</tab-bar>
 	</view>
@@ -92,34 +78,10 @@
 				imgMaxNum: 1,
 				baseImage: '',
 				showBtnContainer: true,
-				showResult:false,
-				uploaded:false,
-				result: [{
-						"label": "鼠标",
-						"Similarity": "68.3%",
-						"type": "可回收垃圾"
-					},
-					{
-						"label": "鼠标垫",
-						"Similarity": "49.5%",
-						"type": "干垃圾"
-					},
-					{
-						"label": "吸顶灯",
-						"Similarity": "36.9%",
-						"type": "有害垃圾"
-					},
-					{
-						"label": "吸顶灯",
-						"Similarity": "36.9%",
-						"type": "有害垃圾"
-					},
-					{
-						"label": "吸顶灯",
-						"Similarity": "36.9%",
-						"type": "有害垃圾"
-					}
-				]
+				showResult: false,
+				uploaded: false,
+				result: [],
+				 bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'],
 			}
 		},
 
@@ -128,6 +90,8 @@
 			initPage() {
 				// clear imageList
 				this.imgList = [];
+				// clear resultSet
+				this.result = [];
 				// close preview window
 				this.ifChoosed = false;
 				// init containerStyle
@@ -181,39 +145,54 @@
 			},
 			//图片上传
 			UploadImage(type) {
-				if(this.uploaded){
+				// 防止抖动
+				if (this.uploaded) {
 					return
-				}else{
+				} else {
 					this.uploaded = true;
 				}
+				// 判断类型
 				let url = null;
+				let isSingle = false;
 				if (type === 'single') {
-					url = 'http://localhost:3030/uploadImgAPP/getLabel'
+					url = `http://localhost:3030/uploadImgAPP/getLabel?openID=${this.$store.state.user.openId}`
+					isSingle = true
 				} else {
 					// todo 多目标接口
-					url = ''
+					url = `http://localhost:3030/uploadImgAPP/getImg_labels?openID=${this.$store.state.user.openId}`
 				}
 				//页面加载
-				// uni.showLoading({
-				// 	title: '加载中'
-				// });
+				uni.showLoading({
+					title: '加载中'
+				});
 				//上传
 				uni.uploadFile({
-					url: "http://localhost:3030/uploadImgAPP/getLabel",
+					url: url,
 					fileType: "image", //ZFB必填,不然报错
 					filePath: this.imgList[0],
 					name: "imgFile", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
 					success: (res) => {
 						console.log(res);
-						//结束加载，打开弹窗
-						// //这里测试用2秒作为加载时长
-						// setTimeout(function() {
-						// 	uni.hideLoading();
-						// 	this.showPopup = true;
-
-						// 	this.$refs.popup.open('bottom');
-						// },2000);
-						// this.result = res.data.result;
+						const data = JSON.parse(res.data).data;
+						if (isSingle) {
+							// 处理单目标的返回数据
+							this.result.push({
+									"label": data.garbageName,
+									"Similarity": `${(data.probability*100).toFixed(1)}%`,
+									"type": data.garbageType
+								})
+						} else {
+							// 处理多目标的返回数据
+							this.result = data.label.map(item=>{
+								const props = item.split(/\s+/);
+								return {
+									"label": props[0],
+									"Similarity": `${(props[1]*100)}%`,
+									"type": Number([props[2]])
+								}
+							})
+							this.imgList[0] = `http://127.0.0.1:3030/images/${data.imgstr}`
+						}
 						uni.hideLoading();
 						// this.showPopup = true;
 						// this.$refs.popup.open('bottom'); //可以自定义弹窗弹出方向
@@ -236,10 +215,25 @@
 				this.imgList.splice(e.currentTarget.dataset.index, 1)
 			},
 			// 处理动画效果
-			resAniHandler(e){
-				if(e.detail===false){
+			resAniHandler(e) {
+				if (e.detail === false) {
 					this.showResult = true;
 					this.uploaded = false;
+				}
+			},
+			// 用于映射名称
+			mapName(type) {
+				switch (type) {
+					case 1:
+						return '可回收垃圾';
+					case 2:
+						return '有害垃圾';
+					case 3:
+						return '厨余垃圾';
+					case 4:
+						return '其他垃圾';
+					default:
+						return null;
 				}
 			}
 		},
