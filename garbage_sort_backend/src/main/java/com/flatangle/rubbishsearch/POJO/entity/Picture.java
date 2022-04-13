@@ -8,7 +8,7 @@ import lombok.Data;
 
 
 @Data
-@TableName("resource1")
+@TableName("resource")
 public class Picture {
 
     @TableId(value = "id",type = IdType.AUTO)

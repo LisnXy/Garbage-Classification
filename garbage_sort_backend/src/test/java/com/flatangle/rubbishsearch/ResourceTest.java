@@ -1,19 +1,18 @@
 package com.flatangle.rubbishsearch;
+
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.flatangle.rubbishsearch.POJO.entity.Garbage;
 import com.flatangle.rubbishsearch.POJO.entity.Picture;
+import com.flatangle.rubbishsearch.mapper.GarbageMapper;
 import com.flatangle.rubbishsearch.mapper.PictureMapper;
-import com.flatangle.rubbishsearch.service.AnswerService;
 import com.flatangle.rubbishsearch.service.GetLabelService;
 import com.flatangle.rubbishsearch.service.MultiProcessService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import javax.annotation.Resource;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,8 +21,13 @@ public class ResourceTest {
 
     @Resource
     GetLabelService getLabelService;
+
     @Resource
     PictureMapper pictureMapper;
+
+    @Resource
+    GarbageMapper garbageMapper;
+
 
     @Test
     public void testfind(){
@@ -44,7 +48,7 @@ public class ResourceTest {
     @Test
     public void testexe(){
         getLabelService.insertPicture("D:\\TrashC\\ConvNeXt\\eval\\a.jpg");
-        System.out.println(getLabelService.getLabel("D:\\TrashC\\ConvNeXt\\eval\\a.jpg"));
+        //System.out.println(getLabelService.getLabel("D:\\TrashC\\ConvNeXt\\eval\\a.jpg"));
     }
 
     @Test
@@ -104,6 +108,49 @@ public class ResourceTest {
             p.errorReader.close();
             p.proc.destroy();
         } catch (Exception ex) {}
+
+
+    }
+
+    @Test
+    public void testGetLabelOfType() {
+
+        for(int i = 0; i <= 143; i++) {
+            String s = getLabelService.readJson(String.valueOf(i));
+            LambdaQueryWrapper<Garbage> lambdaQueryWrapper = Wrappers.lambdaQuery();
+            lambdaQueryWrapper.eq(Garbage::getGarbageName,s);
+
+            List<Garbage> garbageList = garbageMapper.selectList(lambdaQueryWrapper);
+            if(garbageList.size() != 0)
+                System.out.println(garbageList.get(0));
+            else{
+                System.out.println("没有" + s);
+            }
+        }
+
+        String[] strs = {"调料瓶", "软膏", "垃圾桶", "茶叶渣", "筷子", "陶瓷器皿", "烟蒂", "塑料衣架", "一次性快餐盒",
+                "旧衣服", "枕头", "花盆", "塑料器皿", "饮料瓶", "毛绒玩具", "剩饭剩菜", "干电池", "纸盒纸箱",
+                "污损塑料", "锅", "金属厨具", "插头电线", "果皮果肉", "易拉罐", "充电宝","鞋", "砧板", "玻璃器皿",
+                "蛋壳", "菜帮菜叶", "食用油桶", "金属食品罐", "金属器皿", "塑料玩具", "鱼骨", "污损用纸", "包", "过期药物",
+                "大骨头", "书籍纸张", "洗护用品", "快递纸袋", "牙签", "酒瓶"};
+
+        for(String s : strs) {
+            LambdaQueryWrapper<Garbage> lambdaQueryWrapper = Wrappers.lambdaQuery();
+            lambdaQueryWrapper.eq(Garbage::getGarbageName,s);
+            List<Garbage> garbageList = garbageMapper.selectList(lambdaQueryWrapper);
+            if(garbageList.size() != 0)
+                System.out.println(garbageList.get(0));
+            else{
+                System.out.println("没有" + s);
+            }
+        }
+
+
+
+
+
+
+
 
 
     }

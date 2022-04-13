@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-@TableName("multi_resource1")
+@TableName("multi_resource")
 public class MultiPicture {
 
     @TableId(value = "id",type = IdType.AUTO)
