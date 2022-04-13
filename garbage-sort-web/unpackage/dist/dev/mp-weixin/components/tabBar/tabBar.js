@@ -83,25 +83,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   name: 'tabBar',
   data: function data() {
     return {
-      list: [
-      {
+      list: [{
         pagePath: '../../pages/sortInfo_home/sortInfo_home',
         iconPath: '../../static/icons/home_off.svg',
         selectedIconPath: '../../static/icons/home_on.svg',
@@ -127,9 +114,12 @@ var _default =
 
   computed: {},
   methods: {
-    switchTab: function switchTab(itemIndex) {
+    switchTab: function switchTab(itemIndex) {var _this = this;
       uni.switchTab({
         url: this.list[itemIndex].pagePath,
+        success: function success() {
+          _this.$emit('switch-tab', itemIndex);
+        },
         fail: function fail(err) {
           console.log(err);
         } });

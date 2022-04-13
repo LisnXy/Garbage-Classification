@@ -195,6 +195,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
     login: function login() {var _this2 = this;
       wx.login({
         success: function success(res) {
+          console.log(res);
           _request.default.
           post('/user/login', {
             code: res.code,
@@ -208,6 +209,9 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
 
             uni.$emit('loginSuccess');
           });
+        },
+        fail: function fail(err) {
+          console.log(err);
         } });
 
     } }) };exports.default = _default;

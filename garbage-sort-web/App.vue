@@ -66,6 +66,7 @@ export default {
         login() {
             wx.login({
                 success: (res) => {
+					console.log(res);
                     axios
                         .post('/user/login', {
                             code: res.code,
@@ -79,7 +80,10 @@ export default {
                             );
                             uni.$emit('loginSuccess');
                         });
-                }
+                },
+				fail:(err)=>{
+					console.log(err);
+				}
             });
         }
     }
