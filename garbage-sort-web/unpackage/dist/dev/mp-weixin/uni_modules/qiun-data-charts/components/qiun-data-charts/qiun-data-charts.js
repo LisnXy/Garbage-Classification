@@ -80,10 +80,10 @@ var components
 try {
   components = {
     qiunLoading: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading */ "uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading.vue */ 182))
+      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading */ "uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-loading/qiun-loading.vue */ 175))
     },
     qiunError: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-error/qiun-error */ "uni_modules/qiun-data-charts/components/qiun-error/qiun-error").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-error/qiun-error.vue */ 187))
+      return __webpack_require__.e(/*! import() | uni_modules/qiun-data-charts/components/qiun-error/qiun-error */ "uni_modules/qiun-data-charts/components/qiun-error/qiun-error").then(__webpack_require__.bind(null, /*! @/uni_modules/qiun-data-charts/components/qiun-error/qiun-error.vue */ 180))
     }
   }
 } catch (e) {

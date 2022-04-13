@@ -6,7 +6,7 @@
 		</view>
 		<view class="tabBar-item" @click="switchTab(1)">
 			<image :src="iconPath(1)" mode="scaleToFill" class="mid-btn"></image>
-			<text style="z-index: 2000; position: relative; top: 2vh">
+			<text style="position: relative; top: 2vh">
 				搜索
 			</text>
 		</view>
@@ -71,6 +71,8 @@
 </script>
 
 <style lang="less">
+	
+	
 	.tabBar-root {
 		background-color: #fff;
 		width: 100%;
@@ -78,6 +80,7 @@
 		display: flex;
 		justify-content: space-around;
 		height: 100px;
+		border-top:1px solid #efefef;
 	}
 
 	.tabBar-item {
@@ -106,6 +109,7 @@
 		bottom: 40%;
 		background-color: #fff;
 		padding: 0.7rem;
+		border-top:1px solid #efefef;
 	}
 
 	.aside-image {

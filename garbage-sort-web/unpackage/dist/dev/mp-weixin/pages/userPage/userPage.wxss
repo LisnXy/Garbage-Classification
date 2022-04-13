@@ -64,16 +64,21 @@ view.data-v-88efa074 {
   background-color: #fff;
 }
 .user-name-container.data-v-88efa074 {
-  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top: 20px;
+  align-items: flex-start;
 }
 .user-name.data-v-88efa074 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: #FFF;
   margin-top: 1rem;
+  font-weight: 700;
+  margin-left: 5%;
+}
+.user-name text.data-v-88efa074 {
+  font-size: 1.3rem;
+  color: #FFF;
 }
 .user-body.data-v-88efa074 {
   margin-top: -5%;

@@ -2,7 +2,7 @@
 	<view class="user-root">
 		<view class="user-header">
 			<view class="user-name-container">
-				<text class="user-name">Hi，{{ userName }}</text>
+				<text class="user-name"><text>Hi，</text>{{ userName }}</text>
 			</view>
 			<view class="avatar-container">
 				<image class="avatar" :src="avatarUrl" mode="scaleToFill"></image>
@@ -89,7 +89,6 @@
 			setData(data) {
 				this.score = data.score;
 				this.percentage = data.surpassPercent;
-				this.weakItem = this.findWeak();
 				// 判断是否有数据
 				if (data.recordInfo) {
 					this.pieData.series = Object.keys(data.recordInfo).map(
@@ -101,6 +100,7 @@
 						}
 					);
 					this.renderChart = true;
+					this.weakItem = this.findWeak();
 				} else {
 					this.renderChart = false;
 				}

@@ -36,7 +36,7 @@ public class GetLabelService {
 
     private String targetSrc = System.getProperty("user.dir") + "/garbage_sort_backend/src/main/resources/imageFiles/";
 
-    private String saveDir = System.getProperty("user.dir") + "/garbage_sort_backend/src/main/resources/static/";
+    private String saveDir = System.getProperty("user.dir") + "/garbage_sort_backend/src/main/resources/multiResultImages/";
 
     private String command = "D:\\TrashC\\process_conv\\process -p 95279527hyz -d resource -t resource1 --class_num 144 -m D:\\TrashC\\ConvNeXt\\weights\\best_model1.pth";
 
