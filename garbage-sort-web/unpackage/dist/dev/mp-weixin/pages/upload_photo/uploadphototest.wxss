@@ -190,4 +190,43 @@
   font-size: 1.5rem;
   color: white;
 }
+.list-item-icon {
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+.reupload-btn-container {
+  display: flex;
+  justify-content: center;
+}
+.reupload-btn {
+  border-radius: 6px;
+}
+.reupload-btn image {
+  width: 36px;
+  height: 36px;
+}
+.header-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-caption text {
+  display: block;
+  color: #fff;
+}
+.dropdown-btn-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -100px;
+}
+.dropdown-btn-container image {
+  width: 36px;
+  height: 36px;
+}
 

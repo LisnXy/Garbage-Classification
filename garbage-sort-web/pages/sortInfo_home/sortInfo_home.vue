@@ -4,6 +4,9 @@
             class="header"
             style="background-image: url('../../static/image/background.svg')"
         >
+		<view class="header-caption-cities">
+			<text>全国重点城市都能查</text>
+		</view>
             <view class="search">
                 <view class="search-header" @click="popSelector">
                     <text class="city-selector">{{ selectedCity }}</text>
@@ -15,16 +18,13 @@
                     <view class="border-fill"></view>
                 </view>
                 <view class="search-body">
-                    <view class="icon">
-                        <uni-icons type="search" size="20"></uni-icons>
-                    </view>
                     <view class="search-input">
                         <input
                             v-model="inputValue"
                             maxlength="10"
                             type="text"
                             placeholder="输入要搜索的物品(例电池)"
-                            style="width: 100%"
+                            style="width: 100%;font-size:0.9rem;letter-spacing: 1px;"
                             @focus="searchBarFocused"
                             @blur="searchBarBlured($event)"
                             @input="search($event)"
@@ -444,6 +444,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 @import '../../common/style/sortInfo_home.less';
 </style>

@@ -4,14 +4,20 @@
 	<view class="root">
 		<view class="header">
 			<view class="header-caption" v-if="!ifChoosed">
-				<text></text>
+				<text style="font-size: 3rem;">智享分类</text>
+				<text style="    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;">智能垃圾识别 助你分类无忧</text>
 			</view>
 			<image src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/upload-bg.png"
-				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;"></image>
+				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;position:relative;bottom: 20px;"></image>
 		</view>
 
 		<!-- 照相机图标部分 -->
 		<view class="main-container" :style="{height:containerHeight,position:containerPosition}">
+			<view class="dropdown-btn-container" v-if="ifChoosed" @click="initPage">
+				<image src="../../static/icons/dropdown.svg" mode="aspectFit"></image>
+			</view>
 			<view id="breath-btn" @click="ChooseImage()" v-if="!ifChoosed">
 				<view id="inner" class="white-border">
 					<image src="../../static/image/照相机.svg" mode="aspectFit">
@@ -27,6 +33,11 @@
 				</view>
 				<uni-transition :duration="500" :mode-class="['slide-bottom','fade']" :show="showBtnContainer"
 					@change="resAniHandler">
+					<view class="reupload-btn-container">
+						<view class="reupload-btn">
+							<image src="../../static/icons/刷新.svg" mode="aspectFit" @click="ChooseImage"></image>
+						</view>
+					</view>
 					<view class="button-container">
 						<view class="single-btn" @click="UploadImage('single')"><text>单目标</text></view>
 						<view class="multi-btn" @click="UploadImage('multi')"><text>多目标</text></view>
@@ -55,7 +66,7 @@
 		</view>
 
 		<view v-if="ifChoosed" class="priview-title">
-			<text>测试</text>
+			<text>T</text>
 		</view>
 
 
@@ -111,13 +122,15 @@
 			},
 			//图片选择
 			ChooseImage() {
-				console.log("点击按键");
 				uni.chooseImage({
 					count: 1, //上传图片上限默认1
 					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
 					sourceType: ['camera', 'album'], //从相机、相册选择
 					success: (res) => {
-						this.toggleContainerStyle();
+						console.log(this.ifChoosed);
+						if(!this.ifChoosed){
+							this.toggleContainerStyle();
+						}
 						console.log(res);
 						//返回图片url数组
 						const tempFilePaths = res.tempFilePaths;
@@ -131,7 +144,6 @@
 							this.imgList = res.tempFilePaths;
 							this.ifChoosed = true;
 						}
-						console.log(this.imgList);
 					},
 				});
 			},
@@ -142,6 +154,10 @@
 			// 隐藏图片预览界面的按钮
 			hideButtonContainer() {
 				this.showBtnContainer = false;
+			},
+			// 显示图片预览界面的按钮
+			showButtonContainer() {
+				this.showBtnContainer = true;
 			},
 			//图片上传
 			UploadImage(type) {
@@ -158,10 +174,9 @@
 					url = `http://localhost:3030/uploadImgAPP/getLabel?openID=${this.$store.state.user.openId}`
 					isSingle = true
 				} else {
-					// todo 多目标接口
 					url = `http://localhost:3030/uploadImgAPP/getImg_labels?openID=${this.$store.state.user.openId}`
 				}
-				//页面加载
+				// 页面加载
 				uni.showLoading({
 					title: '加载中'
 				});
@@ -187,19 +202,23 @@
 								const props = item.split(/\s+/);
 								return {
 									"label": props[0],
-									"Similarity": `${(props[1]*100)}%`,
+									"Similarity": `${(props[1]*100).toFixed(0)}%`,
 									"type": Number([props[2]])
 								}
 							})
 							this.imgList[0] = `http://127.0.0.1:3030/images/${data.imgstr}`
 						}
 						uni.hideLoading();
-						// this.showPopup = true;
-						// this.$refs.popup.open('bottom'); //可以自定义弹窗弹出方向
-					},
-					// test 
-					complete: () => {
 						this.hideButtonContainer();
+					},
+					fail:()=>{
+						uni.showToast({
+							title:"加载失败",
+							icon:"error"
+						});
+					},
+					complete:()=>{
+						this.uploaded = false;
 					}
 				});
 			},
@@ -225,7 +244,7 @@
 			mapName(type) {
 				switch (type) {
 					case 1:
-						return '可回收垃圾';
+						return '可回收物';
 					case 2:
 						return '有害垃圾';
 					case 3:

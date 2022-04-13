@@ -39,7 +39,6 @@ export default {
             }
         });
         // #endif
-
         // 载入用户信息
         wx.getUserInfo({
             lang: 'zh_CN',
@@ -66,7 +65,7 @@ export default {
         login() {
             wx.login({
                 success: (res) => {
-					console.log(res);
+					console.log('login',res);
                     axios
                         .post('/user/login', {
                             code: res.code,
@@ -82,7 +81,7 @@ export default {
                         });
                 },
 				fail:(err)=>{
-					console.log(err);
+					console.log('login',err);
 				}
             });
         }

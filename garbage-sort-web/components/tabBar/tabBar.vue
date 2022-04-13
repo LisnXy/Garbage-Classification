@@ -6,7 +6,7 @@
 		</view>
 		<view class="tabBar-item" @click="switchTab(1)">
 			<image :src="iconPath(1)" mode="scaleToFill" class="mid-btn"></image>
-			<text style="position: relative; top: 2vh">
+			<text style="position: relative; top: 15px">
 				搜索
 			</text>
 		</view>
@@ -79,7 +79,7 @@
 		align-self: flex-end;
 		display: flex;
 		justify-content: space-around;
-		height: 100px;
+		height: 80px;
 		border-top:1px solid #efefef;
 	}
 
@@ -90,21 +90,21 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-
 		image {
-			width: 33px;
-			height: 33px;
+			width: 30px;
+			height: 30px;
 		}
 
 		text {
 			display: block;
+			font-size:0.8rem;
 		}
 	}
 
 	.mid-btn {
 		border-radius: 50%;
-		width: 60px !important;
-		height: 60px !important;
+		width: 50px !important;
+		height: 50px !important;
 		position: absolute;
 		bottom: 40%;
 		background-color: #fff;

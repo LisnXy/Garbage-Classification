@@ -4,7 +4,7 @@
   align-self: flex-end;
   display: flex;
   justify-content: space-around;
-  height: 100px;
+  height: 80px;
   border-top: 1px solid #efefef;
 }
 .tabBar-item {
@@ -16,16 +16,17 @@
   justify-content: center;
 }
 .tabBar-item image {
-  width: 33px;
-  height: 33px;
+  width: 30px;
+  height: 30px;
 }
 .tabBar-item text {
   display: block;
+  font-size: 0.8rem;
 }
 .mid-btn {
   border-radius: 50%;
-  width: 60px !important;
-  height: 60px !important;
+  width: 50px !important;
+  height: 50px !important;
   position: absolute;
   bottom: 40%;
   background-color: #fff;

@@ -5,7 +5,6 @@
   "usingComponents": {
     "uni-transition": "/uni_modules/uni-transition/components/uni-transition/uni-transition",
     "uni-list": "/uni_modules/uni-list/components/uni-list/uni-list",
-    "uni-list-item": "/uni_modules/uni-list/components/uni-list-item/uni-list-item",
-    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup"
+    "uni-list-item": "/uni_modules/uni-list/components/uni-list-item/uni-list-item"
   }
 }
