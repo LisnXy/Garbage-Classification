@@ -186,6 +186,7 @@ public class GetLabelService {
                     s = s + " " + garbageType;
                     result.set(i, s);
                 }
+                return result;
             }
         }
     }

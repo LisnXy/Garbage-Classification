@@ -1,1 +1,6 @@
 garbage_sort_backend/src/main/resources/application.properties
+*.jpg
+*.properties
+*.properties
+garbage_sort_backend/target/classes/application.properties
+*.class
