@@ -161,7 +161,7 @@ public class UserService {
         List<AnswerRecord> answerRecords = answerRecordMapper.selectList(Wrappers.lambdaQuery());
         List<SearchRecord> searchRecords = searchRecordMapper.selectList(Wrappers.lambdaQuery());
         if(answerRecords.size() == 1)
-            return 100.0;
+            return 1.0;
 
         List<Pair> rankScores = new ArrayList<>(answerRecords.size());
 
@@ -186,7 +186,7 @@ public class UserService {
         //可能有同分的情况
         while(rankScores.get(l).getValue() == targetScore) {
             if(rankScores.get(l).getKey().equals(userID)){
-                return (double)(l / (rankScores.size() - 1));   //返回超越的百分比
+                return ((double)l / (rankScores.size() - 1));   //返回超越的百分比
             }
             else
                 l++;

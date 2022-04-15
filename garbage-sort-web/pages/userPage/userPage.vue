@@ -88,7 +88,7 @@
 			 */
 			setData(data) {
 				this.score = data.score;
-				this.percentage = data.surpassPercent;
+				this.percentage = (parseFloat(`${data.surpassPercent}`)*100).toFixed(1);
 				// 判断是否有数据
 				if (data.recordInfo) {
 					this.pieData.series = Object.keys(data.recordInfo).map(
