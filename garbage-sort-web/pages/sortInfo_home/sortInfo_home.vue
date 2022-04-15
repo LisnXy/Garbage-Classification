@@ -4,9 +4,6 @@
             class="header"
             style="background-image: url('../../static/image/background.svg')"
         >
-		<view class="header-caption-cities">
-			<text>全国重点城市都能查</text>
-		</view>
             <view class="search">
                 <view class="search-header" @click="popSelector">
                     <text class="city-selector">{{ selectedCity }}</text>

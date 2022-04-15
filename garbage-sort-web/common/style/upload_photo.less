@@ -4,6 +4,7 @@
 	background: #FFF;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 #breath-btn {
@@ -168,32 +169,48 @@
 .bg-img {
 	width:100%;
 	height:auto;
-	display: relative;
+	position: relative;
+	display: flex;
+	flex-direction:column;
+	align-items: center;
 	bottom:20px;
 }
 
 .button-container {
 	display: flex;
 	justify-content: space-around;
-	margin-top:10vh;
+	width:90vw;
+	margin-top:12.5vh;
 }
 
 .single-btn, .multi-btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 50%;
-	height:100px;
-	width:100px;
+	border-radius: 12px;
+	height:70px;
+	width:37vw;
 	padding:10px;
-	background-image: radial-gradient(
-		rgba(140, 219, 252, 0.3),
-		rgba(142, 209, 252, 0.5),
-	    rgba(107, 151, 226, 0.7),
-	);
+	background-color: #FFF;
+	background: #ffffff;
 	text {
-		font-size:1.5rem;
-		color:white;
+		font-size:1.7rem;
+	}
+}
+
+.single-btn {
+	box-shadow:  -18px 18px 36px #d9d9d9,
+	             18px -18px 36px #ffffff;
+	text {
+		color:#787DDA;
+	}
+}
+
+.multi-btn {
+box-shadow:  8px 8px 16px #d9d9d9,
+             -8px -8px 16px #ffffff;
+	text {
+		color:#5FBEFB;
 	}
 }
 
@@ -208,8 +225,11 @@
 }
 
 .reupload-btn-container {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    top: 1vh;
+    right: 3vw;
 }
 
 .reupload-btn {

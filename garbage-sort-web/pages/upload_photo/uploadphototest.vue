@@ -4,13 +4,12 @@
 	<view class="root">
 		<view class="header">
 			<view class="header-caption" v-if="!ifChoosed">
-				<text style="font-size: 3rem;">智享分类</text>
-				<text style="    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    letter-spacing: 2px;">智能垃圾识别 助你分类无忧</text>
+				<text style="font-size: 2.5rem;font-weight: 600;letter-spacing: 8px;">智享分类</text>
+				<text style="font-size: 1.1rem;margin-top: 0.5rem;letter-spacing: 2px;">智能垃圾识别 助你分类无忧</text>
 			</view>
 			<image src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/upload-bg.png"
-				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;position:relative;bottom: 20px;"></image>
+				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;position:relative;bottom: 20px;">
+			</image>
 		</view>
 
 		<!-- 照相机图标部分 -->
@@ -31,7 +30,7 @@
 				<view class="cu-tag bg-red" @tap.stop="DelImg" :data-index="index">
 					<text class='cuIcon-close'></text>
 				</view>
-				<uni-transition :duration="500" :mode-class="['slide-bottom','fade']" :show="showBtnContainer"
+				<uni-transition :duration="500" :mode-class="['slide-bottom','fade']" :show="showBtnContainer" style="width: 100%;display: flex;justify-content: center;"
 					@change="resAniHandler">
 					<view class="reupload-btn-container">
 						<view class="reupload-btn">
@@ -39,21 +38,18 @@
 						</view>
 					</view>
 					<view class="button-container">
-						<view class="single-btn" @click="UploadImage('single')"><text>单目标</text></view>
-						<view class="multi-btn" @click="UploadImage('multi')"><text>多目标</text></view>
+						<view class="single-btn" @click="UploadImage('single')"><text style="font-weight:500;">单目标<text style="color:gray;font-size:0.7rem;margin-left:5px;">快速识别</text></text></view>
+						<view class="multi-btn" @click="UploadImage('multi')"><text style="font-weight:500;">多目标<text style="color:gray;font-size:0.7rem;margin-left:5px;">检测识别</text></text></view>
 					</view>
 				</uni-transition>
-				<uni-transition :duration="500" mode-class="fade" :show="showResult">
+				<uni-transition :duration="500" mode-class="fade" :show="showResult" style="width:100%;">
 					<scroll-view class="result-list-block" :scroll-y="true">
 						<uni-list class="result-list">
 							<uni-list-item v-for="(item, inde) in result" :key="inde" :title="item.label"
 								:note="item.Similarity" :clickable="false" :showArrow="false">
-								<view
-								    slot="footer"
-								    class="list-item-icon"
-								    :style="{ color: bodyColors[item.type - 1] }"
-								>
-								    {{ mapName(item.type)}}
+								<view slot="footer" class="list-item-icon"
+									:style="{ color: bodyColors[item.type - 1] }">
+									{{ mapName(item.type)}}
 								</view>
 							</uni-list-item>
 						</uni-list>
@@ -92,7 +88,7 @@
 				showResult: false,
 				uploaded: false,
 				result: [],
-				 bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'],
+				bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'],
 			}
 		},
 
@@ -128,7 +124,7 @@
 					sourceType: ['camera', 'album'], //从相机、相册选择
 					success: (res) => {
 						console.log(this.ifChoosed);
-						if(!this.ifChoosed){
+						if (!this.ifChoosed) {
 							this.toggleContainerStyle();
 						}
 						console.log(res);
@@ -192,13 +188,13 @@
 						if (isSingle) {
 							// 处理单目标的返回数据
 							this.result.push({
-									"label": data.garbageName,
-									"Similarity": `${(data.probability*100).toFixed(1)}%`,
-									"type": data.garbageType
-								})
+								"label": data.garbageName,
+								"Similarity": `${(data.probability*100).toFixed(1)}%`,
+								"type": data.garbageType
+							})
 						} else {
 							// 处理多目标的返回数据
-							this.result = data.label.map(item=>{
+							this.result = data.label.map(item => {
 								const props = item.split(/\s+/);
 								return {
 									"label": props[0],
@@ -211,13 +207,13 @@
 						uni.hideLoading();
 						this.hideButtonContainer();
 					},
-					fail:()=>{
+					fail: () => {
 						uni.showToast({
-							title:"加载失败",
-							icon:"error"
+							title: "加载失败",
+							icon: "error"
 						});
 					},
-					complete:()=>{
+					complete: () => {
 						this.uploaded = false;
 					}
 				});

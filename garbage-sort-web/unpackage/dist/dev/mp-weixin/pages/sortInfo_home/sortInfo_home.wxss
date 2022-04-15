@@ -156,13 +156,4 @@
 .uni-list {
   margin: 1rem;
 }
-.header-caption-cities {
-  top: 10vh;
-  position: absolute;
-}
-.header-caption-cities text {
-  color: #FFF;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
 
