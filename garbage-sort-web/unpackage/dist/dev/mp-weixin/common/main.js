@@ -130,7 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 var _vuex = __webpack_require__(/*! vuex */ 9);
 var _package = __webpack_require__(/*! ./package.json */ 10);
 var _checkUpdate = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-upgrade-center-app/utils/check-update */ 11));
-var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/request.js */ 13));
+var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./common/qqmap/qqmap-wx-jssdk.js */ 252));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 {
   onLaunch: function onLaunch() {var _this = this;
@@ -180,11 +181,26 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
         _this.login();
       } });
 
+    //初始化地图信息
+    var qqMapSdk = new _qqmapWxJssdk.default({
+      key: 'QKVBZ-SMXYU-77CVP-4RJQO-LKGWF-R5FUO' });
+
     // 尝试获取用户定位
     wx.getLocation({
       type: 'gcj02',
       success: function success(res) {
-        console.log(res);
+        qqMapSdk.reverseGeocoder({
+          sig: 'B498lvIvT83IuUq7m5GxAP5RQ5D1kHD',
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude },
+
+          success: function success(res) {
+            var city = res.result.address_component.city;
+            _this.$store.commit('setCityName', city);
+            uni.$emit('cityLoaded', city);
+          } });
+
       } });
 
   },
@@ -208,10 +224,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
             avatar: _this2.$store.state.user.avatarUrl }).
 
           then(function (res) {
-            _this2.$store.commit(
-            'user/setOpenId',
-            res.data.data.openid);
-
+            _this2.$store.commit('user/setOpenId', res.data.data.openid);
             uni.$emit('loginSuccess');
           });
         },

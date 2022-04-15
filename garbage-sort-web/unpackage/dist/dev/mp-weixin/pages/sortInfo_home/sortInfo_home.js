@@ -660,7 +660,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
 //
 //
 //
-var _default = { data: function data() {return { bodyImage: null, selectedCity: '南京市', citiesList: [], swiperTitles: ['可回收物', '厨余垃圾', '有害垃圾', '其他垃圾', '大件垃圾'], swiperTips: ['可回收物指适宜回收利用和资源化利用的生活废弃物。', '厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。', '有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。', '其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。', '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。'], requirements: ['', '', '', '', ''], currentItem: 0, defaultIndex: 2, hasBigTrash: false, bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'], bodyColor: '#274883', searchMode: false, cityId: 0, searchResult: [], typeNames: [], showResult: false, inputValue: '' };}, methods: { // 弹出选择栏
+var _default = { data: function data() {return { bodyImage: null, selectedCity: '上海市', citiesList: [], swiperTitles: ['可回收物', '厨余垃圾', '有害垃圾', '其他垃圾', '大件垃圾'], swiperTips: ['可回收物指适宜回收利用和资源化利用的生活废弃物。', '厨余垃圾是指居民日常生活及食品加工、饮食服务、单位供餐等活动中产生的垃圾。', '有害垃圾指对人体健康或者自然环境造成直接或者潜在危害的生活废弃物。', '其他垃圾包括砖瓦陶瓷、渣土、卫生间废纸、瓷器碎片、动物排泄物、一次性用品等难以回收的废弃物。', '大件垃圾是指体积较大、整体性强，需要拆分再处理的废弃物品。'], requirements: ['', '', '', '', ''], currentItem: 0, defaultIndex: 1, hasBigTrash: false, bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'], bodyColor: '#274883', searchMode: false, cityId: 0, searchResult: [], typeNames: [], showResult: false, inputValue: '' };}, methods: { // 弹出选择栏
     popSelector: function popSelector() {this.$refs.popup.open();}, // 用户点击取消，关闭选择栏
     onCancel: function onCancel() {this.$refs.popup.close();}, // 用户点击确认，关闭选择栏并绑定数值
     onConfirm: function onConfirm() {// 更改信息
@@ -688,7 +688,7 @@ var _default = { data: function data() {return { bodyImage: null, selectedCity: 
         _request.default.post('/cityinfo/garbagesearch', { cityID: this.cityId, search: detail.value }).then(function (res) {_this4.searchResult = res.data.data;if (res.data.data.length != 0) {_this4.showResult = true;} else {_this4.showResult = false;}});}}, // 跳转至 Detail 页面
     gotoDetail: function gotoDetail() {uni.navigateTo({ url: "../sortInfo_details/sortInfo_details?index=".concat(this.currentItem) });}, // 初始化vuex
     initStates: function initStates() {this.$store.commit('setCityId', this.cityId);this.$store.commit('setClasses', this.swiperTitles);this.$store.commit('setCityName', this.selectedCity);} }, // 实时更新Vuex状态
-  watch: { cityId: function cityId(newId, oldId) {this.$store.commit('setCityId', newId);}, swiperTitles: function swiperTitles(newTitles, oldTitles) {this.$store.commit('setClasses', newTitles);}, selectedCity: function selectedCity(newCity, oldCity) {this.$store.commit('setCityName', newCity);} }, mounted: function mounted() {this.loadData();this.initStates();}, onLoad: function onLoad() {} };exports.default = _default;
+  watch: { cityId: function cityId(newId, oldId) {this.$store.commit('setCityId', newId);}, swiperTitles: function swiperTitles(newTitles, oldTitles) {this.$store.commit('setClasses', newTitles);}, selectedCity: function selectedCity(newCity, oldCity) {this.$store.commit('setCityName', newCity);} }, mounted: function mounted() {this.loadData();this.initStates();}, onLoad: function onLoad() {var _this5 = this;uni.$once('cityLoaded', function (city) {_this5.selectedCity = city;_this5.getDefaultIndex();_this5.loadCityData();});} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

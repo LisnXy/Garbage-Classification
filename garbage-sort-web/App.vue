@@ -3,96 +3,109 @@ import { mapMutations } from 'vuex';
 import { version } from './package.json';
 import checkUpdate from '@/uni_modules/uni-upgrade-center-app/utils/check-update';
 import axios from './static/utils/request.js';
+import QQMapWX from './common/qqmap/qqmap-wx-jssdk.js';
 
 export default {
-    onLaunch: function () {
-        // #ifdef H5
-        console.log(
-            `%c hello uniapp %c v${version} `,
-            'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
-            'background:#007aff ;padding: 1px; border-radius: 0 3px 3px 0;  color: #fff; font-weight: bold;'
-        );
-        // #endif
-        // 线上示例使用
-        // console.log('%c uni-app官方团队诚邀优秀前端工程师加盟，一起打造更卓越的uni-app & uniCloud，欢迎投递简历到 hr2013@dcloud.io', 'color: red');
-        console.log('App Launch');
-        // #ifdef APP-PLUS
-        // App平台检测升级，服务端代码是通过uniCloud的云函数实现的，详情可参考：https://ext.dcloud.net.cn/plugin?id=4542
-        if (plus.runtime.appid !== 'HBuilder') {
-            // 真机运行不需要检查更新，真机运行时appid固定为'HBuilder'，这是调试基座的appid
-            checkUpdate();
-        }
+	onLaunch: function() {
+		// #ifdef H5
+		console.log(
+			`%c hello uniapp %c v${version} `,
+			'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+			'background:#007aff ;padding: 1px; border-radius: 0 3px 3px 0;  color: #fff; font-weight: bold;'
+		);
+		// #endif
+		// 线上示例使用
+		// console.log('%c uni-app官方团队诚邀优秀前端工程师加盟，一起打造更卓越的uni-app & uniCloud，欢迎投递简历到 hr2013@dcloud.io', 'color: red');
+		console.log('App Launch');
+		// #ifdef APP-PLUS
+		// App平台检测升级，服务端代码是通过uniCloud的云函数实现的，详情可参考：https://ext.dcloud.net.cn/plugin?id=4542
+		if (plus.runtime.appid !== 'HBuilder') {
+			// 真机运行不需要检查更新，真机运行时appid固定为'HBuilder'，这是调试基座的appid
+			checkUpdate();
+		}
 
-        // 一键登录预登陆，可以显著提高登录速度
-        uni.preLogin({
-            provider: 'univerify',
-            success: (res) => {
-                // 成功
-                this.setUniverifyErrorMsg();
-                console.log('preLogin success: ', res);
-            },
-            fail: (res) => {
-                this.setUniverifyLogin(false);
-                this.setUniverifyErrorMsg(res.errMsg);
-                // 失败
-                console.log('preLogin fail res: ', res);
-            }
-        });
-        // #endif
-        // 载入用户信息
-        wx.getUserInfo({
-            lang: 'zh_CN',
-            success: (res) => {
-                // 设置用户信息
-                if (res.userInfo) {
-                    this.$store.dispatch('user/setUser', res.userInfo);
-                }
-            },
-            complete:()=>{
-                this.login();
-            }
-        });
+		// 一键登录预登陆，可以显著提高登录速度
+		uni.preLogin({
+			provider: 'univerify',
+			success: res => {
+				// 成功
+				this.setUniverifyErrorMsg();
+				console.log('preLogin success: ', res);
+			},
+			fail: res => {
+				this.setUniverifyLogin(false);
+				this.setUniverifyErrorMsg(res.errMsg);
+				// 失败
+				console.log('preLogin fail res: ', res);
+			}
+		});
+		// #endif
+		// 载入用户信息
+		wx.getUserInfo({
+			lang: 'zh_CN',
+			success: res => {
+				// 设置用户信息
+				if (res.userInfo) {
+					this.$store.dispatch('user/setUser', res.userInfo);
+				}
+			},
+			complete: () => {
+				this.login();
+			}
+		});
+		//初始化地图信息
+		const qqMapSdk = new QQMapWX({
+			key: 'QKVBZ-SMXYU-77CVP-4RJQO-LKGWF-R5FUO'
+		});
 		// 尝试获取用户定位
 		wx.getLocation({
-			type:'gcj02',
-			success:(res)=>{
-				console.log(res);
+			type: 'gcj02',
+			success: res => {
+				qqMapSdk.reverseGeocoder({
+					sig: 'B498lvIvT83IuUq7m5GxAP5RQ5D1kHD',
+					location: {
+						latitude: res.latitude,
+						longitude: res.longitude
+					},
+					success: res => {
+						const city = res.result.address_component.city;
+						this.$store.commit('setCityName',city);
+						uni.$emit('cityLoaded',city);
+					}
+				});
 			}
-		})
-    },
-    onShow: function () {},
-    onHide: function () {
-        console.log('App Hide');
-    },
-    globalData: {
-        test: ''
-    },
-    methods: {
-        ...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin']),
-        login() {
-            wx.login({
-                success: (res) => {
-					console.log('login',res);
-                    axios
-                        .post('/user/login', {
-                            code: res.code,
-                            userName: this.$store.state.user.nickName,
-                            avatar: this.$store.state.user.avatarUrl
-                        })
-                        .then((res) => {
-                            this.$store.commit(
-                                'user/setOpenId',
-                                res.data.data.openid
-                            );
-                            uni.$emit('loginSuccess');
-                        });
-                },
-				fail:(err)=>{
-					console.log('login',err);
+		});
+	},
+	onShow: function() {},
+	onHide: function() {
+		console.log('App Hide');
+	},
+	globalData: {
+		test: ''
+	},
+	methods: {
+		...mapMutations(['setUniverifyErrorMsg', 'setUniverifyLogin']),
+		login() {
+			wx.login({
+				success: res => {
+					console.log('login', res);
+					axios
+						.post('/user/login', {
+							code: res.code,
+							userName: this.$store.state.user.nickName,
+							avatar: this.$store.state.user.avatarUrl
+						})
+						.then(res => {
+							this.$store.commit('user/setOpenId', res.data.data.openid);
+							uni.$emit('loginSuccess');
+						});
+				},
+				fail: err => {
+					console.log('login', err);
 				}
-            });
-        }
-    }
+			});
+		}
+	}
 };
 </script>
 
@@ -104,9 +117,9 @@ export default {
 /* H5 兼容 pc 所需 */
 /* #ifdef H5 */
 @media screen and (min-width: 768px) {
-    body {
-        overflow-y: scroll;
-    }
+	body {
+		overflow-y: scroll;
+	}
 }
 
 /* 顶栏通栏样式 */
@@ -116,58 +129,58 @@ export default {
 	} */
 
 uni-page-body {
-    background-color: #f5f5f5 !important;
-    min-height: 100% !important;
-    height: auto !important;
+	background-color: #f5f5f5 !important;
+	min-height: 100% !important;
+	height: auto !important;
 }
 
 .uni-top-window uni-tabbar .uni-tabbar {
-    background-color: #fff !important;
+	background-color: #fff !important;
 }
 
 .uni-app--showleftwindow .hideOnPc {
-    display: none !important;
+	display: none !important;
 }
 
 /* #endif */
 
 /* 以下样式用于 hello uni-app 演示所需 */
 page {
-    background-color: #efeff4;
-    height: 100%;
-    font-size: 28 rpx;
-    /* line-height: 1.8; */
+	background-color: #efeff4;
+	height: 100%;
+	font-size: 28 rpx;
+	/* line-height: 1.8; */
 }
 
 .fix-pc-padding {
-    padding: 0 50px;
+	padding: 0 50px;
 }
 
 .uni-header-logo {
-    padding: 30 rpx;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10 rpx;
+	padding: 30 rpx;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10 rpx;
 }
 
 .uni-header-image {
-    width: 100px;
-    height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 .uni-hello-text {
-    color: #7a7e83;
+	color: #7a7e83;
 }
 
 .uni-hello-addfile {
-    text-align: center;
-    line-height: 300 rpx;
-    background: #fff;
-    padding: 50 rpx;
-    margin-top: 10px;
-    font-size: 38 rpx;
-    color: #808080;
+	text-align: center;
+	line-height: 300 rpx;
+	background: #fff;
+	padding: 50 rpx;
+	margin-top: 10px;
+	font-size: 38 rpx;
+	color: #808080;
 }
 
 /* #endif*/

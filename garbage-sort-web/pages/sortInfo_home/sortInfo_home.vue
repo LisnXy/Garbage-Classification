@@ -251,7 +251,7 @@ export default {
     data() {
         return {
             bodyImage: null,
-            selectedCity: '南京市',
+            selectedCity: '上海市',
             citiesList: [],
             swiperTitles: [
                 '可回收物',
@@ -269,7 +269,7 @@ export default {
             ],
             requirements: ['', '', '', '', ''],
             currentItem: 0,
-            defaultIndex: 2,
+            defaultIndex: 1,
             hasBigTrash: false,
             bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'],
             bodyColor: '#274883',
@@ -290,6 +290,7 @@ export default {
         onCancel() {
             this.$refs.popup.close();
         },
+		
         // 用户点击确认，关闭选择栏并绑定数值
         onConfirm() {
             // 更改信息
@@ -417,7 +418,7 @@ export default {
             this.$store.commit('setCityId', this.cityId);
             this.$store.commit('setClasses', this.swiperTitles);
             this.$store.commit('setCityName', this.selectedCity);
-        }
+        },
     },
     // 实时更新Vuex状态
     watch: {
@@ -436,7 +437,11 @@ export default {
         this.initStates();
     },
 	onLoad() {
-		
+		uni.$once('cityLoaded',(city)=>{
+			this.selectedCity = city;
+			this.getDefaultIndex();
+			this.loadCityData();
+		})
 	}
 };
 </script>
