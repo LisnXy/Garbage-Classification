@@ -69,6 +69,7 @@ export default {
 					},
 					success: res => {
 						const city = res.result.address_component.city;
+						console.log(city);
 						this.$store.commit('setCityName',city);
 						uni.$emit('cityLoaded',city);
 					}

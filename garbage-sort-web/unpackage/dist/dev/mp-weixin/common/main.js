@@ -197,6 +197,7 @@ var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./common/qqma
 
           success: function success(res) {
             var city = res.result.address_component.city;
+            console.log(city);
             _this.$store.commit('setCityName', city);
             uni.$emit('cityLoaded', city);
           } });
