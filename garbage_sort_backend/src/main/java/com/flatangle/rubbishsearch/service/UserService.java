@@ -186,7 +186,7 @@ public class UserService {
         //可能有同分的情况
         while(rankScores.get(l).getValue() == targetScore) {
             if(rankScores.get(l).getKey().equals(userID)){
-                return (double)(l / (rankScores.size() - 1));   //返回超越的百分比
+                return ((double)l / (rankScores.size() - 1));   //返回超越的百分比
             }
             else
                 l++;

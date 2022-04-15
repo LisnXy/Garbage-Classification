@@ -180,6 +180,13 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./static/utils/req
         _this.login();
       } });
 
+    // 尝试获取用户定位
+    wx.getLocation({
+      type: 'gcj02',
+      success: function success(res) {
+        console.log(res);
+      } });
+
   },
   onShow: function onShow() {},
   onHide: function onHide() {
