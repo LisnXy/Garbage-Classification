@@ -76,7 +76,7 @@ public class GetLabelService {
                 int garbageType = garbageMapper.selectList(garbageLambdaQueryWrapper).get(0).getType();
 
                 //若识别正确率高于80%，则计入搜索记录中，用于分析用户对垃圾分类知识的了解
-                if(picture.getOdd() > 0.8) {
+                if(picture.getOdd() > 0.8 && !openID.equals("")) {
                     SearchRecord searchRecord = searchRecordMapper.selectById(openID);
                     switch (garbageType) {
                         case 1: searchRecord.setRecycleCount(searchRecord.getRecycleCount() + 1); break;
@@ -172,7 +172,7 @@ public class GetLabelService {
                     int garbageType = garbageMapper.selectList(garbageLambdaQueryWrapper).get(0).getType();
 
                     //若识别正确率高于80%，则计入搜索记录中，用于分析用户对垃圾分类知识的了解
-                    if(Float.parseFloat(probability) > 0.8) {
+                    if(Float.parseFloat(probability) > 0.8 && !openID.equals("")) {
                         SearchRecord searchRecord = searchRecordMapper.selectById(openID);
                         switch (garbageType) {
                             case 1: searchRecord.setRecycleCount(searchRecord.getRecycleCount() + 1); break;

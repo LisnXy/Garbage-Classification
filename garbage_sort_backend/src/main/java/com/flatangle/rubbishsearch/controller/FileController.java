@@ -32,7 +32,7 @@ public class FileController {
      * @return  图片的种类
      */
     @PostMapping("/getLabel")
-    public Result<?> uploadImgAPP(@RequestParam("imgFile") MultipartFile file, @RequestParam String openID, HttpServletRequest request){
+    public Result<?> uploadImgAPP(@RequestParam("imgFile") MultipartFile file, @RequestParam(defaultValue = "") String openID, HttpServletRequest request){
         String fileName = "";
         String fileExtension = "";
         HashMap<String,Object> result = null;
@@ -78,7 +78,7 @@ public class FileController {
      * @return 一个含有结果图片和labels的包装类
      */
     @PostMapping("/getImg_labels")
-    public Result<?> uploadImgAPP2(@RequestParam("imgFile") MultipartFile file, @RequestParam String openID, HttpServletRequest request)throws IOException {
+    public Result<?> uploadImgAPP2(@RequestParam("imgFile") MultipartFile file,@RequestParam(defaultValue = "") String openID, HttpServletRequest request)throws IOException {
         String fileName = "";
         String extendName = "";
         String result_img = "-1";
