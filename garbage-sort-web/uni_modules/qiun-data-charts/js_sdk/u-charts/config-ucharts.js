@@ -223,7 +223,7 @@ const cfu = {
                 linearType: 'none'
             },
             tooltip: {
-                showBox: true,
+                showBox: false,
                 showArrow: false,
                 showCategory: false,
                 borderWidth: 0,

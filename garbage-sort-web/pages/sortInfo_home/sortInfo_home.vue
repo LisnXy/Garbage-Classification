@@ -2,8 +2,8 @@
     <view class="root">
         <view
             class="header"
-            style="background-image: url('../../static/image/background.svg')"
         >
+		<image class="header-bg-image" src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/background.svg" mode="aspectFit"></image>
             <view class="search">
                 <view class="search-header" @click="popSelector">
                     <text class="city-selector">{{ selectedCity }}</text>
@@ -448,4 +448,9 @@ export default {
 
 <style lang="less">
 @import '../../common/style/sortInfo_home.less';
+.header-bg-image {
+		position:absolute;
+		width:100vw;
+		height:33vh;
+	}
 </style>

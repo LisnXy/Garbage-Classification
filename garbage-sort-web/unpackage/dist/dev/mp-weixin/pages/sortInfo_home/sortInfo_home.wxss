@@ -156,4 +156,9 @@
 .uni-list {
   margin: 1rem;
 }
+.header-bg-image {
+  position: absolute;
+  width: 100vw;
+  height: 33vh;
+}
 

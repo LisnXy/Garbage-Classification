@@ -6,7 +6,7 @@
     "versionCode" : "100",
     "transformPx" : false,
     "networkTimeout" : {
-        "uploadFile" : 5000
+        "uploadFile" : 10000
     },
     "app-plus" : {
         "usingComponents" : true,

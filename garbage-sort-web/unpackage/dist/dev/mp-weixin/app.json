@@ -32,7 +32,7 @@
     ]
   },
   "networkTimeout": {
-    "uploadFile": 5000
+    "uploadFile": 10000
   },
   "permission": {
     "scope.userLocation": {

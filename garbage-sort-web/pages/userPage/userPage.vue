@@ -83,7 +83,7 @@ export default {
 		 */
 		setData(data) {
 			this.score = data.score;
-			this.percentage = data.surpassPercent;
+			this.percentage = (Number(`${data.surpassPercent}`)*100).toFixed(1);
 			// 判断是否有数据
 			if (data.recordInfo) {
 				this.pieData.series = Object.keys(data.recordInfo).map(item => {
