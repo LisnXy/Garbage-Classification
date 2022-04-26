@@ -2,3 +2,4 @@
 *.properties
 garbage_sort_backend/target/classes/application.properties
 *.class
+*.map

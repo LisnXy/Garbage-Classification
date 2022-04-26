@@ -91,6 +91,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
 @media @import './common/uni.css'{
 @charset "UTF-8";
@@ -3943,36 +3964,36 @@ to {
 
 /* 以下样式用于 hello uni-app 演示所需 */
 page {
-    background-color: #efeff4;
-    height: 100%;
-    font-size: 28 rpx;
-    /* line-height: 1.8; */
+	background-color: #efeff4;
+	height: 100%;
+	font-size: 28 rpx;
+	/* line-height: 1.8; */
 }
 .fix-pc-padding {
-    padding: 0 50px;
+	padding: 0 50px;
 }
 .uni-header-logo {
-    padding: 30 rpx;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10 rpx;
+	padding: 30 rpx;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10 rpx;
 }
 .uni-header-image {
-    width: 100px;
-    height: 100px;
+	width: 100px;
+	height: 100px;
 }
 .uni-hello-text {
-    color: #7a7e83;
+	color: #7a7e83;
 }
 .uni-hello-addfile {
-    text-align: center;
-    line-height: 300 rpx;
-    background: #fff;
-    padding: 50 rpx;
-    margin-top: 10px;
-    font-size: 38 rpx;
-    color: #808080;
+	text-align: center;
+	line-height: 300 rpx;
+	background: #fff;
+	padding: 50 rpx;
+	margin-top: 10px;
+	font-size: 38 rpx;
+	color: #808080;
 }
 
 

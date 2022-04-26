@@ -32,16 +32,15 @@
     ]
   },
   "networkTimeout": {
-    "uploadFile": 5000
+    "uploadFile": 10000
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "演示定位能力"
+      "desc": "您的定位将用于获取城市信息"
     }
   },
   "usingComponents": {
     "van-picker": "/wxcomponents/vant/dist/picker/index",
     "tab-bar": "/components/tabBar/tabBar"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

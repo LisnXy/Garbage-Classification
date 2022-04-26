@@ -167,10 +167,10 @@
 				let url = null;
 				let isSingle = false;
 				if (type === 'single') {
-					url = `http://localhost:3030/uploadImgAPP/getLabel?openID=${this.$store.state.user.openId}`
+					url = `http://59.110.159.156:3030/uploadImgAPP/getLabel?openID=${this.$store.state.user.openId}`
 					isSingle = true
 				} else {
-					url = `http://localhost:3030/uploadImgAPP/getImg_labels?openID=${this.$store.state.user.openId}`
+					url = `http://59.110.159.156:3030/uploadImgAPP/getImg_labels?openID=${this.$store.state.user.openId}`
 				}
 				// 页面加载
 				uni.showLoading({
@@ -202,7 +202,7 @@
 									"type": Number([props[2]])
 								}
 							})
-							this.imgList[0] = `http://127.0.0.1:3030/images/${data.imgstr}`
+							this.imgList[0] = `http://59.110.159.156:3030/images/${data.imgstr}`
 						}
 						uni.hideLoading();
 						this.hideButtonContainer();
