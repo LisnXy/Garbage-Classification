@@ -5,7 +5,7 @@ from PIL import Image
 from torchvision import transforms
 import matplotlib.pyplot as plt
 
-from model import convnext_tiny as create_model
+from Conv.model import convnext_tiny as create_model
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
          transforms.ToTensor(),
          transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
     # read class_indict
-    json_path = './class_indices.json'
+    json_path = 'Conv/class_indices.json'
     assert os.path.exists(json_path), "file: '{}' dose not exist.".format(json_path)
 
     json_file = open(json_path, "r")
@@ -30,7 +30,7 @@ def main():
     weights_dict = torch.load("./weights/best_model1.pth", map_location=device)["model"]
     model = create_model(num_classes=num_classes).to(device)
     # load model weights
-    model_weight_path = "./weights/best_model1.pth"
+    model_weight_path = "Conv/weights/best_model1.pth"
     model.load_state_dict(weights_dict, strict=False)
     model.eval()
 
