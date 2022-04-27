@@ -1,8 +1,5 @@
 import os
 
-filepath = "D:/projects/dataset2/conv/data"
-dirs = os.listdir(filepath)
-
 
 # 检测名称，观察是否可以直接进行分类
 def name_check(file_name):

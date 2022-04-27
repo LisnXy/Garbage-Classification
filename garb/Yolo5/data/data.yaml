@@ -1,0 +1,16 @@
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../dataset2  # dataset root dir
+train: train/images  # train images (relative to 'path')
+val: valid/images  # val images (relative to 'path')
+
+
+# Classes
+nc: 44  # number of classes
+names: ['调料瓶', '软膏', '垃圾桶', '茶叶渣',  '筷子', '陶瓷器皿', '烟蒂','塑料衣架', '一次性快餐盒',
+           '旧衣服', '枕头', '花盆', '塑料器皿', '饮料瓶', '毛绒玩具', '剩饭剩菜', '干电池', '纸盒纸箱',
+           '污损塑料', '锅', '金属厨具', '插头电线', '果皮果肉', '易拉罐', '充电宝','鞋', '砧板', '玻璃器皿',
+           '蛋壳', '菜帮菜叶', '食用油桶', '金属食品罐', '金属器皿', '塑料玩具', '鱼骨', '污损用纸', '包', '过期药物',
+           '大骨头', '书籍纸张', '洗护用品', '快递纸袋', '牙签', '酒瓶']  # class names
+
+
