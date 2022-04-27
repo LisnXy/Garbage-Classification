@@ -3,10 +3,13 @@ import io
 import os
 import json
 import torch
+from Conv.conv_classifier import ConvClassifier
 from PIL import Image
 from torchvision import transforms
 from Conv.model import convnext_tiny as create_model
 
+
+conv_classifier = ConvClassifier()
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(f"using {device} device.")
 num_classes = 144
@@ -62,7 +65,7 @@ async def predict(file: UploadFile = File(...)):
         predict = torch.softmax(output, dim=0)
         predict_cla = torch.argmax(predict).numpy()
         class_res = class_indict[str(predict_cla)]
+        type = conv_classifier.classify(class_res)
+        class_res = conv_classifier.name_process(class_res)
         prob = predict[predict_cla].numpy()
-    print_res = "class: {}   prob: {:.3}".format(class_indict[str(predict_cla)],
-                                                 predict[predict_cla].numpy())
-    return {"class": f"{class_res}", "prob": f"{format(prob,'.3f')}"}
+    return {"label": f"{class_res}", "prob": f"{format(prob,'.3f')}", "type": f"{type}"}

@@ -3,3 +3,4 @@
 garbage_sort_backend/target/classes/application.properties
 *.class
 *.map
+garb/Conv/weights/best_model1.pth
