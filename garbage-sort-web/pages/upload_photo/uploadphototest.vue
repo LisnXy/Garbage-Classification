@@ -157,6 +157,7 @@
 			},
 			//图片上传
 			UploadImage(type) {
+				console.log(this.imgList)
 				// 防止抖动
 				if (this.uploaded) {
 					return
@@ -179,12 +180,11 @@
 				//上传
 				uni.uploadFile({
 					url: url,
-					fileType: "image", //ZFB必填,不然报错
 					filePath: this.imgList[0],
-					name: "imgFile", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
+					name: "file", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
 					success: (res) => {
-						console.log(res);
-						const data = JSON.parse(res.data).data;
+						const data = JSON.parse(res.data)
+						console.log(data)
 						if (isSingle) {
 							// 处理单目标的返回数据
 							this.result.push({
@@ -194,15 +194,14 @@
 							})
 						} else {
 							// 处理多目标的返回数据
-							this.result = data.label.map(item => {
-								const props = item.split(/\s+/);
-								return {
-									"label": props[0],
-									"Similarity": `${(props[1]*100).toFixed(0)}%`,
-									"type": Number([props[2]])
-								}
-							})
-							this.imgList[0] = `http://124.220.210.6:3030/images/${data.imgstr}`
+							for(const item of data.result){
+								console.log(item)
+								this.result.push({
+									"label": item.garbageName,
+									"Similarity": `${(item.probability*100).toFixed(1)}%`,
+									"type": item.garbageType})
+							}
+							this.imgList[0] = `http://124.220.210.6:80/images/${data.url}`
 						}
 						uni.hideLoading();
 						this.hideButtonContainer();
@@ -238,7 +237,7 @@
 			},
 			// 用于映射名称
 			mapName(type) {
-				switch (type) {
+				switch (Number(type)) {
 					case 1:
 						return '可回收物';
 					case 2:
