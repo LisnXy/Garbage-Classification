@@ -1,21 +1,15 @@
-import numpy as np
 from fastapi import FastAPI, UploadFile, File
 import io
 import os
 import json
 import torch
+import uuid
 from Conv.conv_classifier import ConvClassifier
 from PIL import Image
 from torchvision import transforms
 from Conv.model import convnext_tiny as create_model
 from Yolo5.models.common import DetectMultiBackend
-from Yolo5.utils.augmentations import letterbox
-from Yolo5.utils.datasets import IMG_FORMATS, VID_FORMATS, LoadImages, LoadStreams
-from Yolo5.utils.general import (LOGGER, check_file, check_img_size, check_imshow, check_requirements, colorstr,
-                                 increment_path, non_max_suppression, print_args, scale_coords, strip_optimizer,
-                                 xyxy2xywh)
-from Yolo5.utils.plots import Annotator, colors, save_one_box
-from Yolo5.utils.torch_utils import select_device, time_sync
+from Yolo5.detect import run
 
 # 全局 device 声明
 device = torch.device('cpu')
@@ -38,6 +32,7 @@ classes = None
 agnostic_nms = False
 augment = False
 max_det = 1000
+save_file_dir = 'Yolo5/data/Files'
 # 创建分类器
 conv_classifier = ConvClassifier()
 
@@ -94,43 +89,39 @@ async def predict_conv(file: UploadFile = File(...)):
         type = conv_classifier.classify(class_res)
         class_res = conv_classifier.name_process(class_res)
         prob = predict[predict_cla].numpy()
-    return {"label": f"{class_res}", "prob": f"{format(prob, '.3f')}", "type": f"{type}"}
+    return {"garbageName": f"{class_res}", "probability": f"{format(prob, '.3f')}", "garbageType": f"{type}"}
 
 
 # 目标检测接口
 @app.post('/predictYolo')
 async def predict_yolo(file: UploadFile = File(...)):
     # 验证图像格式
-    extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
-    if not extension:
+    extension = file.filename.split(".")[-1]
+    is_image = extension in ("jpg", "jpeg", "png")
+    if not is_image:
         return "Image must be jpg or png format!"
-    stride, names, pt = model_yolo.stride, model_yolo.names, model_yolo.pt
-    imgsz = check_img_size((640, 640), s=stride)  # check image size
-    # 读取图片
-    img0 = read_imagefile(await file.read())
-    img0 = img0.convert('RGB')
-    # 处理图像
-    img = letterbox(img0, imgsz, stride=stride, auto=True)[0]
-    img = img.transpose((2, 0, 1))[::-1]  # HWC to CHW, BGR to RGB
-    img = np.ascontiguousarray(img)
-    # 开始推理
-    model_yolo.warmup(imgsz=(1 if pt else pt, 3, *imgsz))
-    dt, seen = [0.0, 0.0, 0.0], 0
-    t1 = time_sync()
-    im = torch.from_numpy(img).to(device)
-    im = im.half() if model_yolo.fp16 else im.float()
-    im /= 255  # 0 - 255 to 0.0 - 1.0
-    if len(im.shape) == 3:
-        im = im[None]  # expand for batch dim
-    t2 = time_sync()
-    dt[0] += t2 - t1
-    # Inference
-    visualize = False
-    pred = model_yolo(im, augment=augment, visualize=visualize)
-    t3 = time_sync()
-    dt[1] += t3 - t2
-    # NMS
-    pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
-    dt[2] += time_sync() - t3
-    print(pred)
-    return 0
+    contents = await file.read()
+    file_name = uuid.uuid1()
+    save_file_name = fr'{save_file_dir}/{file_name}.{extension}'
+    with open(save_file_name, 'wb') as f:
+        f.write(contents)
+    classes, confs = run(model=model_yolo, source=save_file_name, device=device)
+    types = []
+    for item in classes:
+        types.append(conv_classifier.classify(item))
+    result = []
+    for x in range(len(classes)):
+        result.append({
+            "garbageName": classes[x],
+            "probability": confs[x],
+            "garbageType": types[x],
+        })
+    return {
+        "result": result,
+        "url": f"{file_name}.{extension}"
+    }
+
+
+@app.get('/status')
+async def hello():
+    return 'Service running...'
