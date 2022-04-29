@@ -7,7 +7,7 @@
 				<text style="font-size: 2.5rem;font-weight: 600;letter-spacing: 8px;">智享分类</text>
 				<text style="font-size: 1.1rem;margin-top: 0.5rem;letter-spacing: 2px;">智能垃圾识别 助你分类无忧</text>
 			</view>
-			<image src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/upload-bg.png"
+			<image src="http://124.220.210.6/images/static/upload-bg.png"
 				mode="aspectFit" v-if="!ifChoosed" style="width: 100%;height:60%;position:relative;bottom: 20px;">
 			</image>
 		</view>
@@ -168,10 +168,10 @@
 				let url = null;
 				let isSingle = false;
 				if (type === 'single') {
-					url = `http://124.220.210.6:8000/predictConv`
+					url = `http://124.220.210.6/api/cv/predictConv`
 					isSingle = true
 				} else {
-					url = `http://124.220.210.6:8000/predictYolo`
+					url = `http://124.220.210.6/api/cv//predictYolo`
 				}
 				// 页面加载
 				uni.showLoading({
