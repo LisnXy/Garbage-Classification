@@ -6,7 +6,6 @@ import com.flatangle.rubbishsearch.POJO.entity.Garbage;
 import com.flatangle.rubbishsearch.POJO.entity.Picture;
 import com.flatangle.rubbishsearch.mapper.GarbageMapper;
 import com.flatangle.rubbishsearch.mapper.PictureMapper;
-import com.flatangle.rubbishsearch.service.GetLabelService;
 import com.flatangle.rubbishsearch.service.MultiProcessService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

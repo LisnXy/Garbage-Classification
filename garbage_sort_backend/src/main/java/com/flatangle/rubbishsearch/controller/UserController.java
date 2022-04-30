@@ -29,11 +29,11 @@ public class UserController {
         String avatar = userLoginParams.getAvatar();
 
         try {
-            Map<String, String> resultMap = userService.login(code,userName,avatar);
+            Map<String, String> resultMap = userService.login(code, userName, avatar);
             return Result.success(resultMap);
 
         } catch (WechatException e) {
-            return Result.error("-1",e.getMessage());
+            return Result.error("-1", e.getMessage());
         }
     }
 
@@ -48,10 +48,4 @@ public class UserController {
         }
 
     }
-
-
-
-
-
-
 }

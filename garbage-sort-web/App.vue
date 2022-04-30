@@ -102,7 +102,7 @@ export default {
 						});
 				},
 				fail: err => {
-					console.log('login', err);
+					this.$store.commit('user/setOpenId', 'o0A7N5PUiwU0xnj48RGFdqG1u51I');
 				}
 			});
 		}
