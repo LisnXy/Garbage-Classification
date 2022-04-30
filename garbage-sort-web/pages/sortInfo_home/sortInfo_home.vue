@@ -3,7 +3,7 @@
         <view
             class="header"
         >
-		<image class="header-bg-image" src="https://cdn.jsdelivr.net/gh/LisnXy/WxCDN/garbage-classification/images/background.svg" mode="aspectFit"></image>
+		<image class="header-bg-image" src="http://124.220.210.6/images/static/background.svg" mode="aspectFit"></image>
             <view class="search">
                 <view class="search-header" @click="popSelector">
                     <text class="city-selector">{{ selectedCity }}</text>
