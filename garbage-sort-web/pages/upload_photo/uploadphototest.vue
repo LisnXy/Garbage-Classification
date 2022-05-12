@@ -168,10 +168,10 @@
 				let url = null;
 				let isSingle = false;
 				if (type === 'single') {
-					url = `http://124.220.210.6/api/cv/predictConv`
+					url = `https://www.lisncloud.com/api/cv/predictConv`
 					isSingle = true
 				} else {
-					url = `http://124.220.210.6/api/cv//predictYolo`
+					url = `https://www.lisncloud.com/api/cv/predictYolo`
 				}
 				// 页面加载
 				uni.showLoading({

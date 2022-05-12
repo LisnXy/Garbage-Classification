@@ -260,105 +260,106 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { showPopup: false, ifChoosed: false, uploadType: "单目标识别", containerHeight: '250px', containerPosition: 'relative', imgList: [], imgMaxNum: 1, baseImage: '', showBtnContainer: true, showResult: false, uploaded: false, result: [], bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'] };}, methods: { // 初始化
-    initPage: function initPage() {// clear imageList
-      this.imgList = []; // clear resultSet
-      this.result = []; // close preview window
-      this.ifChoosed = false; // init containerStyle
-      this.containerHeight = '250px'; // init buttonContainer 
-      this.showBtnContainer = true; // init resultContainer
-      this.showResult = false;}, // 切换按钮容器的样式
-    toggleContainerStyle: function toggleContainerStyle() {if (this.containerHeight === '250px') {this.containerHeight = '70%;';} else {this.containerHeight = '250px;';}}, //图片选择
-    ChooseImage: function ChooseImage() {var _this = this;uni.chooseImage({ count: 1, //上传图片上限默认1
+var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var _default =
+{
+  data: function data() {
+    return {
+      showPopup: false,
+      ifChoosed: false,
+      uploadType: "单目标识别",
+      containerHeight: '250px',
+      containerPosition: 'relative',
+      imgList: [],
+      imgMaxNum: 1,
+      baseImage: '',
+      showBtnContainer: true,
+      showResult: false,
+      uploaded: false,
+      result: [],
+      bodyColors: ['#274883', '#9f4342', '#4ba171', '#6f7774', '#e0ab40'] };
+
+  },
+
+  methods: {
+    // 初始化
+    initPage: function initPage() {
+      // clear imageList
+      this.imgList = [];
+      // clear resultSet
+      this.result = [];
+      // close preview window
+      this.ifChoosed = false;
+      // init containerStyle
+      this.containerHeight = '250px';
+      // init buttonContainer 
+      this.showBtnContainer = true;
+      // init resultContainer
+      this.showResult = false;
+    },
+    // 切换按钮容器的样式
+    toggleContainerStyle: function toggleContainerStyle() {
+      if (this.containerHeight === '250px') {
+        this.containerHeight = '70%;';
+      } else {
+        this.containerHeight = '250px;';
+      }
+    },
+    //图片选择
+    ChooseImage: function ChooseImage() {var _this = this;
+      uni.chooseImage({
+        count: 1, //上传图片上限默认1
         sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
         sourceType: ['camera', 'album'], //从相机、相册选择
-        success: function success(res) {console.log(_this.ifChoosed);if (!_this.ifChoosed) {_this.toggleContainerStyle();}console.log(res); //返回图片url数组
-          var tempFilePaths = res.tempFilePaths; //上传图片过多
-          if (tempFilePaths.length > _this.imgMaxNum) {uni.showToast({ title: '超过上传图片的最大数量', icon: 'none' });} else {_this.imgList = res.tempFilePaths;_this.ifChoosed = true;}} });}, //弹窗
-    change: function change(e) {this.showPopup = e.show;}, // 隐藏图片预览界面的按钮
-    hideButtonContainer: function hideButtonContainer() {this.showBtnContainer = false;}, // 显示图片预览界面的按钮
-    showButtonContainer: function showButtonContainer() {this.showBtnContainer = true;}, //图片上传
-    UploadImage: function UploadImage(type) {var _this2 = this; // 防止抖动
-      if (this.uploaded) {return;} else {this.uploaded = true;} // 判断类型
-      var url = null;var isSingle = false;
+        success: function success(res) {
+          console.log(_this.ifChoosed);
+          if (!_this.ifChoosed) {
+            _this.toggleContainerStyle();
+          }
+          console.log(res);
+          //返回图片url数组
+          var tempFilePaths = res.tempFilePaths;
+          //上传图片过多
+          if (tempFilePaths.length > _this.imgMaxNum) {
+            uni.showToast({
+              title: '超过上传图片的最大数量',
+              icon: 'none' });
+
+          } else {
+            _this.imgList = res.tempFilePaths;
+            _this.ifChoosed = true;
+          }
+        } });
+
+    },
+    //弹窗
+    change: function change(e) {
+      this.showPopup = e.show;
+    },
+    // 隐藏图片预览界面的按钮
+    hideButtonContainer: function hideButtonContainer() {
+      this.showBtnContainer = false;
+    },
+    // 显示图片预览界面的按钮
+    showButtonContainer: function showButtonContainer() {
+      this.showBtnContainer = true;
+    },
+    //图片上传
+    UploadImage: function UploadImage(type) {var _this2 = this;
+      console.log(this.imgList);
+      // 防止抖动
+      if (this.uploaded) {
+        return;
+      } else {
+        this.uploaded = true;
+      }
+      // 判断类型
+      var url = null;
+      var isSingle = false;
       if (type === 'single') {
-        url = "http://59.110.159.156:3030/uploadImgAPP/getLabel?openID=".concat(this.$store.state.user.openId);
+        url = "https://www.lisncloud.com/api/cv/predictConv";
         isSingle = true;
       } else {
-        url = "http://59.110.159.156:3030/uploadImgAPP/getImg_labels?openID=".concat(this.$store.state.user.openId);
+        url = "https://www.lisncloud.com/api/cv/predictYolo";
       }
       // 页面加载
       uni.showLoading({
@@ -367,12 +368,11 @@ var _default = { data: function data() {return { showPopup: false, ifChoosed: fa
       //上传
       uni.uploadFile({
         url: url,
-        fileType: "image", //ZFB必填,不然报错
         filePath: this.imgList[0],
-        name: "imgFile", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
+        name: "file", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
         success: function success(res) {
-          console.log(res);
-          var data = JSON.parse(res.data).data;
+          var data = JSON.parse(res.data);
+          console.log(data);
           if (isSingle) {
             // 处理单目标的返回数据
             _this2.result.push({
@@ -382,15 +382,14 @@ var _default = { data: function data() {return { showPopup: false, ifChoosed: fa
 
           } else {
             // 处理多目标的返回数据
-            _this2.result = data.label.map(function (item) {
-              var props = item.split(/\s+/);
-              return {
-                "label": props[0],
-                "Similarity": "".concat((props[1] * 100).toFixed(0), "%"),
-                "type": Number([props[2]]) };
-
-            });
-            _this2.imgList[0] = "http://59.110.159.156:3030/images/".concat(data.imgstr);
+            var _iterator = _createForOfIteratorHelper(data.result),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
+                console.log(item);
+                _this2.result.push({
+                  "label": item.garbageName,
+                  "Similarity": "".concat((item.probability * 100).toFixed(1), "%"),
+                  "type": item.garbageType });
+              }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
+            _this2.imgList[0] = "http://124.220.210.6:80/images/".concat(data.url);
           }
           uni.hideLoading();
           _this2.hideButtonContainer();
@@ -426,7 +425,7 @@ var _default = { data: function data() {return { showPopup: false, ifChoosed: fa
     },
     // 用于映射名称
     mapName: function mapName(type) {
-      switch (type) {
+      switch (Number(type)) {
         case 1:
           return '可回收物';
         case 2:

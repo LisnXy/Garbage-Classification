@@ -230,7 +230,7 @@ var _qqmapWxJssdk = _interopRequireDefault(__webpack_require__(/*! ./common/qqma
           });
         },
         fail: function fail(err) {
-          console.log('login', err);
+          _this2.$store.commit('user/setOpenId', 'o0A7N5PUiwU0xnj48RGFdqG1u51I');
         } });
 
     } }) };exports.default = _default;

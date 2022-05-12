@@ -7,7 +7,7 @@ import uuid
 from Conv.conv_classifier import ConvClassifier
 from PIL import Image
 from torchvision import transforms
-from Conv.model import convnext_tiny as create_model
+from Conv.model import convnext_base as create_model
 from Yolo5.models.common import DetectMultiBackend
 from Yolo5.detect import run
 
@@ -40,10 +40,8 @@ conv_classifier = ConvClassifier()
 # 初始化 ConvNeXt 模型
 def init_conv_model():
     # create model
-    weights_dict = torch.load("Conv/weights/best_model1.pth", map_location=device)["model"]
+    weights_dict = torch.load("Conv/weights/best_weight.pth", map_location=device)["model"]
     model = create_model(num_classes=num_classes).to(device)
-    # load model weights
-    model_weight_path = "Conv/weights/best_model1.pth"
     model.load_state_dict(weights_dict, strict=False)
     model.eval()
     print("conv loaded successfully")
