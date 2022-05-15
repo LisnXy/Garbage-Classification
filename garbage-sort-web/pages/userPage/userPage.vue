@@ -7,7 +7,8 @@
 					{{ userName }}
 				</text>
 			</view>
-			<view class="avatar-container"><image class="avatar" :src="avatarUrl" mode="scaleToFill"></image></view>
+			<view class="avatar-container"><image class="avatar" :src="avatarUrl" mode="scaleToFill"
+			@click="updateUserInfo()"></image></view>
 		</view>
 		<view class="user-body">
 			<view class="member-card-container">
@@ -23,16 +24,16 @@
 			</view>
 			<view class="cards-container">
 				<view class="card" @click="goTestPage">
-					<image src="../../static/icons/问答.svg" mode="scaleToFill" style="background-color: #f7eff2"></image>
+					<image src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/问答.svg" mode="scaleToFill" style="background-color: #f7eff2"></image>
 					<text>知识问答</text>
 				</view>
 				<view class="card" @click="goMarket">
-					<image src="../../static/icons/商城.svg" mode="scaleToFill" style="background-color: #eeeff7"></image>
+					<image src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/%E5%95%86%E5%9F%8E.svg" mode="scaleToFill" style="background-color: #eeeff7"></image>
 					<text>积分商城</text>
 				</view>
 				<view class="card chart-container">
 					<view class="empty" v-if="!renderChart">
-						<image src="../../static/image/empty.svg"></image>
+						<image src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/image/empty.svg"></image>
 						<text>暂无统计数据</text>
 					</view>
 					<view class="chart" v-if="renderChart"><qiun-data-charts type="pie" :chartData="pieData" style="height: 100%; width: 100%" /></view>
@@ -83,7 +84,7 @@ export default {
 		 */
 		setData(data) {
 			this.score = data.score;
-			this.percentage = (Number(`${data.surpassPercent}`)*100).toFixed(1);
+			this.percentage = (Number(`${data.surpassPercent}`) * 100).toFixed(1);
 			// 判断是否有数据
 			if (data.recordInfo) {
 				this.pieData.series = Object.keys(data.recordInfo).map(item => {
@@ -109,7 +110,11 @@ export default {
 					}
 				})
 				.then(res => {
-					this.setData(res.data.data);
+					if (res.data.code === '-1') {
+						this.renderChart = false;
+					} else {
+						this.setData(res.data.data);
+					}
 				})
 				.catch(err => {
 					setTimeout(() => {
@@ -164,6 +169,30 @@ export default {
 			uni.showToast({
 				title: '正在开发中',
 				icon: 'error'
+			});
+		},
+		/**
+		 * 更新用户信息
+		 */
+		updateUserInfo() {
+			uni.getUserProfile({
+				desc: '您的个人信息将用于快速登录',
+				lang: 'zh_CN',
+				success: res => {
+					// 设置用户信息
+					if (res.userInfo) {
+						this.$store.dispatch('user/setUser', res.userInfo);
+						axios.post('/user/saveUser', {
+							code: this.$store.state.user.openId,
+							userName: res.userInfo.nickName,
+							avatar: res.userInfo.avatarUrl
+						});
+						this.$store.commit('user/setIsSaved', true);
+					}
+				},
+				fail: err => {
+					console.log(err);
+				}
 			});
 		}
 	},

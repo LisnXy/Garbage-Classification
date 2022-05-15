@@ -7,7 +7,8 @@
 const state = {
     nickName: '',
     avatarUrl: null,
-    openId: null
+    openId: null,
+	isSaved: false
 };
 
 const mutations = {
@@ -19,7 +20,10 @@ const mutations = {
     },
     setOpenId(state, payload) {
         state.openId = payload;
-    }
+    },
+	setIsSaved(state,payload) {
+		state.isSaved = payload;
+	}
 };
 
 const getters = {};

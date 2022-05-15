@@ -32,8 +32,10 @@ export function createApp() {
         playTime: 0,
         formatedPlayTime: '00:00:00'
     };
+	
     return {
         app
     };
+
 }
 // #endif

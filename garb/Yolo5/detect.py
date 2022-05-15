@@ -150,6 +150,7 @@ def run(model,
             gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
             imc = im0.copy() if save_crop else im0  # for save_crop
             annotator = Annotator(im0, line_width=line_thickness, example=str(names))
+            # 保存结果
             result_class = []
             result_conf = []
             if len(det):

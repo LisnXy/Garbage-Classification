@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _uploadphototest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./uploadphototest.vue?vue&type=script&lang=js& */ 95);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _uploadphototest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _uploadphototest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _uploadphototest_vue_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./uploadphototest.vue?vue&type=style&index=0&lang=less& */ 97);
-/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 48);
+/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 47);
 
 var renderjs
 
@@ -253,20 +253,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
 var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils/request.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var _default =
 {
   data: function data() {
     return {
       showPopup: false,
       ifChoosed: false,
-      uploadType: "单目标识别",
+      uploadType: '单目标识别',
       containerHeight: '250px',
       containerPosition: 'relative',
       imgList: [],
@@ -291,7 +284,7 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
       this.ifChoosed = false;
       // init containerStyle
       this.containerHeight = '250px';
-      // init buttonContainer 
+      // init buttonContainer
       this.showBtnContainer = true;
       // init resultContainer
       this.showResult = false;
@@ -369,35 +362,44 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ../../static/utils
       uni.uploadFile({
         url: url,
         filePath: this.imgList[0],
-        name: "file", // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
+        name: 'file', // 一定要与后台@RequestParam("imgFile") MultipartFile变量名一致
         success: function success(res) {
           var data = JSON.parse(res.data);
           console.log(data);
           if (isSingle) {
             // 处理单目标的返回数据
             _this2.result.push({
-              "label": data.garbageName,
-              "Similarity": "".concat((data.probability * 100).toFixed(1), "%"),
-              "type": data.garbageType });
+              label: data.garbageName,
+              similarity: "".concat((data.probability * 100).toFixed(1), "%"),
+              type: data.garbageType });
 
           } else {
             // 处理多目标的返回数据
             var _iterator = _createForOfIteratorHelper(data.result),_step;try {for (_iterator.s(); !(_step = _iterator.n()).done;) {var item = _step.value;
                 console.log(item);
                 _this2.result.push({
-                  "label": item.garbageName,
-                  "Similarity": "".concat((item.probability * 100).toFixed(1), "%"),
-                  "type": item.garbageType });
+                  label: item.garbageName,
+                  similarity: "".concat((item.probability * 100).toFixed(1), "%"),
+                  type: item.garbageType });
+
               }} catch (err) {_iterator.e(err);} finally {_iterator.f();}
             _this2.imgList[0] = "http://124.220.210.6:80/images/".concat(data.url);
           }
+          console.log(_this2.$store.state.user.isSaved);
+          if (_this2.$store.state.user.isSaved) {
+            _request.default.post('/user/updateSearchRecord', {
+              openID: _this2.$store.state.user.openId,
+              detectResults: _this2.result });
+
+          }
+
           uni.hideLoading();
           _this2.hideButtonContainer();
         },
         fail: function fail() {
           uni.showToast({
-            title: "加载失败",
-            icon: "error" });
+            title: '加载失败',
+            icon: 'error' });
 
         },
         complete: function complete() {

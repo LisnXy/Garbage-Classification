@@ -24,20 +24,20 @@
 			return {
 				list: [{
 						pagePath: '../../pages/sortInfo_home/sortInfo_home',
-						iconPath: '../../static/icons/home_off.svg',
-						selectedIconPath: '../../static/icons/home_on.svg',
+						iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/home_off.svg',
+						selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/home_on.svg',
 						text: '主页'
 					},
 					{
 						pagePath: '../../pages/upload_photo/uploadphototest',
-						iconPath: '../../static/icons/Search_off.svg',
-						selectedIconPath: '../../static/icons/Search_on.svg',
+						iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/Search_off.svg',
+						selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/Search_on.svg',
 						text: '搜索'
 					},
 					{
 						pagePath: '../../pages/userPage/userPage',
-						iconPath: '../../static/icons/user_off.svg',
-						selectedIconPath: '../../static/icons/account_on.svg',
+						iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/user_off.svg',
+						selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/account_on.svg',
 						text: '个人中心'
 					}
 				]

@@ -104,6 +104,7 @@ async def predict_yolo(file: UploadFile = File(...)):
     with open(save_file_name, 'wb') as f:
         f.write(contents)
     classes, confs = run(model=model_yolo, source=save_file_name, device=device)
+    confs.reverse()
     types = []
     for item in classes:
         types.append(conv_classifier.classify(item))

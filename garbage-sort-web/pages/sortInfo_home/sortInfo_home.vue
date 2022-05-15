@@ -1,11 +1,15 @@
 <template>
 	<view class="root">
 		<view class="header">
-			<image class="header-bg-image" src="http://124.220.210.6/images/static/background.svg" mode="aspectFit"></image>
+			<image class="header-bg-image" src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/image/background.svg" mode="aspectFit"></image>
 			<view class="search">
 				<view class="search-header" @click="popSelector">
 					<text class="city-selector">{{ selectedCity }}</text>
-					<image src="../../static/image/下拉.svg" mode="scaleToFill" style="height: 28rpx; width: 28rpx; margin-left: 30rpx"></image>
+					<image
+						src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/image/下拉.svg"
+						mode="scaleToFill"
+						style="height: 28rpx; width: 28rpx; margin-left: 30rpx"
+					></image>
 					<view class="border-fill"></view>
 				</view>
 				<view class="search-body">
@@ -38,7 +42,7 @@
 						<view class="swiper-item" style="background-color: #395a98" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image
-									src="../../static/icons/可回收垃圾.png"
+									src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/可回收垃圾.png"
 									mode="aspectFit"
 									style="
                                         width: 100%;
@@ -57,7 +61,13 @@
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item" style="background-color: #b85555" @click="gotoDetail">
-							<view class="swiper-icon"><image src="../../static/icons/有害垃圾.png" mode="aspectFit" style="width: 100%; height: 50%"></image></view>
+							<view class="swiper-icon">
+								<image
+									src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/有害垃圾.png"
+									mode="aspectFit"
+									style="width: 100%; height: 50%"
+								></image>
+							</view>
 							<view class="swiper-content">
 								<text class="title">{{ swiperTitles[1] }}</text>
 								<scroll-view class="swiper-text" scroll-y="true">
@@ -68,7 +78,13 @@
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item" style="background-color: #65ba8a" @click="gotoDetail">
-							<view class="swiper-icon"><image src="../../static/icons/厨余垃圾.png" mode="aspectFit" style="width: 100%; height: 50%"></image></view>
+							<view class="swiper-icon">
+								<image
+									src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/厨余垃圾.png"
+									mode="aspectFit"
+									style="width: 100%; height: 50%"
+								></image>
+							</view>
 							<view class="swiper-content">
 								<text class="title">{{ swiperTitles[2] }}</text>
 								<scroll-view class="swiper-text" scroll-y="true">
@@ -79,7 +95,13 @@
 					</swiper-item>
 					<swiper-item>
 						<view class="swiper-item" style="background-color: #879696" @click="gotoDetail">
-							<view class="swiper-icon"><image src="../../static/icons/其他垃圾.png" mode="aspectFit" style="width: 100%; height: 50%"></image></view>
+							<view class="swiper-icon">
+								<image
+									src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/其他垃圾.png"
+									mode="aspectFit"
+									style="width: 100%; height: 50%"
+								></image>
+							</view>
 							<view class="swiper-content">
 								<text class="title">{{ swiperTitles[3] }}</text>
 								<scroll-view class="swiper-text" scroll-y="true">
@@ -92,7 +114,7 @@
 						<view class="swiper-item" style="background-color: #ebb852" @click="gotoDetail">
 							<view class="swiper-icon">
 								<image
-									src="../../static/icons/大件垃圾.png"
+									src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/大件垃圾.png"
 									mode="aspectFit"
 									style="
                                         width: 120%;
@@ -149,6 +171,11 @@
 
 <script>
 import axios from '../../static/utils/request.js';
+import QQMapWX from '../../common/qqmap/qqmap-wx-jssdk.js';
+//初始化地图信息
+const qqMapSdk = new QQMapWX({
+	key: 'QKVBZ-SMXYU-77CVP-4RJQO-LKGWF-R5FUO'
+});
 export default {
 	data() {
 		return {
@@ -231,7 +258,34 @@ export default {
 			axios.get('/cityinfo/cities').then(res => {
 				let data = res.data.data;
 				this.citiesList = data.map(item => item.cityName);
-				this.getDefaultIndex();
+				wx.getLocation({
+						type: 'gcj02',
+						success: res => {
+							qqMapSdk.reverseGeocoder({
+								sig: 'B498lvIvT83IuUq7m5GxAP5RQ5D1kHD',
+								location: {
+									latitude: res.latitude,
+									longitude: res.longitude
+								},
+								success: res => {
+									// 获得城市
+									const city = res.result.address_component.city;
+									console.log(city);
+									// store 存储城市
+									this.$store.commit('setCityName', city);
+									// 设置城市
+									if(this.citiesList.includes(city)){
+										this.selectedCity = city;
+									}
+									this.getDefaultIndex();
+									this.loadCityData();
+								}
+							});
+						},
+						failed:err=>{
+							console.log(err);
+						}
+					});
 			});
 		},
 		// 加载目标城市的分类信息
@@ -320,11 +374,11 @@ export default {
 			// 尝试读取
 			wx.getStorage({
 				key: 'searchHistory',
-				success:(res)=>{
+				success: res => {
 					this.searchHistory = JSON.parse(res.data);
 					console.log(this.searchHistory);
 				},
-				fail:(err)=>{
+				fail: err => {
 					console.log(err);
 				}
 			});
@@ -332,10 +386,10 @@ export default {
 		// 改变存储
 		commitSearchHistory(searchText) {
 			// 当不包含的时候加入，并更新本地数据库
-			if(this.searchHistory.length){
-				for(const item of this.searchHistory){
-					if(item.includes(searchText)){
-						return 
+			if (this.searchHistory.length) {
+				for (const item of this.searchHistory) {
+					if (item.includes(searchText)) {
+						return;
 					}
 				}
 			}
@@ -343,8 +397,8 @@ export default {
 			// 修改本地的搜索记录存储
 			wx.setStorage({
 				key: 'searchHistory',
-				data:JSON.stringify(this.searchHistory)
-			})
+				data: JSON.stringify(this.searchHistory)
+			});
 		}
 	},
 	// 实时更新Vuex状态
@@ -364,13 +418,6 @@ export default {
 		this.initStates();
 		this.initSearchHistory();
 	},
-	onLoad() {
-		uni.$once('cityLoaded', city => {
-			this.selectedCity = city;
-			this.getDefaultIndex();
-			this.loadCityData();
-		});
-	}
 };
 </script>
 

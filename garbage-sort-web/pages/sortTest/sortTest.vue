@@ -15,7 +15,7 @@
             <uni-icons type="back" size="40px" color="#FAFAFA"></uni-icons>
         </view>
         <view class="test-header">
-            <image src="../../static/image/test-bg.svg" mode=""></image>
+            <image src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/image/test-bg.svg" mode=""></image>
         </view>
         <view class="test-body">
             <view class="test-body-header">
@@ -37,7 +37,7 @@
                     @click="answer(1)"
                 >
                     <image
-                        src="../../static/icons/可回收垃圾.png"
+                        src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/可回收垃圾.png"
                         mode="aspectFit"
                         style="transform: scale(0.8)"
                     ></image>
@@ -49,7 +49,7 @@
                     @click="answer(2)"
                 >
                     <image
-                        src="../../static/icons/有害垃圾.png"
+                        src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/有害垃圾.png"
                         mode="aspectFit"
                     ></image>
                     <text>有害垃圾</text>
@@ -60,7 +60,7 @@
                     @click="answer(3)"
                 >
                     <image
-                        src="../../static/icons/厨余垃圾.png"
+                        src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/厨余垃圾.png"
                         mode="aspectFit"
                     ></image>
                     <text>厨余垃圾</text>
@@ -71,7 +71,7 @@
                     @click="answer(4)"
                 >
                     <image
-                        src="../../static/icons/其他垃圾.png"
+                        src="https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/其他垃圾.png"
                         mode="aspectFit"
                     ></image>
                     <text>其他垃圾</text>
@@ -169,15 +169,17 @@ export default {
         },
         // 结果发送至后端服务器
         postTestResult() {
-            axios
-                .post('/answer/complete', {
-                    userID: this.$store.state.user.openId,
-                    score: this.correctItems.length * 10,
-                    falseRecord: this.falseItems.map((item) => item.type)
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+			if(this.$store.state.user.isSaved){
+				axios
+				    .post('/answer/complete', {
+				        userID: this.$store.state.user.openId,
+				        score: this.correctItems.length * 10,
+				        falseRecord: this.falseItems.map((item) => item.type)
+				    })
+				    .catch((err) => {
+				        console.log(err);
+				    });
+			}
         },
         // 返回上一页
         back() {

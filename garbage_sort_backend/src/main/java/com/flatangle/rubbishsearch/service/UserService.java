@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.flatangle.rubbishsearch.POJO.entity.AnswerRecord;
 import com.flatangle.rubbishsearch.POJO.entity.SearchRecord;
 import com.flatangle.rubbishsearch.POJO.entity.User;
+import com.flatangle.rubbishsearch.POJO.params.DetectResult;
 import com.flatangle.rubbishsearch.common.WechatException;
 import com.flatangle.rubbishsearch.mapper.AnswerRecordMapper;
 import com.flatangle.rubbishsearch.mapper.SearchRecordMapper;
@@ -47,13 +48,10 @@ public class UserService {
     /**
      * 获取用户openID、session_key，若为新用户则保存入库
      * @param code
-     * @param userName
-     * @param avatar
      * @return
      * @throws WechatException
      */
-    public Map<String,String> login(String code, String userName, String avatar) throws WechatException {
-
+    public Map<String,String> login(String code) throws WechatException {
         //参数准备
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid={appid}&secret={secret}&js_code={code}&grant_type=authorization_code";
         Map<String, String> requestMap = new HashMap<>();
@@ -74,27 +72,43 @@ public class UserService {
             result.put("openid",openid);
             result.put("session_key",session_key);
 
-            Optional<User> user = Optional.ofNullable(userMapper.selectById(openid));
-            if(user.isEmpty()) {    //如果为新用户，则保存openID、用户名、头像入库
-
-                User newUser = new User(openid,userName,avatar);
-                AnswerRecord newAnswerRecord = new AnswerRecord(openid,0,0,0,0,0);
-                SearchRecord newSearchRecord = new SearchRecord(openid,0,0,0,0);
-
-                userMapper.insert(newUser);
-                answerRecordMapper.insert(newAnswerRecord);
-                searchRecordMapper.insert(newSearchRecord);
+            User user = userMapper.selectById(openid);
+            if(user != null) {
+                result.put("isSaved","1");
+                result.put("userName",user.getUserName());
+                result.put("avatar",user.getAvatar());
             }
-
+            else {
+                result.put("isSaved","0");
+            }
             return result;
         }
         //错误请求返回
         else {
             String errmsg = responseBody.getStr("errmsg");
             throw new WechatException(errmsg);
-        }
 
+        }
     }
+
+    public boolean saveUserInfo(String openid, String userName, String avatar) {
+        Optional<User> user = Optional.ofNullable(userMapper.selectById(openid));
+        User newUser = new User(openid,userName,avatar);
+        if(user.isEmpty()) {    //如果为新用户，则保存openID、用户名、头像入库
+            AnswerRecord newAnswerRecord = new AnswerRecord(openid,0,0,0,0,0);
+            SearchRecord newSearchRecord = new SearchRecord(openid,0,0,0,0);
+
+            userMapper.insert(newUser);
+            answerRecordMapper.insert(newAnswerRecord);
+            searchRecordMapper.insert(newSearchRecord);
+            return true;
+        }
+        else{
+            userMapper.updateById(newUser);
+        }
+            return false;
+    }
+
 
     /**
      * 获取目标用户在用户中心所需数据
@@ -242,7 +256,26 @@ public class UserService {
         map.put("otherPercent",otherPercent);
         return map;
 
+    }
 
+    public void updateSearchRecord(String openID, DetectResult[] detectResults) {
+
+        for(DetectResult result : detectResults) {
+            String probability = result.getSimilarity();
+            probability = probability.substring(0,probability.length()-1);
+            String garbageType = result.getType();
+
+            if(Float.parseFloat(probability) > 60) {
+                SearchRecord searchRecord = searchRecordMapper.selectById(openID);
+                switch (garbageType) {
+                    case "1": searchRecord.setRecycleCount(searchRecord.getRecycleCount() + 1); break;
+                    case "2": searchRecord.setHarmfulCount(searchRecord.getHarmfulCount() + 1); break;
+                    case "3": searchRecord.setKitchenCount(searchRecord.getKitchenCount() + 1); break;
+                    case "4": searchRecord.setOtherCount(searchRecord.getOtherCount() + 1); break;
+                }
+                searchRecordMapper.updateById(searchRecord);
+            }
+        }
     }
 
 }

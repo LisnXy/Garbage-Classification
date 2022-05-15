@@ -112,20 +112,20 @@ var _default =
     return {
       list: [{
         pagePath: '../../pages/sortInfo_home/sortInfo_home',
-        iconPath: '../../static/icons/home_off.svg',
-        selectedIconPath: '../../static/icons/home_on.svg',
+        iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/home_off.svg',
+        selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/home_on.svg',
         text: '主页' },
 
       {
         pagePath: '../../pages/upload_photo/uploadphototest',
-        iconPath: '../../static/icons/Search_off.svg',
-        selectedIconPath: '../../static/icons/Search_on.svg',
+        iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/Search_off.svg',
+        selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/Search_on.svg',
         text: '搜索' },
 
       {
         pagePath: '../../pages/userPage/userPage',
-        iconPath: '../../static/icons/user_off.svg',
-        selectedIconPath: '../../static/icons/account_on.svg',
+        iconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/user_off.svg',
+        selectedIconPath: 'https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/icons/account_on.svg',
         text: '个人中心' }] };
 
 
@@ -200,7 +200,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabBar.vue?vue&type=script&lang=js& */ 102);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _tabBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _tabBar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _tabBar_vue_vue_type_style_index_0_lang_less___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tabBar.vue?vue&type=style&index=0&lang=less& */ 104);
-/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 48);
+/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 47);
 
 var renderjs
 

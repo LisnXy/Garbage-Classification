@@ -65,7 +65,7 @@
                     :key="index"
                 >
                     <image
-                        :src="`../../static/trash-icons/${item}.svg`"
+                        :src="`https://lisncloud-1311502437.cos.ap-shanghai.myqcloud.com/lanchao/trash-icons/${item}.svg`"
                         mode=""
                     ></image>
                     <text>{{ item }}</text>

@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sortTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sortTest.vue?vue&type=script&lang=js& */ 71);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _sortTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _sortTest_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _sortTest_vue_vue_type_style_index_0_id_20eddef4_lang_less_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sortTest.vue?vue&type=style&index=0&id=20eddef4&lang=less&scoped=true& */ 73);
-/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 48);
+/* harmony import */ var _D_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 47);
 
 var renderjs
 
@@ -331,8 +331,10 @@ var _default = { data: function data() {return { // 当前题目的索引
       if (this.currentItem.type === type) {uni.showToast({ title: '回答正确', icon: 'success', mask: true, position: 'top', duration: 1000, success: function success() {setTimeout(function () {_this2.correctItems.push(_this2.currentItem);_this2.nextItem();}, 1000);} });} else {uni.showModal({ title: '回答错误', content: "\u6B63\u786E\u7B54\u6848\u4E3A\uFF1A".concat(this.currentItemText), showCancel: false, success: function success() {_this2.falseItems.push(_this2.currentItem);_this2.nextItem();} });}}, //切换题目
     nextItem: function nextItem() {var _this3 = this;if (this.itemIndex < this.questionItems.length) {this.itemIndex++;this.currentItem = this.questionItems[this.itemIndex - 1];} else {// 结束了则进行页面跳转
         uni.redirectTo({ url: '../sortTestFinished/sortTestFinished', success: function success() {_this3.postTestResult();uni.$once('loaded', function () {uni.$emit('questionItems', { falseItems: _this3.falseItems, correctItems: _this3.correctItems });});} });}}, // 结果发送至后端服务器
-    postTestResult: function postTestResult() {_request.default.post('/answer/complete', { userID: this.$store.state.user.openId, score: this.correctItems.length * 10, falseRecord: this.falseItems.map(function (item) {return item.type;}) }).catch(function (err) {console.log(err);
-      });
+    postTestResult: function postTestResult() {if (this.$store.state.user.isSaved) {_request.default.post('/answer/complete', { userID: this.$store.state.user.openId, score: this.correctItems.length * 10, falseRecord: this.falseItems.map(function (item) {return item.type;}) }).catch(function (err) {
+          console.log(err);
+        });
+      }
     },
     // 返回上一页
     back: function back() {

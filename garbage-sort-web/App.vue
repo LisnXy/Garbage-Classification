@@ -3,7 +3,7 @@ import { mapMutations } from 'vuex';
 import { version } from './package.json';
 import checkUpdate from '@/uni_modules/uni-upgrade-center-app/utils/check-update';
 import axios from './static/utils/request.js';
-import QQMapWX from './common/qqmap/qqmap-wx-jssdk.js';
+
 
 export default {
 	onLaunch: function() {
@@ -40,42 +40,13 @@ export default {
 			}
 		});
 		// #endif
-		// 载入用户信息
-		wx.getUserInfo({
-			lang: 'zh_CN',
-			success: res => {
-				// 设置用户信息
-				if (res.userInfo) {
-					this.$store.dispatch('user/setUser', res.userInfo);
-				}
-			},
-			complete: () => {
-				this.login();
-			}
-		});
-		//初始化地图信息
-		const qqMapSdk = new QQMapWX({
-			key: 'QKVBZ-SMXYU-77CVP-4RJQO-LKGWF-R5FUO'
-		});
+
+
+		// 查询用户是否已经注册
+		this.login();
+
 		// 尝试获取用户定位
-		wx.getLocation({
-			type: 'gcj02',
-			success: res => {
-				qqMapSdk.reverseGeocoder({
-					sig: 'B498lvIvT83IuUq7m5GxAP5RQ5D1kHD',
-					location: {
-						latitude: res.latitude,
-						longitude: res.longitude
-					},
-					success: res => {
-						const city = res.result.address_component.city;
-						console.log(city);
-						this.$store.commit('setCityName',city);
-						uni.$emit('cityLoaded',city);
-					}
-				});
-			}
-		});
+
 	},
 	onShow: function() {},
 	onHide: function() {
@@ -92,17 +63,67 @@ export default {
 					console.log('login', res);
 					axios
 						.post('/user/login', {
-							code: res.code,
-							userName: this.$store.state.user.nickName,
-							avatar: this.$store.state.user.avatarUrl
+							code: res.code
 						})
 						.then(res => {
 							this.$store.commit('user/setOpenId', res.data.data.openid);
-							uni.$emit('loginSuccess');
+							if (res.data.data.isSaved === '1') {
+								this.$store.commit('user/setIsSaved', true);
+								this.$store.dispatch('user/setUser', {
+									nickName: res.data.data.userName,
+									avatarUrl: res.data.data.avatar
+								});
+							} else {
+								uni.showModal({
+									title: '请求授权信息',
+									content: '是否授权',
+									success: res => {
+										console.log(res);
+										if (res.confirm) {
+											uni.getUserProfile({
+												desc: '您的个人信息将用于快速登录',
+												lang: 'zh_CN',
+												success: res => {
+													// 设置用户信息
+													if (res.userInfo) {
+														this.$store.dispatch('user/setUser', res.userInfo);
+														axios.post('/user/saveUser', {
+															code: this.$store.state.user.openId,
+															userName: res.userInfo.nickName,
+															avatar: res.userInfo.avatarUrl
+														});
+														this.$store.commit('user/setIsSaved', true);
+													}
+												},
+												fail: err => {
+													console.log(err);
+												}
+											});
+										} else if (res.cancel) {
+											uni.getUserInfo({
+												desc: '您的个人信息将用于快速登录',
+												lang: 'zh_CN',
+												success: res => {
+													// 设置用户信息
+													if (res.userInfo) {
+														this.$store.dispatch('user/setUser', res.userInfo);
+													}
+												},
+												fail: err => {
+													console.log(err);
+												}
+											});
+										}
+									}
+								});
+							}
 						});
 				},
 				fail: err => {
 					this.$store.commit('user/setOpenId', 'o0A7N5PUiwU0xnj48RGFdqG1u51I');
+				},
+				complete: () => {
+					uni.$emit('loginSuccess');
 				}
 			});
 		}
